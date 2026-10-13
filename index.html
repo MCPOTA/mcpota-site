@@ -20,7 +20,13 @@
   nav .brand { font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:8px; margin-right:auto; color:var(--text); text-decoration:none; }
   nav a { color:var(--muted); text-decoration:none; }
   nav a:hover { color:var(--accent); }
-  @media (max-width: 640px) { nav .hide-sm { display:none; } }
+  @media (max-width: 640px) {
+    nav { flex-wrap:wrap; gap:6px 16px; }
+    nav .brand { flex-basis:100%; }
+    nav .links { display:flex; gap:13px; font-size:.88rem; overflow-x:auto; white-space:nowrap; width:100%; padding-bottom:4px; }
+  }
+  nav .links { display:contents; }
+  @media (max-width: 640px) { nav .links { display:flex; } }
   .hero { display:grid; grid-template-columns: 1.15fr .85fr; gap:40px; align-items:center; padding:30px 0 50px; }
   .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em; }
   .lead { font-size:1.2rem; color:var(--muted); margin:0 0 22px; }
@@ -86,10 +92,13 @@
 <div class="wrap">
   <nav>
     <a class="brand" href="/"><span aria-hidden="true">🛡</span> Privacy Watch</a>
-    <a class="hide-sm" href="#features">Features</a>
-    <a class="hide-sm" href="#reports">Sample reports</a>
-    <a href="#pricing">Pricing</a>
-    <a class="hide-sm" href="#faq">FAQ</a>
+    <span class="links">
+      <a href="#features">Features</a>
+      <a href="#reports">Reports</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="/privacy">Privacy</a>
+    </span>
   </nav>
 
   <div class="hero">
@@ -293,7 +302,7 @@
 
 <div class="wrap">
   <footer>
-    <a href="/privacy">Privacy policy</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · <a href="/samples/executive-report.html">Sample reports</a> · © 2026 mcpota.com
+    <a href="/privacy">Privacy policy</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · <a href="/samples/executive-report.html">Executive report sample</a> · <a href="/samples/technical-report.html">Technical report sample</a> · © 2026 mcpota.com
   </footer>
 </div>
 </body>
