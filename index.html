@@ -7,11 +7,18 @@
 <meta name="description" content="MCPOTA Privacy Watch for Android shows what is leaving your phone: which apps use your location, mic, contacts and clipboard in the background, which trackers they talk to, and how much data they send. Everything stays on your phone.">
 <meta property="og:title" content="MCPOTA Privacy Watch — know what's leaving your phone">
 <meta property="og:description" content="See which Android apps collect and send your data in the background, with a history of what they did. Fix it in a tap. No ads, no analytics, nothing uploaded.">
-<meta property="og:image" content="https://mcpota.com/img/simple.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/brand/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0A1628">
+<meta property="og:image" content="https://mcpota.com/img/brand/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-  :root { --bg:#ffffff; --text:#1c1e21; --muted:#5f6670; --line:#e3e6ea; --accent:#4058D6; --soft:#f4f6fa; --red:#d03b3b; --amber:#b77d00; --green:#0a8a0a; }
+  :root { --bg:#ffffff; --text:#0A1628; --muted:#52617A; --line:#E1E7EF; --accent:#0277BD; --soft:#F2F6FB; --red:#d03b3b; --amber:#b77d00; --green:#0a8a0a; --navy:#0A1628; --grad:linear-gradient(90deg,#0277BD,#0288D1); --onaccent:#fff; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg:#0F1115; --text:#E8EAED; --muted:#9AA0A6; --line:#2A2F37; --accent:#8EA2FF; --soft:#1A1D23; --red:#FF8A80; --amber:#FFC15E; --green:#6EDB9B; }
+    :root:not([data-theme="light"]) { --bg:#0A1628; --text:#E6EEF7; --muted:#93A4B8; --line:#1C2E48; --accent:#4FC3F7; --soft:#0F2038; --red:#FF8A80; --amber:#FFC15E; --green:#6EDB9B; --grad:linear-gradient(90deg,#00D4FF,#4FC3F7); --onaccent:#0A1628; }
   }
   * { box-sizing: border-box; }
   body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -19,6 +26,11 @@
   nav { display:flex; align-items:center; gap:18px; padding:18px 0; font-size:.95rem; }
   nav .brand { font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:8px; margin-right:auto; color:var(--text); text-decoration:none; }
   nav a { color:var(--muted); text-decoration:none; }
+  nav .brand .mk { letter-spacing:.12em; color:var(--accent); margin-right:4px; }
+  .brandsec { display:grid; grid-template-columns: .8fr 1.2fr; gap:40px; align-items:center; }
+  .brandsec video, .brandsec img { width:100%; max-width:320px; border-radius:24px; display:block; margin:0 auto; background:#00081E; }
+  .motto { font-style:italic; letter-spacing:.04em; color:var(--accent); font-size:1.15rem; margin:0 0 8px; }
+  @media (max-width: 760px) { .brandsec { grid-template-columns: 1fr; gap:24px; } }
   nav a:hover { color:var(--accent); }
   @media (max-width: 640px) {
     nav { flex-wrap:wrap; gap:6px 16px; }
@@ -30,9 +42,8 @@
   .hero { display:grid; grid-template-columns: 1.15fr .85fr; gap:40px; align-items:center; padding:30px 0 50px; }
   .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em; }
   .lead { font-size:1.2rem; color:var(--muted); margin:0 0 22px; }
-  .cta { display:inline-block; background:var(--accent); color:#fff; padding:12px 22px; border-radius:999px; font-weight:600; text-decoration:none; margin:0 10px 10px 0; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cta { color:#10152e; } :root:not([data-theme="light"]) .cta.ghost { color:var(--accent); } }
-  .cta.ghost { background:transparent; color:var(--accent); border:1.5px solid var(--accent); }
+  .cta { display:inline-block; background:var(--grad); color:var(--onaccent); padding:12px 22px; border-radius:999px; font-weight:600; text-decoration:none; margin:0 10px 10px 0; }
+    .cta.ghost { background:transparent; color:var(--accent); border:1.5px solid var(--accent); }
   .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
   .badge { font-size:.85rem; padding:4px 12px; border-radius:999px; background:var(--soft); border:1px solid var(--line); color:var(--muted); }
   .phone { width:100%; max-width:330px; height:auto; display:block; margin:0 auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.18)); }
@@ -56,7 +67,7 @@
   .lv { border-left:4px solid; padding:10px 16px; background:var(--soft); border-radius:0 12px 12px 0; }
   .steps { counter-reset:s; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }
   .step { counter-increment:s; background:var(--soft); border:1px solid var(--line); border-radius:16px; padding:18px; }
-  .step::before { content:counter(s); display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; margin-bottom:8px; }
+  .step::before { content:counter(s); display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--accent); color:var(--onaccent); font-weight:700; margin-bottom:8px; }
   .reports { display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
   .report { display:block; text-decoration:none; color:var(--text); background:var(--soft); border:1px solid var(--line); border-radius:18px; overflow:hidden; transition: transform .15s; }
   .report:hover { transform: translateY(-3px); }
@@ -91,7 +102,7 @@
 <body>
 <div class="wrap">
   <nav>
-    <a class="brand" href="/"><span aria-hidden="true">🛡</span> MCPOTA Privacy Watch</a>
+    <a class="brand" href="/"><img src="/img/brand/emblem-128.png" alt="" width="34" height="34"> <span><span class="mk">MCPOTA</span> Privacy Watch</span></a>
     <span class="links">
       <a href="#features">Features</a>
       <a href="#reports">Reports</a>
@@ -111,7 +122,7 @@
         <span class="badge">🚫 No ads</span><span class="badge">🚫 No analytics</span><span class="badge">📱 Everything stays on your phone</span><span class="badge">↩ Undo for every fix</span>
       </div>
     </div>
-    <img class="phone" src="img/simple.png?v=5" alt="Privacy Watch's Summary screen listing three apps that need attention, with Fix it buttons">
+    <img class="phone" src="img/simple.png?v=6" alt="Privacy Watch's Summary screen listing three apps that need attention, with Fix it buttons">
   </div>
 </div>
 
@@ -130,7 +141,7 @@
         <li>Plain-English "How it could be misused" — by a company and by an attacker</li>
       </ul>
     </div>
-    <img class="phone" src="img/simple.png?v=5" alt="Findings list with red privacy risks and an amber worth-a-look item">
+    <img class="phone" src="img/simple.png?v=6" alt="Findings list with red privacy risks and an amber worth-a-look item">
   </div>
 
   <div class="feature flip">
@@ -143,7 +154,7 @@
         <li>Access → network links within two minutes</li>
       </ul>
     </div>
-    <img class="phone" src="img/timeline.png?v=5" alt="Timeline for a weather app showing location accesses followed by tracker lookups">
+    <img class="phone" src="img/timeline.png?v=6" alt="Timeline for a weather app showing location accesses followed by tracker lookups">
   </div>
 
   <div class="feature">
@@ -156,7 +167,7 @@
         <li>Before / after counts in your reports, so you can see it worked</li>
       </ul>
     </div>
-    <img class="phone" src="img/fix.png?v=5" alt="Fix it confirmation listing battery restriction, background data block and contacts block">
+    <img class="phone" src="img/fix.png?v=6" alt="Fix it confirmation listing battery restriction, background data block and contacts block">
   </div>
 
   <div class="feature flip">
@@ -169,7 +180,7 @@
         <li>Re-applying is part of the original fix</li>
       </ul>
     </div>
-    <img class="phone" src="img/undone.png?v=5" alt="A card saying a fix was undone for a music app, with Re-apply and Leave it buttons">
+    <img class="phone" src="img/undone.png?v=6" alt="A card saying a fix was undone for a music app, with Re-apply and Leave it buttons">
   </div>
 
   <div class="feature">
@@ -182,7 +193,7 @@
         <li>Tracker domains and who contacted them</li>
       </ul>
     </div>
-    <img class="phone" src="img/dashboard.png?v=5" alt="Dashboard with tiles for privacy risks, background accesses and trackers, and a most-active list">
+    <img class="phone" src="img/dashboard.png?v=6" alt="Dashboard with tiles for privacy risks, background accesses and trackers, and a most-active list">
   </div>
 
   <div class="feature flip">
@@ -195,7 +206,7 @@
         <li>User-installed certificates, hidden apps, screen recording</li>
       </ul>
     </div>
-    <img class="phone" src="img/audit.png?v=5" alt="Settings audit showing a sideloaded QR scanner with accessibility access flagged for review">
+    <img class="phone" src="img/audit.png?v=6" alt="Settings audit showing a sideloaded QR scanner with accessibility access flagged for review">
   </div>
 </div></section>
 
@@ -224,11 +235,11 @@
   <p class="sub">One tap at the top of Summary emails the executive summary; one tap at the top of Details sends the technical report. Each is made on the phone as a PDF. Built on the phone — nothing is uploaded to make it. These samples use made-up apps and data.</p>
   <div class="reports">
     <a class="report" href="/samples/executive-report.html">
-      <img src="img/report-executive.png?v=5" alt="Sample executive summary report with status tiles and donut charts" loading="lazy">
+      <img src="img/report-executive.png?v=6" alt="Sample executive summary report with status tiles and donut charts" loading="lazy">
       <div><strong>Executive summary</strong><span>A one-page answer to "is my phone OK?": what needs attention, what was fixed, and how each finding could be misused.</span><b>Open sample →</b></div>
     </a>
     <a class="report" href="/samples/technical-report.html">
-      <img src="img/report-technical.png?v=5" alt="Sample technical report with collection status, domain charts and activity over time" loading="lazy">
+      <img src="img/report-technical.png?v=6" alt="Sample technical report with collection status, domain charts and activity over time" loading="lazy">
       <div><strong>Technical report</strong><span>Every chart and table: domains, hour-by-hour activity, a heatmap per app, data sent, access → network links and the settings audit.</span><b>Open sample →</b></div>
     </a>
   </div>
@@ -247,12 +258,12 @@
 <section><div class="wrap">
   <h2>Gallery</h2>
   <div class="gallery">
-    <figure><img src="img/simple.png?v=5" alt="" loading="lazy"><figcaption>Findings</figcaption></figure>
-    <figure><img src="img/timeline.png?v=5" alt="" loading="lazy"><figcaption>Timeline</figcaption></figure>
-    <figure><img src="img/dashboard.png?v=5" alt="" loading="lazy"><figcaption>Dashboard</figcaption></figure>
-    <figure><img src="img/fix.png?v=5" alt="" loading="lazy"><figcaption>Fix it</figcaption></figure>
-    <figure><img src="img/undone.png?v=5" alt="" loading="lazy"><figcaption>Fix check</figcaption></figure>
-    <figure><img src="img/audit.png?v=5" alt="" loading="lazy"><figcaption>Settings audit</figcaption></figure>
+    <figure><img src="img/simple.png?v=6" alt="" loading="lazy"><figcaption>Findings</figcaption></figure>
+    <figure><img src="img/timeline.png?v=6" alt="" loading="lazy"><figcaption>Timeline</figcaption></figure>
+    <figure><img src="img/dashboard.png?v=6" alt="" loading="lazy"><figcaption>Dashboard</figcaption></figure>
+    <figure><img src="img/fix.png?v=6" alt="" loading="lazy"><figcaption>Fix it</figcaption></figure>
+    <figure><img src="img/undone.png?v=6" alt="" loading="lazy"><figcaption>Fix check</figcaption></figure>
+    <figure><img src="img/audit.png?v=6" alt="" loading="lazy"><figcaption>Settings audit</figcaption></figure>
   </div>
 </div></section>
 
@@ -279,6 +290,16 @@
   <p style="color:var(--muted);margin-top:18px">Coming soon to Google Play. Subscriptions are handled by Google Play and can be cancelled any time.</p>
 </div></section>
 
+<section id="mcpota"><div class="wrap brandsec">
+  <video src="/img/brand/emblem.mp4" poster="/img/brand/emblem-poster.jpg" autoplay muted loop playsinline aria-label="The MCPOTA emblem"></video>
+  <div>
+    <h2>Made by MCPOTA</h2>
+    <p class="motto">Arx Dominii Privati — stronghold of private dominion</p>
+    <p class="sub" style="margin-bottom:12px">MCPOTA (Mobile Cyber Privacy Operations &amp; Threat Analytics) makes privacy and utility tools for your phone. Every tool follows the same rules: it works on the device, collects no analytics, and never sells or shares your data.</p>
+    <p style="color:var(--muted);margin:0">Privacy Watch is the first. More are on the way.</p>
+  </div>
+</div></section>
+
 <section><div class="wrap">
   <h2>Private by design</h2>
   <div class="grid">
@@ -302,7 +323,7 @@
 
 <div class="wrap">
   <footer>
-    <a href="/privacy">Privacy policy</a> · <a href="/changelog">Release notes</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · <a href="/samples/executive-report.html">Executive report sample</a> · <a href="/samples/technical-report.html">Technical report sample</a> · © 2026 MCPOTA · mcpota.com
+    <a href="/privacy">Privacy policy</a> · <a href="/changelog">Release notes</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · <a href="/samples/executive-report.html">Executive report sample</a> · <a href="/samples/technical-report.html">Technical report sample</a> · © 2026 MCPOTA · <em>Arx Dominii Privati</em>
   </footer>
 </div>
 </body>
