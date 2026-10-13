@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Watch Privacy Policy</title>
+<meta name="description" content="Privacy policy for the Privacy Watch Android app: what it reads on your phone, what it stores, and what it never collects.">
+<style>
+  :root { --bg:#ffffff; --text:#1c1e21; --muted:#5f6670; --line:#e3e6ea; --accent:#2457c5; --soft:#f3f6fb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#121417; --text:#e7e9ec; --muted:#a0a7b1; --line:#2a2f36; --accent:#8fb0ff; --soft:#1a1e24; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); font-size: .95rem; }
+  .summary { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+  .summary ul { margin: 8px 0 0; padding-left: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: .95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  a { color: var(--accent); }
+  code { font-size: .9em; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Watch Privacy Policy</h1>
+  <p class="muted">Effective October 13, 2026 · App ID <code>com.mcpota.privacywatch</code> · Published by mcpota.com</p>
+
+  <div class="summary">
+    <strong>The short version</strong>
+    <ul>
+      <li>Privacy Watch runs entirely on your phone. There is no account, no sign-in, and no Privacy Watch server.</li>
+      <li>We do not collect, receive, sell or share your data. Nothing you see in the app is sent to us.</li>
+      <li>There are no ads, no analytics and no tracking tools in the app.</li>
+      <li>Something leaves your phone only when you choose to send it, for example by tapping <em>Email report</em> or <em>Email support</em>. You see the email before it's sent.</li>
+    </ul>
+  </div>
+
+  <h2>What the app does</h2>
+  <p>Privacy Watch shows you which apps on your phone use your location, microphone, camera, contacts, clipboard and photos, which internet addresses they contact, and how much data they use in the background. It then helps you change permissions or remove apps you don't want.</p>
+
+  <h2>Information the app reads on your phone</h2>
+  <p>To do that, the app reads the following information from Android. It is processed and stored only on your device.</p>
+  <table>
+    <tr><th>Information</th><th>Why</th><th>How it's obtained</th></tr>
+    <tr><td>Which apps you used and when</td><td>To tell whether an app was on screen or running in the background</td><td>Android's Usage access, which you turn on in Settings</td></tr>
+    <tr><td>Background data used by each app</td><td>To show which apps use the internet while you're not using them</td><td>Android's network usage statistics, through Usage access</td></tr>
+    <tr><td>Internet addresses (domain names) apps look up, which app looked them up, and when</td><td>To show which companies and trackers each app contacts</td><td>A local VPN that only handles DNS lookups (see below)</td></tr>
+    <tr><td>List of installed apps, with names and icons</td><td>To label activity with app names and to keep a history of apps you uninstall</td><td>Android's package manager</td></tr>
+    <tr><td>Permission-use history: when an app accessed location, microphone, camera, contacts, SMS, clipboard, photos or files</td><td>To show what each app did and when</td><td>Android's permission records, read only if you turn on optional <em>advanced access</em></td></tr>
+  </table>
+  <p>The app records <em>that</em> an app used a permission or contacted an address, and when. It does not read the content of your messages, calls, photos, files, clipboard, recordings or web pages.</p>
+
+  <h2>The local VPN</h2>
+  <p>Android shows a key icon while Privacy Watch is monitoring because the app uses Android's VPN feature. This VPN:</p>
+  <ul>
+    <li>runs on your phone only, and does not route your traffic through any outside server;</li>
+    <li>handles only DNS lookups (the step where an app turns a name like <code>example.com</code> into an address). All your other traffic goes directly to the internet as usual;</li>
+    <li>passes each lookup on to your network's normal DNS server. If that server can't be reached, it uses Cloudflare's public DNS server (1.1.1.1) as a backup, the same way many phones and routers do. Those servers see the name being looked up, just as they would without Privacy Watch;</li>
+    <li>cannot see the content of web pages or app traffic.</li>
+  </ul>
+
+  <h2>Optional advanced access</h2>
+  <p>Some features need a higher level of access that Android only grants through Wireless debugging (or the Shizuku app). If you set this up, Privacy Watch connects to your own phone over that local connection. It uses the connection to:</p>
+  <ul>
+    <li>read permission-use history;</li>
+    <li>make changes you ask for, such as <em>Fix it</em> (turning off a permission or restricting background use), disabling a pre-installed app, or switching Usage access on. Every fix can be undone;</li>
+    <li>run <em>Banking mode</em>, which turns Developer options and Wireless debugging off while banking apps you choose are open, and back on afterwards.</li>
+  </ul>
+  <p>Nothing obtained this way leaves your phone.</p>
+
+  <h2>What is stored, and for how long</h2>
+  <table>
+    <tr><th>Data</th><th>Where</th><th>Kept for</th></tr>
+    <tr><td>Recorded activity (apps, domains, permission use)</td><td>App storage on your phone</td><td>7 days, then deleted automatically</td></tr>
+    <tr><td>Error log</td><td>App storage on your phone</td><td>14 days</td></tr>
+    <tr><td>Crash log</td><td>App storage on your phone</td><td>30 days</td></tr>
+    <tr><td>Generated reports</td><td>App's temporary storage</td><td>The most recent few are kept; older ones are deleted</td></tr>
+    <tr><td>Reports you download</td><td>Your Downloads folder (Downloads › Privacy Watch)</td><td>Until you delete them</td></tr>
+    <tr><td>Settings, such as theme and saved email address</td><td>App storage on your phone</td><td>Until you change them or uninstall</td></tr>
+  </table>
+  <p>App data is excluded from Android cloud backups. Uninstalling Privacy Watch deletes everything it stored, except reports you saved to Downloads.</p>
+
+  <h2>When information leaves your phone</h2>
+  <p>Only when you take one of these actions:</p>
+  <ul>
+    <li><strong>Email report or Share:</strong> the app opens your email app (or another app you pick) with the report attached. The report lists app names, domains and activity from the period you chose. You choose the recipients and press Send yourself. After that, the email is handled by your email provider and the people you send it to.</li>
+    <li><strong>Email support:</strong> the app opens your email app with a support file attached. It contains your phone model, Android version, the app's status, and the error and crash logs. Those logs mention app names and errors, but no messages, photos or browsing content. You can read the email before sending it.</li>
+    <li><strong>Copy:</strong> copying logs puts them on your clipboard so you can paste them where you choose.</li>
+  </ul>
+
+  <h2>Subscriptions</h2>
+  <p>If you subscribe to Privacy Watch Pro, the purchase is handled by Google Play. We never see your payment card or billing details. Google Play tells the app only whether your subscription is active. Google's handling of purchases is covered by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+
+  <h2>What we never do</h2>
+  <ul>
+    <li>We don't sell or rent data, and we have none to sell.</li>
+    <li>We don't show ads, and we include no advertising or analytics code.</li>
+    <li>We don't build profiles of you or the apps you use.</li>
+    <li>We don't upload your activity, contacts, location or any other personal information.</li>
+  </ul>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Stop monitoring at any time from the app, or by turning off the VPN in Android settings.</li>
+    <li>Delete recorded activity with ⚙ → <em>Clear recorded events</em>, and logs with ⚙ → <em>Logs</em> → <em>Clear</em>.</li>
+    <li>Turn off Usage access or advanced access in Android settings whenever you like.</li>
+    <li>Uninstall the app to remove all of its data.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>Privacy Watch is not directed at children under 13 and does not knowingly collect information from anyone, of any age.</p>
+
+  <h2>Security</h2>
+  <p>Your data stays in the app's private storage, which other apps can't read. Because nothing is sent to us, there is no server copy that could be breached.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, we will update the date at the top of this page. If a change affects what the app does with your information, we'll also explain it in the app before it takes effect.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:privacy@mcpota.com">privacy@mcpota.com</a></p>
+</main>
+</body>
+</html>
