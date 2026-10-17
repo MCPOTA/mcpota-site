@@ -1,61 +1,278 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Startsy by MCPOTA</title>
-<meta name="description" content="Startsy turns a task into small steps that run all the way to done. Voice first, Today holds three at most, and your tasks stay on your phone.">
+<title>Startsy by MCPOTA — the hardest part is starting</title>
+<meta name="description" content="Startsy turns a task into small steps that run all the way to done, and puts the first one in front of you. Made for people who freeze at the start, like many with ADHD. Voice first, Today holds three at most, and your tasks stay on your phone.">
+<meta property="og:title" content="Startsy — the hardest part is starting. Startsy makes it small.">
+<meta property="og:description" content="Say a task. Get a finish line and small steps. Start the first one now. No streaks, no shame, tasks stay on your phone.">
+<meta property="og:image" content="https://mcpota.com/img/brand/og.jpg">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0A1628">
 <style>
-:root{--bg:#fff;--text:#0A1628;--muted:#52617A;--line:#E1E7EF;--accent:#0277BD;--soft:#F2F6FB;--amber:#F2B33D;--onamber:#2A1D00}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0A1628;--text:#E6EEF7;--muted:#93A4B8;--line:#1C2E48;--accent:#4FC3F7;--soft:#0F2038}}
+:root{--bg:#fff;--text:#0A1628;--muted:#52617A;--line:#E1E7EF;--accent:#0277BD;--soft:#F2F6FB;--amber:#F2B33D;--onamber:#2A1D00;--warm:#FFF7E6;--green:#2E9E6A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0A1628;--text:#E6EEF7;--muted:#93A4B8;--line:#1C2E48;--accent:#4FC3F7;--soft:#0F2038;--warm:#1A2333;--green:#6EDB9B}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-main{max-width:860px;margin:0 auto;padding:24px 16px 64px} a{color:var(--accent)}
-h1{font-size:clamp(2rem,6vw,2.8rem);line-height:1.1;margin:28px 0 10px;letter-spacing:-.02em}
-h2{font-size:1.35rem;margin:0 0 10px}
-.lead{font-size:1.2rem;color:var(--muted);margin:0 0 20px;max-width:640px}
-.badge{display:inline-block;font-size:.85rem;padding:4px 12px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--muted);margin:0 6px 6px 0}
-section{border-top:1px solid var(--line);padding:32px 0}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+nav{display:flex;align-items:center;gap:18px;padding:18px 0;font-size:.95rem;flex-wrap:wrap}
+nav .brand{display:flex;align-items:center;gap:8px;margin-right:auto;text-decoration:none;color:var(--text);font-weight:700}
+nav .brand .mk{letter-spacing:.12em;color:var(--accent)}
+nav a{color:var(--muted);text-decoration:none} nav a:hover{color:var(--accent)}
+@media (max-width:640px){nav .brand{flex-basis:100%} nav{gap:6px 16px}}
+
+.hero{background:linear-gradient(180deg,var(--warm),var(--bg));}
+.herogrid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center;padding:24px 0 56px}
+h1{font-size:clamp(2.3rem,6.5vw,3.8rem);line-height:1.04;letter-spacing:-.03em;margin:0 0 16px}
+h1 .hl{background:linear-gradient(transparent 62%,rgba(242,179,61,.55) 62%)}
+.lead{font-size:1.22rem;color:var(--muted);margin:0 0 22px;max-width:580px}
+.cta{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;margin:0 10px 10px 0}
+.cta.amber{background:var(--amber);color:var(--onamber)}
+.cta.ghost{border:1.5px solid var(--accent);color:var(--accent)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.badge{font-size:.85rem;padding:4px 12px;border-radius:999px;background:var(--soft);border:1px solid var(--line);color:var(--muted)}
+@media (max-width:760px){.herogrid{grid-template-columns:1fr}}
+
+/* Startsy the robot */
+.stage{position:relative;max-width:360px;margin:0 auto;text-align:center}
+.bubble{display:inline-block;background:var(--bg);border:2px solid var(--text);border-radius:18px;padding:10px 16px;font-weight:600;position:relative;margin-bottom:6px;min-height:48px}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-10px;width:16px;height:16px;background:var(--bg);border-right:2px solid var(--text);border-bottom:2px solid var(--text);transform:translateX(-50%) rotate(45deg)}
+.stage svg{width:min(260px,70vw);height:auto;display:block;margin:6px auto 0;overflow:visible}
+.stage svg .body{animation:breathe 3.6s ease-in-out infinite;transform-origin:100px 212px}
+.stage svg .eyes{animation:blink 5s infinite;transform-origin:100px 92px}
+.stage svg .happy,.stage svg .glow{opacity:0}
+.stage svg .arm{transition:transform .35s ease}
+.stage svg .armL{transform-origin:62px 160px} .stage svg .armR{transform-origin:138px 160px}
+.stage svg.cheer .body{animation:hop .9s ease-in-out 2}
+.stage svg.cheer .armL{transform:rotate(100deg)} .stage svg.cheer .armR{transform:rotate(-100deg)}
+.stage svg.cheer .calm{opacity:0} .stage svg.cheer .happy{opacity:1}
+.stage svg.cheer .glow{opacity:.35} .stage svg.cheer .bulb{fill:#F2B33D} .stage svg.cheer .chest{fill:#4CC28C}
+.stage svg.spin .body{animation:spin 1.2s ease-in-out 1}
+@keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes blink{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.12)}}
+@keyframes hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-12px)}}
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.stage svg .body,.stage svg .eyes,.stage svg.cheer .body,.stage svg.spin .body{animation:none}.stage svg .arm{transition:none}}
+
+section{border-top:1px solid var(--line);padding:60px 0}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+h2{font-size:clamp(1.7rem,3.8vw,2.3rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}
+.sub{color:var(--muted);max-width:700px;margin:0 0 28px;font-size:1.08rem}
+
+/* The problem */
+.problem{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.wall{background:var(--soft);border:1px solid var(--line);border-radius:20px;padding:22px}
+.wall .big{font-size:1.35rem;font-weight:700;margin:0 0 10px}
+.wall .fog{color:var(--muted);font-size:.95rem;line-height:1.9}
+.wall .fog span{display:inline-block;background:var(--bg);border:1px dashed var(--line);border-radius:8px;padding:0 8px;margin:2px}
+.arrow{font-size:1.6rem;text-align:center;margin:8px 0;color:var(--amber)}
+.wall.after{border-color:var(--amber);background:var(--warm)}
+@media (max-width:760px){.problem{grid-template-columns:1fr}}
+
+/* Try it */
+.try{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.start{background:var(--amber);color:var(--onamber);border-radius:22px;padding:20px 22px;max-width:440px;box-shadow:0 18px 40px rgba(242,179,61,.28)}
+.start small{font-weight:800;letter-spacing:.1em;font-size:.75rem}
+.start .task{display:block;font-size:1.4rem;font-weight:700;margin:4px 0}
+.start .dots{letter-spacing:3px;font-size:1.05rem}
+.start .step{font-size:1.1rem;font-weight:600;margin:6px 0 14px;min-height:3.2em}
+.start button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 20px;background:#0A1628;color:#fff;cursor:pointer}
+.start button.secondary{background:transparent;color:var(--onamber);border:1.5px solid var(--onamber);margin-left:8px}
+.start button:focus-visible{outline:3px solid #0A1628;outline-offset:3px}
+@media (max-width:760px){.try{grid-template-columns:1fr}}
+
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-.card h3{margin:0 0 6px;font-size:1.05rem} .card p{margin:0;color:var(--muted);font-size:.97rem}
-.start{background:var(--amber);color:var(--onamber);border-radius:18px;padding:18px 20px;max-width:420px}
-.start small{font-weight:700;letter-spacing:.08em;font-size:.75rem} .start b{display:block;font-size:1.3rem;margin:4px 0}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h3{margin:0 0 6px;font-size:1.08rem} .card p{margin:0;color:var(--muted);font-size:.97rem}
+.card .why{display:block;margin-top:8px;font-size:.82rem;color:var(--accent)}
+
+.never{display:flex;flex-wrap:wrap;gap:10px}
+.never span{padding:8px 14px;border-radius:999px;background:var(--soft);border:1px solid var(--line);font-weight:600}
+.never span s{color:var(--muted)}
+
+.priceband{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;background:var(--warm);border:1px solid var(--line);border-radius:24px;padding:28px}
+@media (max-width:760px){.priceband{grid-template-columns:1fr}}
 .note{color:var(--muted);font-size:.95rem}
-footer{border-top:1px solid var(--line);padding-top:16px;color:var(--muted);font-size:.95rem}
-</style></head><body><main>
-<a href="/" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700"><img src="/img/brand/emblem-128.png" alt="" width="32" height="32"><span><span style="letter-spacing:.12em">MCPOTA</span></span></a>
+.story{display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center;background:var(--warm);border:1px solid var(--line);border-radius:24px;padding:28px}
+.story img{width:100%;border-radius:18px;display:block}
+.story p{margin:0 0 12px} .story .sig{font-weight:700;margin:0}
+@media (max-width:760px){.story{grid-template-columns:1fr}.story img{max-width:200px}}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.95rem}
+</style></head><body>
 
-<h1>Startsy</h1>
-<p class="lead">Turn a task into small steps that run all the way to done, and start the first one now.</p>
-<span class="badge">Android: in testing</span><span class="badge">iPhone: coming</span><span class="badge">Tasks stay on your phone</span>
-
-<section>
-  <div class="start" aria-label="Example of the Start here card">
-    <small>START HERE</small>
-    <b>Clean my office</b>
-    🏁 Done when: the desk is clear and the trash is out<br>
-    ●●○○○○<br>
-    Step 3 of 6: Move everything that isn't paper to the floor
+<div class="hero"><div class="wrap">
+  <nav>
+    <a class="brand" href="/startsy/"><img src="/img/brand/emblem-128.png" alt="" width="32" height="32"><span><span class="mk">MCPOTA</span> Startsy</span></a>
+    <a href="#why">Why Startsy</a>
+    <a href="#try">Try it</a>
+    <a href="#how">How it helps</a>
+    <a href="/startsy/privacy">Privacy</a>
+    <a href="/">MCPOTA home</a>
+  </nav>
+  <div class="herogrid">
+    <div>
+      <h1>The hardest part is <span class="hl">starting</span>.<br>Startsy makes it small.</h1>
+      <p class="lead">Say a task out loud. Startsy gives it a finish line, breaks it into steps small enough to start, and puts the first one right in front of you. Built for brains that freeze at the start, like many with ADHD.</p>
+      <a class="cta amber" href="#try">Try a step now</a>
+      <a class="cta ghost" href="/founding-members/">Join the waitlist</a>
+      <div class="badges"><span class="badge">🤖 Android: in testing</span><span class="badge">🍎 iPhone: coming</span><span class="badge">📱 Tasks stay on your phone</span><span class="badge">🙅 No streaks, no shame</span></div>
+    </div>
+    <div class="stage">
+      <div class="bubble" id="say" aria-live="polite">Hi! I'm Startsy. Let's do one small thing.</div>
+      <svg id="robot" viewBox="0 0 200 230" role="img" aria-label="Startsy the robot, a friendly blue robot with an amber antenna light">
+        <g class="body" stroke="#18212E" stroke-linecap="round" stroke-linejoin="round">
+          <g class="arm armL"><line x1="62" y1="160" x2="44" y2="186" stroke-width="8"/><circle cx="44" cy="186" r="9" fill="#7AA2FF" stroke-width="4"/></g>
+          <g class="arm armR"><line x1="138" y1="160" x2="156" y2="186" stroke-width="8"/><circle cx="156" cy="186" r="9" fill="#7AA2FF" stroke-width="4"/></g>
+          <rect x="62" y="146" width="76" height="52" rx="16" fill="#E7ECF4" stroke-width="5"/>
+          <circle class="chest" cx="100" cy="170" r="9" fill="#F2B33D" stroke="none"/>
+          <rect x="74" y="198" width="18" height="14" rx="5" fill="#18212E" stroke="none"/>
+          <rect x="108" y="198" width="18" height="14" rx="5" fill="#18212E" stroke="none"/>
+          <line x1="100" y1="52" x2="100" y2="37" stroke-width="4.5"/>
+          <circle class="glow" cx="100" cy="26" r="20" fill="#F2B33D" stroke="none"/>
+          <circle class="bulb" cx="100" cy="26" r="11" fill="#E7ECF4" stroke-width="4.5"/>
+          <rect x="45" y="50" width="110" height="90" rx="26" fill="#7AA2FF" stroke-width="5"/>
+          <rect x="60" y="66" width="80" height="56" rx="16" fill="#18212E" stroke="none"/>
+          <g class="calm">
+            <g class="eyes"><ellipse cx="82" cy="92" rx="8" ry="8" fill="#fff" stroke="none"/><ellipse cx="118" cy="92" rx="8" ry="8" fill="#fff" stroke="none"/></g>
+            <path d="M90 108 Q100 114 110 108" fill="none" stroke="#fff" stroke-width="4"/>
+          </g>
+          <g class="happy" fill="none" stroke="#F2B33D">
+            <path d="M74 92 Q82 82 90 92 M110 92 Q118 82 126 92" stroke-width="6"/>
+            <path d="M84 104 Q100 118 116 104" stroke-width="5"/>
+          </g>
+        </g>
+      </svg>
+    </div>
   </div>
-  <p class="note">Example of Startsy's Start here card.</p>
-</section>
+</div></div>
 
-<section>
-  <h2>How it helps you start</h2>
+<section id="story"><div class="wrap">
+  <div class="story">
+    <img src="/img/team/nate-cain.jpg" alt="Nate Cain, founder of MCPOTA" width="480" height="600" loading="lazy">
+    <div>
+      <p class="eyebrow">Why I built Startsy</p>
+      <h2>I built the tool I needed.</h2>
+      <p>I've lived with ADHD my whole life. I could handle a cyber incident at 2 a.m., but a simple task like "clean the office" or "do the paperwork" could sit for weeks. Not because I didn't care. Because I couldn't see where to start.</p>
+      <p>What finally worked was breaking big tasks into little, easy ones, and only looking at the next one. As my father-in-law told me: <b>the journey of a thousand miles begins with one small step.</b></p>
+      <p>Startsy is that advice in an app. It's helped me every day, and I hope it helps you too.</p>
+      <p class="sig">— Nate Cain, founder of MCPOTA</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="why"><div class="wrap">
+  <p class="eyebrow">The problem</p>
+  <h2>Ever stared at a task and just… couldn't start?</h2>
+  <p class="sub">It isn't laziness. Getting started is an <b>executive function</b> skill: the brain's planning-and-doing system. When a task feels big or blurry, many people (especially people with ADHD) hit a wall called <b>task paralysis</b>, or trouble with <b>task initiation</b>. The more there is to do, the harder it gets to pick the first thing.</p>
+  <div class="problem">
+    <div>
+      <div class="wall">
+        <p class="big">"Clean my office"</p>
+        <div class="fog"><span>where do I even begin?</span><span>papers</span><span>trash</span><span>cables</span><span>that box</span><span>it'll take all day</span><span>later…</span></div>
+      </div>
+      <div class="arrow" aria-hidden="true">⬇</div>
+      <div class="wall after">
+        <p class="big" style="margin:0">Step 1: Grab a trash bag.</p>
+        <p class="note" style="margin:4px 0 0">One small, clear action you can do right now. Then the next one.</p>
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Startsy shrinks the wall.</h3>
+      <p>Startsy doesn't hand you a longer to-do list. It gives you a <b>finish line</b> so you know what done looks like, and a chain of <b>steps small enough to start</b> that runs all the way there, including the parts people forget, like sending it or putting it away.</p>
+      <p>You only ever see <b>one step at a time</b>. Stuck on one? Tap <i>Make it smaller</i>.</p>
+      <p class="note">These ideas come from skills taught in adult-ADHD coaching and therapy programs that have been tested in research, like breaking work into concrete steps and tracking progress you can see.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="try"><div class="wrap">
+  <p class="eyebrow">Try it</p>
+  <h2>Here's what it feels like.</h2>
+  <div class="try">
+    <div class="start" aria-label="Example Start here card">
+      <small>START HERE</small>
+      <span class="task">Clean my office</span>
+      🏁 Done when: the desk is clear and the trash is out<br>
+      <span class="dots" id="dots" aria-hidden="true">○○○○○○</span>
+      <div class="step" id="step" aria-live="polite">Step 1 of 6: Grab a trash bag</div>
+      <button type="button" id="done">✓ Done</button><button type="button" class="secondary" id="smaller">Make it smaller</button>
+    </div>
+    <div>
+      <div class="stage" id="stage2" style="margin:0 0 14px"></div>
+      <p>Tap <b>Done</b> and watch Startsy cheer. That's the whole idea: a small win, then the next small step, until the finish line.</p>
+      <p class="note">Startsy the robot is silent and optional. It celebrates finished steps and never gets sad or scolds. You can turn the celebrations off in Settings.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <p class="eyebrow">How it helps you start</p>
+  <h2>Built around how starting actually works.</h2>
   <div class="grid">
-    <div class="card"><h3>🏁 A finish line</h3><p>Every task says what done looks like, and its steps run all the way there, including the parts people forget, like sending it.</p></div>
-    <div class="card"><h3>👣 Steps small enough to start</h3><p>One step at a time. Stuck? Break it down, and later make a step smaller.</p></div>
-    <div class="card"><h3>🎤 Voice first</h3><p>Say the task. Pause and think; the mic keeps listening until you tap Done.</p></div>
-    <div class="card"><h3>3️⃣ Today holds three</h3><p>Today, This week and Later. Today never holds more than three tasks.</p></div>
-    <div class="card"><h3>✨ Break it down (optional)</h3><p>AI suggests a finish line and steps, only after you agree, and only that one task's words are sent.</p></div>
-    <div class="card"><h3>🌗 Easy on the eyes</h3><p>Light, dark or match your phone. No streaks, no points, no shame for missed tasks.</p></div>
+    <div class="card"><h3>🏁 A finish line</h3><p>Every task says what done looks like, and its steps run all the way there.</p><span class="why">Clear goals make it easier to begin</span></div>
+    <div class="card"><h3>👣 Steps small enough to start</h3><p>One step at a time. Too big? Break it down again, right there.</p><span class="why">Concrete small steps are a core skill in adult-ADHD programs</span></div>
+    <div class="card"><h3>🎤 Voice first</h3><p>Just say the task. Pause and think; the mic keeps listening until you tap Done.</p><span class="why">Less typing, less friction</span></div>
+    <div class="card"><h3>3️⃣ Today holds three</h3><p>Today, This week and Later. Today never holds more than three tasks.</p><span class="why">Fewer choices, less overwhelm</span></div>
+    <div class="card"><h3>📈 Progress you can see</h3><p>"Step 3 of 6." Every step done counts, even on days you don't finish.</p><span class="why">Visible progress helps people follow through</span></div>
+    <div class="card"><h3>✨ Break it down with AI (optional)</h3><p>AI suggests a finish line and steps, only after you agree, and only that one task's words are sent.</p><span class="why">Help when the first step is hard to see</span></div>
   </div>
-</section>
+  <h3 style="margin:34px 0 12px">What Startsy will never do</h3>
+  <div class="never"><span>🚫 <s>Streaks</s></span><span>🚫 <s>Points and badges</s></span><span>🚫 <s>Guilt for missed tasks</s></span><span>🚫 <s>Ads</s></span><span>🚫 <s>Selling your data</s></span></div>
+</div></section>
 
-<section>
-  <h2>Private by design</h2>
-  <p>Your tasks are stored only on your phone. No account, no ads, no analytics. You can export or delete them all from Settings. <a href="/startsy/privacy">Read the privacy policy</a>.</p>
-  <p class="note">Startsy is a planner built on skills taught in proven programs. It isn't a treatment or medical advice.</p>
-</section>
+<section><div class="wrap">
+  <p class="eyebrow">Private by design</p>
+  <h2>Your tasks stay on your phone.</h2>
+  <p class="sub">No account, no ads, no analytics. Export or delete everything from Settings. The only thing that ever leaves your phone is a task you choose to send to <i>Break it down</i>, after a clear consent screen. <a href="/startsy/privacy">Read the privacy policy</a>.</p>
+  <div class="priceband">
+    <div>
+      <h3 style="margin:0 0 6px">Pricing</h3>
+      <p style="margin:0">Free while in testing. Pricing will be announced before launch. Founding members get the best price we'll ever offer.</p>
+    </div>
+    <div><a class="cta amber" href="/founding-members/">Join the waitlist</a></div>
+  </div>
+  <p class="note" style="margin-top:22px">Startsy is a planner built on skills taught in proven programs. It isn't a treatment for ADHD or medical advice.</p>
+</div></section>
 
-<footer><a href="/startsy/release-notes">Release notes</a> · <a href="/startsy/privacy">Privacy policy</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · © 2026 MCPOTA</footer>
-</main></body></html>
+<div class="wrap">
+  <footer><a href="/">MCPOTA home</a> · <a href="/privacy-watch/">Privacy Watch</a> · <a href="/startsy/release-notes">Release notes</a> · <a href="/startsy/privacy">Privacy policy</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · © 2026 MCPOTA</footer>
+</div>
+
+<script>
+(function () {
+  var steps = ["Grab a trash bag", "Throw away anything that's clearly trash", "Move everything that isn't paper to the floor", "Stack the papers in one pile", "Put the floor things where they belong", "Take the trash out"];
+  var cheers = ["Nice! One down.", "You started. That's the hard part!", "Look at you go!", "Halfway there!", "Almost done!"];
+  var i = 0;
+  var stage2 = document.getElementById("stage2");
+  var bubble2 = document.getElementById("say").cloneNode(true); bubble2.removeAttribute("id"); bubble2.removeAttribute("aria-live");
+  var robot2 = document.getElementById("robot").cloneNode(true); robot2.removeAttribute("id"); robot2.setAttribute("aria-hidden", "true"); robot2.style.width = "min(170px,45vw)";
+  stage2.appendChild(bubble2); stage2.appendChild(robot2);
+  var robots = [document.getElementById("robot"), robot2], says = [document.getElementById("say"), bubble2];
+  var stepEl = document.getElementById("step"), dots = document.getElementById("dots");
+  var done = document.getElementById("done"), smaller = document.getElementById("smaller");
+  function setSay(t) { says.forEach(function (b) { b.textContent = t; }); }
+  function render() {
+    var d = ""; for (var k = 0; k < steps.length; k++) d += k < i ? "●" : "○";
+    dots.textContent = d;
+    stepEl.textContent = i < steps.length ? "Step " + (i + 1) + " of " + steps.length + ": " + steps[i] : "🏁 Finished! The desk is clear and the trash is out.";
+    done.textContent = i < steps.length ? "✓ Done" : "↺ Start over";
+    smaller.style.display = i < steps.length ? "" : "none";
+  }
+  function cheer(cls, text) {
+    robots.forEach(function (r) { r.classList.remove("cheer", "spin"); void r.getBoundingClientRect(); r.classList.add("cheer"); if (cls) r.classList.add(cls); });
+    setSay(text);
+    clearTimeout(cheer.t); cheer.t = setTimeout(function () { robots.forEach(function (r) { r.classList.remove("cheer", "spin"); }); }, 2000);
+  }
+  done.addEventListener("click", function () {
+    if (i >= steps.length) { i = 0; render(); setSay("Let's do one small thing."); return; }
+    i++; render();
+    if (i === steps.length) cheer("spin", "You did it! The whole thing!");
+    else cheer(null, cheers[Math.min(i - 1, cheers.length - 1)]);
+  });
+  smaller.addEventListener("click", function () {
+    if (i === 0) { steps.splice(0, 1, "Find a trash bag (kitchen drawer?)", "Bring it to the office"); }
+    else { var s = steps[i]; steps.splice(i, 1, "Look at: " + s.toLowerCase(), s); }
+    render(); setSay("Smaller is smart. Just this one.");
+  });
+  render();
+})();
+</script>
+</body></html>
