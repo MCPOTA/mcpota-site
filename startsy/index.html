@@ -92,7 +92,7 @@ h2{font-size:clamp(1.7rem,3.8vw,2.3rem);line-height:1.15;letter-spacing:-.02em;m
 @media (max-width:760px){.priceband{grid-template-columns:1fr}}
 .note{color:var(--muted);font-size:.95rem}
 .story{display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center;background:var(--warm);border:1px solid var(--line);border-radius:24px;padding:28px}
-.story img{width:100%;border-radius:18px;display:block}
+.story img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:18px;display:block}
 .story p{margin:0 0 12px} .story .sig{font-weight:700;margin:0}
 @media (max-width:760px){.story{grid-template-columns:1fr}.story img{max-width:200px}}
 footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.95rem}
@@ -146,7 +146,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);f
 
 <section id="story"><div class="wrap">
   <div class="story">
-    <img src="/img/team/nate-cain.jpg" alt="Nate Cain, founder of MCPOTA" width="480" height="600" loading="lazy">
+    <img src="/img/team/nate-cain.jpg?v=2" alt="Nate Cain, founder of MCPOTA" width="480" height="600" loading="lazy">
     <div>
       <p class="eyebrow">Why I built Startsy</p>
       <h2>I built the tool I needed.</h2>
