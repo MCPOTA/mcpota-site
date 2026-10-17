@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Startsy Privacy Policy</title>
+<meta name="description" content="Privacy policy for Startsy by MCPOTA: what it stores on your phone, and the one thing it can send, only when you agree.">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0A1628">
+<style>
+  :root { --bg:#ffffff; --text:#0A1628; --muted:#52617A; --line:#E1E7EF; --accent:#0277BD; --soft:#F2F6FB; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0A1628; --text:#E6EEF7; --muted:#93A4B8; --line:#1C2E48; --accent:#4FC3F7; --soft:#0F2038; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); font-size: .95rem; }
+  .summary { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+  .summary ul { margin: 8px 0 0; padding-left: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: .95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  a { color: var(--accent); }
+  code { font-size: .9em; }
+</style>
+</head>
+<body>
+<main>
+<h1>Startsy Privacy Policy</h1>
+<p class="muted">Startsy by MCPOTA · Android and iPhone · Effective October 17, 2026</p>
+
+<div class="summary">
+<strong>In short</strong>
+<ul>
+  <li>Your tasks are stored only on your phone. There is no account, no ads, no analytics and no tracking.</li>
+  <li>Dictation uses your phone's own speech service. Startsy receives only the text.</li>
+  <li>Test builds can check for a newer version when you open the app, only if you allow it. No task data is sent.</li>
+  <li>"Break it down" is optional. It asks you first, then sends <em>only the words of that one task</em> to Startsy's AI server to get a finish line and steps back.</li>
+</ul>
+</div>
+
+<h2>Information the app reads</h2>
+<ul>
+  <li><strong>What you type or dictate</strong>: each task's name, its "done when" line, its steps and which list it's in (Today, This week, Later, Done).</li>
+  <li><strong>Speech recognition</strong> (only when you tap a microphone button): Startsy asks Android for microphone permission and opens a listening box that uses your phone's speech service to turn your voice into text. The mic stays on through pauses and stops when you tap Done or Cancel. On many phones that service is Google's, which may process the audio on its servers under Google's privacy policy. Startsy never keeps, stores or sends the audio; it keeps only the text. The first time, Startsy explains this and lets you type instead.</li>
+</ul>
+<p>Startsy does not read your contacts, location, photos, files, calendar or other apps.</p>
+
+<h2>What the app can change on your phone</h2>
+<p>Nothing outside Startsy. It only changes its own task list.</p>
+
+<h2>What is stored, and for how long</h2>
+<ul>
+  <li>Your tasks are kept in Startsy's private storage on your phone until you delete them (Edit → Delete) or uninstall the app. Finished tasks stay in Done so you can undo.</li>
+  <li>A few settings are stored with them: whether you agreed to the dictation note, whether "Break it down" is on, whether the update check is on (with your tester access code, if you entered one), your Appearance choice (Match phone, Light or Dark) and which release notes you've already seen.</li>
+  <li>Settings (⚙) → <strong>Delete all my tasks</strong> removes every task from your phone at once.</li>
+  <li>Startsy turns off Android's app backup, so your tasks are not copied to cloud backups.</li>
+  <li>MCPOTA keeps nothing about you on its servers. The AI server does not store or log the words it passes on.</li>
+</ul>
+
+<h2>When information leaves your phone</h2>
+<p>When you tap <strong>"Break it down for me"</strong> and have agreed on the screen that explains it:</p>
+<table>
+  <tr><th>What is sent</th><td>The words of that one task (up to 300 characters). Never your other tasks, your steps, your name or any account.</td></tr>
+  <tr><th>Where it goes</th><td>MCPOTA's Startsy server, which runs on Cloudflare, passes the words to Anthropic's Claude AI, which writes a finish line and steps. Cloudflare sees your internet (IP) address, as any website does, and uses it briefly to limit how many requests one network can make.</td></tr>
+  <tr><th>What is kept</th><td>MCPOTA does not store or log the words. Anthropic deletes API data within 30 days under its own policy and does not use it to train its AI (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic's retention page</a>).</td></tr>
+  <tr><th>How to stop</th><td>Settings (⚙) → "AI breakdown is on" → tap to turn it off. Nothing is sent again unless you agree again. You can always type your own steps.</td></tr>
+</table>
+<p><strong>Update check (test builds only).</strong> If you tap Allow on the "Check for updates?" screen and enter a tester access code, each time you open Startsy it asks MCPOTA's builds server whether a newer test build is posted:</p>
+<table>
+  <tr><th>What is sent</th><td>Your tester access code and a request for Startsy's latest test build, and, if you tap "Update now", a download of it. No tasks, no name, no account.</td></tr>
+  <tr><th>Where it goes</th><td>MCPOTA's builds server, which runs on Cloudflare, checks the code and fetches the build from MCPOTA's private GitHub repository. Cloudflare sees your internet (IP) address, as any website does, and uses it briefly to limit how many requests one network can make. GitHub does not see your phone.</td></tr>
+  <tr><th>What is kept</th><td>MCPOTA's builds server stores and logs nothing. The access code is saved only in Startsy on your phone. The downloaded file is checked, handed to Android's installer (which asks you to confirm) and then deleted. No old builds are kept on your phone.</td></tr>
+  <tr><th>How to stop</th><td>Settings (⚙) → "Update check is on" → tap to turn it off. The store versions of Startsy will not have this check; the store handles updates.</td></tr>
+</table>
+<p><strong>Things you send yourself.</strong> Two Settings items hand information to another app on your phone, and only when you tap them:</p>
+<ul>
+  <li><strong>Export my tasks</strong> gives a text copy of your tasks to the app you pick (email, notes, files). From there it follows that app's rules.</li>
+  <li><strong>Send feedback</strong> opens your email app addressed to support@mcpota.com, with the Startsy and Android version numbers filled in. You see the whole email and nothing is sent until you tap Send. MCPOTA uses it only to answer you and improve Startsy.</li>
+</ul>
+<p>Nothing else leaves your phone. Startsy has no ads, analytics, crash reporting or tracking.</p>
+
+<h2>Children</h2>
+<p>Startsy is not directed at children under 13.</p>
+
+<h2>Changes and contact</h2>
+<p>When this policy changes, the effective date above changes and the app's release notes say what changed. Questions: <a href="mailto:privacy@mcpota.com">privacy@mcpota.com</a>.</p>
+</main>
+</body>
+</html>
