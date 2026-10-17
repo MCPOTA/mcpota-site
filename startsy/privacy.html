@@ -34,11 +34,12 @@
 
 <div class="summary">
 <strong>In short</strong>
+<p style="margin:6px 0 0"><strong>Startsy is a planner, not a privacy app.</strong> To help you, its optional AI needs to see what you're working on: the task's words and any photos you add. Here is exactly what goes where.</p>
 <ul>
   <li>Your tasks are stored only on your phone. There is no account, no ads, no analytics and no tracking.</li>
   <li>Dictation uses your phone's own speech service. Startsy receives only the text.</li>
   <li>Test builds can check for a newer version when you open the app, only if you allow it. No task data is sent.</li>
-  <li>"Break it down" is optional. It asks you first, then sends <em>only the words of that one task</em> to Startsy's AI server to get a finish line and steps back.</li>
+  <li>"Break it down" is optional. It asks you first, then sends <em>that one task's words and any photos you added to it</em> to Startsy's AI server to get a finish line and steps back. MCPOTA doesn't store them; Anthropic, which runs the AI, deletes them within 30 days.</li>
 </ul>
 </div>
 
@@ -50,24 +51,33 @@
 <p>Startsy does not read your contacts, location, photos, files, calendar or other apps.</p>
 
 <h2>What the app can change on your phone</h2>
-<p>Nothing outside Startsy. It only changes its own task list.</p>
+<p>Startsy changes its own task list. When you give a task a start-by time, it also sets an alarm and shows a reminder notification on your phone at that time (with your permission to show notifications and, on Android 12 and later, to set alarms on time). It sets those alarms again after your phone restarts. You can turn all reminders off in Settings → Reminders, or remove a task's start time. Nothing else outside Startsy changes.</p>
 
 <h2>What is stored, and for how long</h2>
 <ul>
   <li>Your tasks are kept in Startsy's private storage on your phone until you delete them (Edit → Delete) or uninstall the app. Finished tasks stay in Done so you can undo.</li>
-  <li>A few settings are stored with them: whether you agreed to the dictation note, whether "Break it down" is on, whether the update check is on (with your tester access code, if you entered one), your Appearance choice (Match phone, Light or Dark) and which release notes you've already seen.</li>
+  <li>A few settings are stored with them: whether you agreed to the dictation note, whether "Break it down" is on, whether the update check is on (with your tester access code, if you entered one), your Appearance choice (Match phone, Light or Dark), whether reminders are on, the name you gave Startsy and its notes about how you like to work, and which release notes you've already seen.</li>
+  <li>A task's start-by time is stored with the task. Reminders are made on your phone; nothing about them is sent anywhere.</li>
   <li>Settings (⚙) → <strong>Delete all my tasks</strong> removes every task from your phone at once.</li>
   <li>Startsy turns off Android's app backup, so your tasks are not copied to cloud backups.</li>
   <li>MCPOTA keeps nothing about you on its servers. The AI server does not store or log the words it passes on.</li>
 </ul>
 
 <h2>When information leaves your phone</h2>
+<p><strong>"Make this step smaller"</strong> (on the Start here card) works the same way but sends only that task's name and the one step.</p>
 <p>When you tap <strong>"Break it down for me"</strong> and have agreed on the screen that explains it:</p>
 <table>
-  <tr><th>What is sent</th><td>The words of that one task (up to 300 characters). Never your other tasks, your steps, your name or any account.</td></tr>
-  <tr><th>Where it goes</th><td>MCPOTA's Startsy server, which runs on Cloudflare, passes the words to Anthropic's Claude AI, which writes a finish line and steps. Cloudflare sees your internet (IP) address, as any website does, and uses it briefly to limit how many requests one network can make.</td></tr>
-  <tr><th>What is kept</th><td>MCPOTA does not store or log the words. Anthropic deletes API data within 30 days under its own policy and does not use it to train its AI (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic's retention page</a>).</td></tr>
+  <tr><th>What is sent</th><td>The words of that one task (up to 300 characters), and up to 5 photos if you added them (for example your desk, the dishes or your computer screen). Photos are shrunk on your phone to about 1024 pixels and re-saved, which removes their hidden details such as location. Never your other tasks, your steps, your name or any account. The first time you include photos, Startsy reminds you to keep faces, cards, addresses, passwords and anything private out of the frame.</td></tr>
+  <tr><th>Where it goes</th><td>MCPOTA's Startsy server, which runs on Cloudflare, passes the words and photos to Anthropic's Claude AI, which writes a finish line and steps. Cloudflare sees your internet (IP) address, as any website does, and uses it briefly to limit how many requests one network can make.</td></tr>
+  <tr><th>What is kept</th><td>MCPOTA does not store or log the words or photos, and Startsy doesn't save the photos on your phone (they're dropped when you close the task form). Anthropic deletes API data within 30 days under its own policy and does not use it to train its AI (<a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic's retention page</a>).</td></tr>
   <tr><th>How to stop</th><td>Settings (⚙) → "AI breakdown is on" → tap to turn it off. Nothing is sent again unless you agree again. You can always type your own steps.</td></tr>
+</table>
+<p>When you use <strong>Talk mode</strong> (talking with Startsy the robot) and have agreed on the screen that explains it:</p>
+<table>
+  <tr><th>What is sent</th><td>What you say in Talk mode (turned into text by your phone's speech service), any photos you add there (shrunk and stripped of hidden details like location, up to 5 per conversation), the task you're talking about, and Startsy's short notes about how you like to work. <strong>Not your name</strong>: Startsy keeps it on your phone and sends a stand-in ("[name]") instead. Not your other tasks.</td></tr>
+  <tr><th>Where it goes</th><td>The same as Break it down: MCPOTA's Startsy server on Cloudflare passes it to Anthropic's Claude AI, which writes Startsy's reply and, when ready, the task's steps.</td></tr>
+  <tr><th>What is kept</th><td>MCPOTA does not store or log conversations or photos. Anthropic deletes them within 30 days and does not train on them. On your phone, Startsy keeps your name and up to 30 short notes it learned (for example "has a clothes hamper"); it never notes health details, other people's names, addresses or money. See or delete them in Settings → Talking with Startsy. Startsy's voice is your phone's own text-to-speech.</td></tr>
+  <tr><th>Guardrails</th><td>Startsy sticks to starting and finishing tasks. It isn't a friend, therapist or medical service and doesn't treat anything. If someone mentions being in crisis, it points to the 988 Suicide &amp; Crisis Lifeline (call or text 988 in the US) or 911.</td></tr>
 </table>
 <p><strong>Update check (test builds only).</strong> If you tap Allow on the "Check for updates?" screen and enter a tester access code, each time you open Startsy it asks MCPOTA's builds server whether a newer test build is posted:</p>
 <table>
