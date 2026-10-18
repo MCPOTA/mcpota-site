@@ -31,7 +31,7 @@
 <main>
   <a href="/" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700"><img src="/img/brand/emblem-128.png" alt="" width="32" height="32"><span><span style="letter-spacing:.12em">MCPOTA</span> Privacy Watch</span></a>
   <h1>MCPOTA Privacy Watch Privacy Policy</h1>
-  <p class="muted">Effective October 17, 2026 · App ID <code>com.mcpota.privacywatch</code> · Published by MCPOTA (mcpota.com) · <em>Arx Dominii Privati</em></p>
+  <p class="muted">Effective October 18, 2026 · App ID <code>com.mcpota.privacywatch</code> · Published by MCPOTA (mcpota.com) · <em>Arx Dominii Privati</em></p>
   <p>This policy covers the MCPOTA Privacy Watch app for Android ("Privacy Watch", "the app"). "We" and "us" mean MCPOTA, its publisher.</p>
 
   <div class="summary">
@@ -90,8 +90,8 @@
   </ul>
   <p>Nothing obtained this way leaves your phone.</p>
 
-  <h2>What the app can change on your phone (only when you tap Fix it, Banking mode or similar, and agree)</h2>
-  <p>Privacy Watch changes nothing on its own. Each change below happens only after you tap a button, see what it will do and what it may affect, and confirm. Most need advanced access.</p>
+  <h2>What the app can change on your phone (when you tap Fix it, Banking mode or similar and agree, or set it up in advance)</h2>
+  <p>Except for two things you set up in advance, each change below happens only after you tap a button, see what it will do and what it may affect, and confirm: (1) Automatic Banking mode, once you turn it on and pick apps, switches Wireless debugging (and Developer options, if you chose) off and on by itself as those apps open and close; (2) when advanced access is connected and Usage access is off, Privacy Watch switches Usage access on for itself when you open it. Most changes need advanced access.</p>
   <table>
     <tr><th>Change</th><th>What it does</th><th>How to undo it</th></tr>
     <tr><td>Remove permissions</td><td>Turns off one app's access to the microphone, camera, location (or only background location), nearby devices, contacts, call log, text messages, calendar, or photos and videos</td><td>Undo gives back exactly the permissions it took away</td></tr>
@@ -101,9 +101,10 @@
     <tr><td>Disable an app</td><td>Turns an app off completely. Offered only for apps you installed, or for apps that came with the phone and are on a list of system apps known to be safe to turn off</td><td>Undo turns it back on</td></tr>
     <tr><td>Spyware-check fixes</td><td>Turns off one app's Accessibility (screen reading) access or notification access, or switches off a keyboard (never your only keyboard)</td><td>Undo switches it back on</td></tr>
     <tr><td><em>Banking mode</em></td><td>Turns Wireless debugging off, and Developer options too if you choose, so banking and work apps that check for them will run. The automatic version gives Privacy Watch Android's secure-settings permission once (through advanced access) and then switches these off while apps you choose are open and back on when you leave them, restoring only what it turned off</td><td>Tap Resume and switch them back on (the app opens the right screen), or remove apps from the automatic list</td></tr>
+    <tr><td>Usage access for Privacy Watch</td><td>When advanced access is connected and Usage access is off, Privacy Watch turns on its own Usage access when you open it, so it can tell which app is on screen. It shows a short message when it does</td><td>Android Settings → Usage access → Privacy Watch → off (there is no in-app undo)</td></tr>
     <tr><td>Uninstall an app</td><td>Opens Android's own uninstaller for that app; you confirm there</td><td>Privacy Watch can't undo this; reinstall the app from its store</td></tr>
   </table>
-  <p>Every change except an uninstall can be undone from the app, and you can also reverse any of them in Android's Settings. Privacy Watch keeps a record of each fix until you undo it, so Undo keeps working. Fixes stay in place if you uninstall Privacy Watch, so undo the ones you want reversed first.</p>
+  <p>Every change except an uninstall and the Usage access switch can be undone from the app, and you can also reverse any of them in Android's Settings. Privacy Watch keeps a record of each fix until you undo it, so Undo keeps working. Fixes stay in place if you uninstall Privacy Watch, so undo the ones you want reversed first.</p>
 
   <h2>What is stored, and for how long</h2>
   <p>Privacy Watch keeps its operational data for up to 30 days. Size limits can trim the logs sooner in extreme cases. The exceptions are listed below.</p>
@@ -120,10 +121,14 @@
     <tr><td>Alert lists (what each app's alert notification lists, and when it last sounded)</td><td>Memory on your phone while Privacy Watch runs</td><td>Never written to storage; an item drops out after 24 hours, and the list starts again when you dismiss or open the alert</td></tr>
     <tr><td>Applied fixes (what was changed and how to restore it)</td><td>App storage on your phone</td><td>Until you undo them, so Undo keeps working (or until that app is uninstalled)</td></tr>
     <tr><td>Findings you marked as not a concern</td><td>App storage on your phone</td><td>Until you show them again (⚙ → Hidden findings) or uninstall</td></tr>
-    <tr><td>Generated reports</td><td>App's temporary storage</td><td>The most recent few, for up to 30 days</td></tr>
+    <tr><td>Generated reports</td><td>App's temporary storage</td><td>The most recent 12, for up to 30 days</td></tr>
     <tr><td>Reports you download</td><td>Your Downloads folder (Downloads › Privacy Watch)</td><td>Until you delete them</td></tr>
     <tr><td>Troubleshooting log, if you tap <em>Save troubleshooting log</em></td><td>Your Downloads folder (Downloads › Privacy Watch)</td><td>Until you delete it, including after you uninstall the app</td></tr>
     <tr><td>Settings, such as theme, saved email address, Banking mode apps and which kinds of alerts are on</td><td>App storage on your phone</td><td>Until you change them or uninstall</td></tr>
+    <tr><td>Advanced-access key (a key pair Privacy Watch uses to connect to your phone's built-in debugging; it never leaves the phone)</td><td>App storage on your phone</td><td>Until you remove advanced access or uninstall</td></tr>
+    <tr><td>Free-trial start date and whether Pro is active</td><td>App storage on your phone</td><td>Until you uninstall</td></tr>
+    <tr><td>App display names (so history can show an app's name after it's gone)</td><td>App storage on your phone</td><td>While the app is installed, then removed once its history has expired (up to 30 days)</td></tr>
+    <tr><td>Test builds only: tester access code and a downloaded update</td><td>App storage on your phone</td><td>The code until you uninstall (or until it stops working); the update file is deleted after it installs</td></tr>
     <tr><td>Support logs you send us</td><td>MCPOTA's private support storage</td><td>Up to 30 days</td></tr>
   </table>
   <p>App data is excluded from Android cloud backups and from phone-to-phone transfers when you set up a new phone, so your history stays on the phone where it was recorded. Uninstalling Privacy Watch deletes everything it stored, except reports and troubleshooting logs you saved to Downloads.</p>
@@ -134,16 +139,17 @@
     <li><strong>Email report:</strong> the app opens your email app with the report attached. The report lists app names, domains and activity from the period you chose. You choose the recipients and press Send yourself. After that, the email is handled by your email provider and the people you send it to.</li>
     <li><strong>Send logs to MCPOTA support:</strong> after telling you what's in it, the app opens your email app with a log attached, addressed to support@mcpota.com. It contains your phone model and Android version, the app's status, the list of apps on your phone (package names, whether each came with the phone, and which store installed it) and which of them accessed the microphone, camera, location, contacts, texts, call log, calendar or other data and when, background data use, how much each app sent and when (amounts only), fixes made, and the error and crash logs. If advanced access is on, it also includes Android's recent records of microphone use, the camera service's log of when the camera was opened and closed, and Android system log lines filtered to Privacy Watch, crashes and the VPN. It contains no messages, photos, passwords, call content or browsing history. You read the email and press Send yourself. MCPOTA stores the log privately, uses it only to diagnose and fix problems (including an automated diagnosis by Anthropic's Claude AI, under terms that don't allow it to be used for training), never copies your email address alongside it, and deletes it within 30 days.</li>
     <li><strong>Report a false alarm:</strong> see "False-alarm reports" below.</li>
+    <li><strong>Upload logs (test builds only, not the Google Play version):</strong> opens a GitHub page in your browser where you choose whether to upload a troubleshooting log for review.</li>
     <li><strong>Copy:</strong> copying logs puts them on your clipboard so you can paste them where you choose.</li>
     <li><strong>Check for updates (test builds only, not the Google Play version):</strong> after you allow it and type a tester access code, the app asks MCPOTA's builds server (run on Cloudflare) whether a newer test build exists each time you open it, and downloads it only when you tap Update now. It sends the access code and the request, nothing the app recorded. Cloudflare sees your internet address, as any website does. Android's own installer asks you to confirm. The downloaded file is deleted the next time the app opens. Turn it off in ⚙ → Turn off the update check.</li>
   </ul>
 
   <h2>False-alarm reports</h2>
-  <p>If you think something was flagged by mistake, you can tap <em>Not a concern? Report a false alarm</em>. Privacy Watch then stops flagging it on your phone. If you also choose <em>Hide and share</em>, your email app opens with a short report addressed to support@mcpota.com. It contains what was flagged and facts about that app: its name, package, version, where it was installed from, the permissions it requested and was granted, and its services, plus your phone model and Android version. It contains no messages, photos, contacts, browsing or recorded activity, and you see it before pressing Send.</p>
+  <p>If you think something was flagged by mistake, you can tap <em>Not a concern? Report a false alarm</em>. Privacy Watch then stops flagging it on your phone. If you also choose <em>Hide and share</em>, your email app opens with a short report addressed to support@mcpota.com. It contains what was flagged and facts about that app: its name, package, version, where it was installed from, the permissions it requested and was granted, and its services, plus your phone model and Android version. It also includes the lines Privacy Watch showed for that finding: which kinds of access happened, how often and when, how much the app sent, how many web addresses it looked up, and the names of any ad or analytics services it contacted. It contains no messages, photos, contacts or browsing, and you see it before pressing Send.</p>
   <p>We use these reports only to improve how Privacy Watch detects problems. We may review them with the help of AI tools for that purpose. We don't use them for anything else, and we delete them once they've been reviewed.</p>
 
   <h2>Subscriptions</h2>
-  <p>If you subscribe to Privacy Watch Pro, the purchase is handled by Google Play. We never see your payment card or billing details. Google Play tells the app only whether your subscription is active. Google's handling of purchases is covered by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+  <p>Purchases open when Privacy Watch launches on Google Play. If you subscribe to Privacy Watch Pro, the purchase is handled by Google Play. We never see your payment card or billing details. Google Play tells the app only whether your subscription is active. Google's handling of purchases is covered by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
 
   <h2>What we never do</h2>
   <ul>
@@ -166,7 +172,7 @@
   <p>Privacy Watch is not directed at children under 13 and does not knowingly collect information from anyone, of any age.</p>
 
   <h2>Security</h2>
-  <p>Your data stays in the app's private storage, which other apps can't read. Because nothing is sent to us, there is no server copy that could be breached.</p>
+  <p>Except reports and troubleshooting logs you save to Downloads, your data stays in the app's private storage, which other apps can't read. Because nothing is sent to us, there is no server copy that could be breached.</p>
 
   <h2>Changes to this policy</h2>
   <p>If this policy changes, we will update the date at the top of this page. If a change affects what the app does with your information, we'll also explain it in the app before it takes effect.</p>
