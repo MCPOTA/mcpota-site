@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCPOTA Spotsy</title>
+<meta name="description" content="MCPOTA Spotsy for Android shows what is leaving your phone: which apps use your location, mic, contacts and clipboard in the background, which trackers they talk to, and how much data they send. Everything stays on your phone.">
+<meta property="og:title" content="MCPOTA Spotsy — know what's leaving your phone">
+<meta property="og:description" content="See which Android apps collect and send your data in the background, with a history of what they did. Fix it in a tap. No ads, no analytics, nothing uploaded.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/brand/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0A1628">
+<meta property="og:image" content="https://mcpota.com/img/brand/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root { --bg:#ffffff; --text:#0A1628; --muted:#52617A; --line:#E1E7EF; --accent:#0277BD; --soft:#F2F6FB; --red:#d03b3b; --amber:#b77d00; --green:#0a8a0a; --navy:#0A1628; --grad:linear-gradient(90deg,#0277BD,#0288D1); --onaccent:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#0A1628; --text:#E6EEF7; --muted:#93A4B8; --line:#1C2E48; --accent:#4FC3F7; --soft:#0F2038; --red:#FF8A80; --amber:#FFC15E; --green:#6EDB9B; --grad:linear-gradient(90deg,#00D4FF,#4FC3F7); --onaccent:#0A1628; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  nav { display:flex; align-items:center; gap:18px; padding:18px 0; font-size:.95rem; }
+  nav .brand { font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:8px; margin-right:auto; color:var(--text); text-decoration:none; }
+  nav a { color:var(--muted); text-decoration:none; }
+  nav .brand .mk { letter-spacing:.12em; color:var(--accent); margin-right:4px; }
+  .brandsec { display:grid; grid-template-columns: .8fr 1.2fr; gap:40px; align-items:center; }
+  .brandsec video, .brandsec img { width:100%; max-width:320px; border-radius:24px; display:block; margin:0 auto; background:#00081E; }
+  .motto { font-style:italic; letter-spacing:.04em; color:var(--accent); font-size:1.15rem; margin:0 0 8px; }
+  @media (max-width: 760px) { .brandsec { grid-template-columns: 1fr; gap:24px; } }
+  nav a:hover { color:var(--accent); }
+  @media (max-width: 640px) {
+    nav { flex-wrap:wrap; gap:6px 16px; }
+    nav .brand { flex-basis:100%; }
+    nav .links { display:flex; gap:13px; font-size:.88rem; overflow-x:auto; white-space:nowrap; width:100%; padding-bottom:4px; }
+  }
+  nav .links { display:contents; }
+  @media (max-width: 640px) { nav .links { display:flex; } }
+  .hero { display:grid; grid-template-columns: 1.15fr .85fr; gap:40px; align-items:center; padding:30px 0 50px; }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em; }
+  .lead { font-size:1.2rem; color:var(--muted); margin:0 0 22px; }
+  .cta { display:inline-block; background:var(--grad); color:var(--onaccent); padding:12px 22px; border-radius:999px; font-weight:600; text-decoration:none; margin:0 10px 10px 0; }
+    .cta.ghost { background:transparent; color:var(--accent); border:1.5px solid var(--accent); }
+  .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .badge { font-size:.85rem; padding:4px 12px; border-radius:999px; background:var(--soft); border:1px solid var(--line); color:var(--muted); }
+  .phone { width:100%; max-width:330px; height:auto; display:block; margin:0 auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,.18)); }
+  section { padding:56px 0; border-top:1px solid var(--line); }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height:1.2; margin:0 0 10px; letter-spacing:-.01em; }
+  .sub { color:var(--muted); margin:0 0 28px; max-width:680px; }
+  .feature { display:grid; grid-template-columns: 1fr 1fr; gap:48px; align-items:center; margin:0 0 56px; }
+  .feature:last-child { margin-bottom:0; }
+  .feature.flip .txt { order:2; }
+  .feature h3 { font-size:1.4rem; margin:0 0 8px; }
+  .feature p { color:var(--muted); margin:0 0 12px; }
+  ul.ticks { list-style:none; padding:0; margin:0; }
+  ul.ticks li { padding-left:28px; position:relative; margin:6px 0; }
+  ul.ticks li::before { content:"✓"; position:absolute; left:4px; color:var(--accent); font-weight:700; }
+  .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }
+  .card { background:var(--soft); border:1px solid var(--line); border-radius:16px; padding:16px 18px; }
+  .card .ic { font-size:1.6rem; }
+  .card strong { display:block; margin:4px 0; }
+  .card span { color:var(--muted); font-size:.95rem; }
+  .levels { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin-top:18px; }
+  .lv { border-left:4px solid; padding:10px 16px; background:var(--soft); border-radius:0 12px 12px 0; }
+  .steps { counter-reset:s; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }
+  .step { counter-increment:s; background:var(--soft); border:1px solid var(--line); border-radius:16px; padding:18px; }
+  .step::before { content:counter(s); display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--accent); color:var(--onaccent); font-weight:700; margin-bottom:8px; }
+  .reports { display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+  .report { display:block; text-decoration:none; color:var(--text); background:var(--soft); border:1px solid var(--line); border-radius:18px; overflow:hidden; transition: transform .15s; }
+  .report:hover { transform: translateY(-3px); }
+  .report img { width:100%; height:340px; object-fit:cover; object-position:top; display:block; border-bottom:1px solid var(--line); background:#fff; }
+  .report div { padding:14px 18px; }
+  .report span { color:var(--muted); font-size:.95rem; display:block; }
+  .report b { color:var(--accent); }
+  .price { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; max-width:820px; }
+  .plan { border:1px solid var(--line); border-radius:18px; padding:22px; background:var(--soft); }
+  .plan.best { border:2px solid var(--accent); }
+  .plan .amt { font-size:2rem; font-weight:700; }
+  .plan .amt small { font-size:1rem; color:var(--muted); font-weight:400; }
+  .plan ul { padding-left:18px; color:var(--muted); margin:10px 0 0; }
+  .tag { display:inline-block; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--accent); }
+  details { border-bottom:1px solid var(--line); padding:14px 0; }
+  summary { cursor:pointer; font-weight:600; }
+  details p { color:var(--muted); margin:8px 0 0; }
+  footer { border-top:1px solid var(--line); padding:24px 0 40px; color:var(--muted); font-size:.95rem; }
+  a { color: var(--accent); }
+  .gallery { display:flex; gap:20px; overflow-x:auto; padding:6px 0 16px; scroll-snap-type:x mandatory; }
+  .gallery figure { margin:0; flex:0 0 240px; scroll-snap-align:start; text-align:center; }
+  .gallery img { width:100%; height:auto; }
+  .gallery figcaption { color:var(--muted); font-size:.9rem; margin-top:6px; }
+  @media (max-width: 760px) {
+    .hero, .feature, .reports { grid-template-columns: 1fr; gap:28px; }
+    .feature.flip .txt { order:0; }
+    .phone { max-width:280px; }
+    .report img { height:260px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="/spotsy/"><img src="/img/spotsy/icon-128.png" alt="" width="34" height="34" style="border-radius:8px"> <span><span class="mk">MCPOTA</span> Spotsy</span></a>
+    <span class="links">
+      <a href="#features">Features</a>
+      <a href="#reports">Reports</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="/spotsy/privacy">Privacy</a>
+      <a href="/">MCPOTA home</a>
+    </span>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <p class="motto" style="font-size:1rem;margin:0 0 10px">MCPOTA · Arx Dominii Privati</p>
+      <h1>Know what's leaving your phone.</h1>
+      <p class="lead">MCPOTA Spotsy shows which Android apps collect your location, contacts, clipboard and photos while you aren't using them, which trackers they talk to, and how much data they send — with a full history of what each one did. Then it fixes it in a tap.</p>
+      <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">Formerly MCPOTA Privacy Watch: same app, new name.</p>
+      <a class="cta" href="#pricing">Start the 7-day trial</a>
+      <a class="cta ghost" href="/samples/executive-report.html">See a sample report</a>
+      <div class="badges">
+        <span class="badge">🤖 Android: in testing</span><span class="badge">🍎 iPhone: in testing</span><span class="badge">🚫 No ads</span><span class="badge">🚫 No analytics</span><span class="badge">📱 Everything stays on your phone</span><span class="badge">↩ Undo for every fix</span>
+      </div>
+    </div>
+    <img class="phone" src="/img/simple.png?v=6" alt="Spotsy's Summary screen listing three apps that need attention, with Fix it buttons">
+  </div>
+</div>
+
+<section id="features"><div class="wrap">
+  <h2>Behaviour, not guesswork</h2>
+  <p class="sub">Most privacy tools tell you what an app <em>could</em> do. Spotsy records what it actually <em>did</em> — when, how often, and who it talked to afterwards.</p>
+
+  <div class="feature">
+    <div class="txt">
+      <h3>🔴 Findings you can act on</h3>
+      <p>Every app is rated from what it did in the background. Red means it's sending or collecting your data right now; amber means worth a look; everything else stays quiet.</p>
+      <ul class="ticks">
+        <li>Background location, clipboard, contacts, SMS, photos, mic and camera use</li>
+        <li>Uploads while you weren't using the app, measured per app</li>
+        <li>Advertising and analytics services contacted while closed</li>
+        <li>Plain-English "How it could be misused" — by a company and by an attacker</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/simple.png?v=6" alt="Findings list with red privacy risks and an amber worth-a-look item">
+  </div>
+
+  <div class="feature flip">
+    <div class="txt">
+      <h3>🕒 A timeline for every app</h3>
+      <p>See exactly what an app did and when. Spotsy links a sensitive access to the network traffic that followed it — like a weather app reading your location and then contacting an ad network within seconds.</p>
+      <ul class="ticks">
+        <li>At a glance: opens, background accesses, trackers and data sent</li>
+        <li>Every access and every server it contacted, newest first</li>
+        <li>Access → network links within two minutes</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/timeline.png?v=6" alt="Timeline for a weather app showing location accesses followed by tracker lookups">
+  </div>
+
+  <div class="feature">
+    <div class="txt">
+      <h3>🛠 Fix it in one tap — and undo it in one tap</h3>
+      <p>Spotsy shows exactly what it will change before it changes anything: restrict the battery, block background data, or remove one permission. The app keeps working while you use it.</p>
+      <ul class="ticks">
+        <li>Clear consent screen for every change</li>
+        <li>Undo any fix, any time</li>
+        <li>Before / after counts in your reports, so you can see it worked</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/fix.png?v=6" alt="Fix it confirmation listing battery restriction, background data block and contacts block">
+  </div>
+
+  <div class="feature flip">
+    <div class="txt">
+      <h3>↩ Fix check: catches fixes that get undone</h3>
+      <p>App updates, reinstalls and system updates can quietly switch a permission back on. Spotsy checks every fix and tells you when one was reversed, with Re-apply or Leave it.</p>
+      <ul class="ticks">
+        <li>Checks permissions, background data, battery and disabled apps</li>
+        <li>Explains the likely reason in plain English</li>
+        <li>Re-applying is part of the original fix</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/undone.png?v=6" alt="A card saying a fix was undone for a music app, with Re-apply and Leave it buttons">
+  </div>
+
+  <div class="feature">
+    <div class="txt">
+      <h3>📊 Dashboard</h3>
+      <p>Today at a glance: privacy risks, background accesses, trackers contacted and data sent. The full version keeps 7 days of history.</p>
+      <ul class="ticks">
+        <li>Most active apps while closed</li>
+        <li>Background data sent, per app</li>
+        <li>Tracker domains and who contacted them</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/dashboard.png?v=6" alt="Dashboard with tiles for privacy risks, background accesses and trackers, and a most-active list">
+  </div>
+
+  <div class="feature flip">
+    <div class="txt">
+      <h3>🛡 Settings audit</h3>
+      <p>Separate from behaviour: a check of risky access that could lead to a breach — the kind stalkerware and banking malware rely on. Apps installed from a file are rated one step higher.</p>
+      <ul class="ticks">
+        <li>Screen readers (accessibility), notification readers, device admins</li>
+        <li>Third-party keyboards, overlays, contactless-card apps</li>
+        <li>User-installed certificates, hidden apps, screen recording</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/audit.png?v=6" alt="Settings audit showing a sideloaded QR scanner with accessibility access flagged for review">
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What it watches</h2>
+  <p class="sub">Uses Android's own records — the same ones the system keeps — plus an on-device DNS monitor. Encrypted traffic contents are never inspected.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">📍</div><strong>Location</strong><span>GPS and network location used while the app is closed.</span></div>
+    <div class="card"><div class="ic">📶</div><strong>Wi-Fi &amp; Bluetooth scans</strong><span>Scans that reveal where you are even with location off.</span></div>
+    <div class="card"><div class="ic">📋</div><strong>Clipboard</strong><span>Apps reading what you copied — passwords, codes, addresses.</span></div>
+    <div class="card"><div class="ic">👥</div><strong>Contacts, SMS &amp; calls</strong><span>Address book and message reads in the background.</span></div>
+    <div class="card"><div class="ic">🖼</div><strong>Photos &amp; files</strong><span>Library access, including the GPS stored in photos.</span></div>
+    <div class="card"><div class="ic">🎤</div><strong>Microphone &amp; camera</strong><span>Any use while the app wasn't on screen.</span></div>
+    <div class="card"><div class="ic">⬆</div><strong>Data sent</strong><span>Per-app uploads while you weren't using it.</span></div>
+    <div class="card"><div class="ic">🎯</div><strong>Trackers</strong><span>Advertising and analytics services each app contacts.</span></div>
+  </div>
+  <div class="levels">
+    <div class="lv" style="border-color:var(--red)"><strong>🔴 Needs your attention</strong><br><span style="color:var(--muted)">Collecting or sending your data in the background.</span></div>
+    <div class="lv" style="border-color:var(--amber)"><strong>🟡 Worth a look</strong><br><span style="color:var(--muted)">Unusual but often explainable — you decide.</span></div>
+    <div class="lv" style="border-color:var(--green)"><strong>✅ Fine</strong><br><span style="color:var(--muted)">Normal for the app, or already fixed.</span></div>
+  </div>
+</div></section>
+
+<section id="reports"><div class="wrap">
+  <h2>Reports you can share</h2>
+  <p class="sub">One tap at the top of Summary emails the executive summary; one tap at the top of Details sends the technical report. Each is made on the phone as a PDF. Built on the phone — nothing is uploaded to make it. These samples use made-up apps and data.</p>
+  <div class="reports">
+    <a class="report" href="/samples/executive-report.html">
+      <img src="/img/report-executive.png?v=6" alt="Sample executive summary report with status tiles and donut charts" loading="lazy">
+      <div><strong>Executive summary</strong><span>A one-page answer to "is my phone OK?": what needs attention, what was fixed, and how each finding could be misused.</span><b>Open sample →</b></div>
+    </a>
+    <a class="report" href="/samples/technical-report.html">
+      <img src="/img/report-technical.png?v=6" alt="Sample technical report with collection status, domain charts and activity over time" loading="lazy">
+      <div><strong>Technical report</strong><span>Every chart and table: domains, hour-by-hour activity, a heatmap per app, data sent, access → network links and the settings audit.</span><b>Open sample →</b></div>
+    </a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div class="step"><strong>Install and turn on monitoring</strong><br><span style="color:var(--muted)">A local VPN watches which servers each app looks up. Nothing leaves the phone.</span></div>
+    <div class="step"><strong>Optional: advanced access</strong><br><span style="color:var(--muted)">Pair once with Wireless debugging for the detailed background records and one-tap fixes. No computer or root needed.</span></div>
+    <div class="step"><strong>Use your phone normally</strong><br><span style="color:var(--muted)">Findings build up as apps behave. Most phones show something within a day.</span></div>
+    <div class="step"><strong>Fix, undo, or leave it</strong><br><span style="color:var(--muted)">Each finding explains why it matters. You decide.</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <figure><img src="/img/simple.png?v=6" alt="" loading="lazy"><figcaption>Findings</figcaption></figure>
+    <figure><img src="/img/timeline.png?v=6" alt="" loading="lazy"><figcaption>Timeline</figcaption></figure>
+    <figure><img src="/img/dashboard.png?v=6" alt="" loading="lazy"><figcaption>Dashboard</figcaption></figure>
+    <figure><img src="/img/fix.png?v=6" alt="" loading="lazy"><figcaption>Fix it</figcaption></figure>
+    <figure><img src="/img/undone.png?v=6" alt="" loading="lazy"><figcaption>Fix check</figcaption></figure>
+    <figure><img src="/img/audit.png?v=6" alt="" loading="lazy"><figcaption>Settings audit</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="pricing"><div class="wrap">
+  <h2>Simple pricing <span class="tag" style="vertical-align:middle;margin-left:6px">Estimated</span></h2>
+  <p class="sub">No ads and no analytics — ever. The subscription is the whole business, so your data never has to be.</p>
+  <div class="price">
+    <div class="plan">
+      <span class="tag">7-day free trial</span>
+      <div class="amt">Free</div>
+      <ul><li>Full monitoring for 7 days</li><li>All findings, timelines and misuse explanations</li><li>One free one-tap fix</li></ul>
+    </div>
+    <div class="plan">
+      <span class="tag">Monthly</span>
+      <div class="amt">$3.99<small>/month</small></div>
+      <ul><li>Unlimited monitoring</li><li>One-tap fixes and fix check</li><li>Reports and 7-day dashboard</li></ul>
+    </div>
+    <div class="plan best">
+      <span class="tag">Yearly · save 48%</span>
+      <div class="amt">$24.99<small>/year</small></div>
+      <ul><li>Everything in monthly</li><li>About $2.08 a month</li></ul>
+    </div>
+  </div>
+  <p style="color:var(--muted);margin-top:18px">Prices are estimates and may change before launch. Founding members get the first year for $24.99 — <a href="/founding-members/">join the waitlist</a>. Coming soon to Google Play. Subscriptions are handled by Google Play and can be cancelled any time.</p>
+</div></section>
+
+<section id="mcpota"><div class="wrap brandsec">
+  <video src="/img/brand/emblem.mp4" poster="/img/brand/emblem-poster.jpg" autoplay muted loop playsinline aria-label="The MCPOTA emblem"></video>
+  <div>
+    <h2>Made by MCPOTA</h2>
+    <p class="motto">Arx Dominii Privati — stronghold of private dominion</p>
+    <p class="sub" style="margin-bottom:12px">MCPOTA (Mobile Cyber Privacy Operations &amp; Threat Analytics) makes privacy and utility tools for your phone. Every tool follows the same rules: it works on the device, collects no analytics, and never sells or shares your data.</p>
+    <p style="color:var(--muted);margin:0">Spotsy is the first. <a href="/startsy/">Startsy</a>, a planner that helps you start, is next. <a href="/">Meet MCPOTA →</a></p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Private by design</h2>
+  <div class="grid">
+    <div class="card"><div class="ic">📱</div><strong>On-device only</strong><span>Monitoring, findings and reports are made on your phone.</span></div>
+    <div class="card"><div class="ic">🙈</div><strong>No account</strong><span>Nothing to sign up for. No email required.</span></div>
+    <div class="card"><div class="ic">🔒</div><strong>No traffic inspection</strong><span>Only which servers apps contact — never what they send.</span></div>
+    <div class="card"><div class="ic">✉️</div><strong>You choose what to share</strong><span>Reports and false-alarm reports go only where you send them.</span></div>
+  </div>
+  <p style="margin-top:18px"><a href="/spotsy/privacy">Read the privacy policy →</a></p>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Questions</h2>
+  <details><summary>Does it need root?</summary><p>No. Basic monitoring works out of the box. The detailed background records and one-tap fixes use Android's Wireless debugging, set up once from the phone itself.</p></details>
+  <details><summary>Will it slow my phone or drain the battery?</summary><p>The VPN only looks at DNS lookups — tiny messages — and passes everything else straight through. Everything else runs on Android records the phone already keeps.</p></details>
+  <details><summary>Does it work with another VPN?</summary><p>Android allows one VPN at a time. If you use another VPN, the DNS part pauses; the access records still work with advanced access.</p></details>
+  <details><summary>What if a finding is wrong?</summary><p>Hide it, and optionally send a false-alarm report to support so the detection can be improved. Hidden findings can be shown again from ⚙ → Hidden findings.</p></details>
+  <details><summary>What happens when the trial ends?</summary><p>Monitoring stops and you can still undo any fix. Subscribe to keep watching.</p></details>
+  <details><summary>Which phones are supported?</summary><p>Android 10 and newer (advanced access needs Android 11 or newer for Wireless debugging). Tested on Samsung Galaxy phones.</p></details>
+</div></section>
+
+<div class="wrap">
+  <footer>
+    <a href="/spotsy/privacy">Privacy policy</a> · <a href="/changelog">Release notes</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · <a href="/samples/executive-report.html">Executive report sample</a> · <a href="/samples/technical-report.html">Technical report sample</a> · <a href="/">MCPOTA home</a> · © 2026 MCPOTA · <em>Arx Dominii Privati</em>
+  </footer>
+</div>
+</body>
+</html>

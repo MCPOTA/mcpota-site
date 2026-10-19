@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCPOTA Spotsy Privacy Policy</title>
+<meta name="description" content="Privacy policy for MCPOTA Spotsy for Android and iPhone: what it reads on your phone, what it stores, and what it never collects.">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#0A1628">
+<style>
+  :root { --bg:#ffffff; --text:#0A1628; --muted:#52617A; --line:#E1E7EF; --accent:#0277BD; --soft:#F2F6FB; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0A1628; --text:#E6EEF7; --muted:#93A4B8; --line:#1C2E48; --accent:#4FC3F7; --soft:#0F2038; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 4px; }
+  h2 { font-size: 1.2rem; margin: 32px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); font-size: .95rem; }
+  .summary { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin: 20px 0; }
+  .summary ul { margin: 8px 0 0; padding-left: 20px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: .95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  a { color: var(--accent); }
+  code { font-size: .9em; }
+</style>
+</head>
+<body>
+<main>
+  <a href="/" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700"><img src="/img/brand/emblem-128.png" alt="" width="32" height="32"><span><span style="letter-spacing:.12em">MCPOTA</span> Spotsy</span></a>
+  <h1>MCPOTA Spotsy Privacy Policy</h1>
+  <p class="muted">Effective October 19, 2026 · App ID <code>com.mcpota.privacywatch</code> · Published by MCPOTA (mcpota.com) · <em>Arx Dominii Privati</em></p>
+  <p>This policy covers the MCPOTA Spotsy app for Android ("Spotsy", "the app"; formerly called MCPOTA Privacy Watch). The iPhone version, now in testing, works differently and is covered in <a href="#iphone">Spotsy for iPhone</a>. "We" and "us" mean MCPOTA, its publisher.</p>
+
+  <div class="summary">
+    <strong>The short version</strong>
+    <ul>
+      <li>Spotsy runs entirely on your phone. There is no account, no sign-in, and no Spotsy server.</li>
+      <li>We do not collect, receive, sell or share your data. Nothing you see in the app is sent to us.</li>
+      <li>There are no ads, no analytics and no tracking tools in the app.</li>
+      <li>Something leaves your phone only when you choose to send it, for example by tapping <em>Email report</em> or <em>Send logs to MCPOTA support</em>. You see the email before it's sent.</li>
+    </ul>
+  </div>
+
+  <h2>What the app does</h2>
+  <p>Spotsy shows you which apps on your phone access your location, microphone, camera, contacts, text messages, call log, calendar, clipboard and photos, which internet addresses they look up, and how much data they send and receive in the background. It reports what was observed, not what an app did with what it accessed: it never sees the content of app traffic. It then helps you change permissions or remove apps you don't want.</p>
+  <p>For apps MCPOTA has reviewed, the app also shows what the app's privacy policy allows the company to do with your data, with the policy's own words. Grades are MCPOTA's analysis of the policy's quoted text under published rules, not a finding about the company's conduct. The whole policy database ships inside the app, so looking an app up never contacts anyone. Where a reviewed policy makes a specific promise, such as that the app doesn't access your microphone, Spotsy compares that promise with what it observed on your phone and shows a possible policy breach if they don't match. That comparison also happens only on your phone; nothing about it is sent anywhere.</p>
+  <p>While monitoring, Spotsy can show alerts as notifications on your phone when an app you installed accesses something sensitive while you're not using it, sends data shortly after, or does something its reviewed privacy policy says it doesn't. Alerts are made on your phone from the same information described below; nothing about them is sent anywhere. You choose which kinds alert in Settings → Notifications → Alerts, and Android's notification settings can turn them off.</p>
+
+  <h2>Information the app reads on your phone</h2>
+  <p>To do that, the app reads the following information from Android. It is processed and stored only on your device.</p>
+  <table>
+    <tr><th>Information</th><th>Why</th><th>How it's obtained</th></tr>
+    <tr><td>Which apps you used and when</td><td>To tell whether an app was on screen or running in the background</td><td>Android's Usage access, which you turn on in Settings</td></tr>
+    <tr><td>Background data used by each app (bytes sent and received)</td><td>To show which apps use the internet while you're not using them</td><td>Android's network usage statistics, through Usage access</td></tr>
+    <tr><td>Internet addresses (domain names) apps look up, which app looked them up, and when</td><td>To show which companies and trackers each app contacts</td><td>A local VPN that only handles DNS lookups (see below)</td></tr>
+    <tr><td>List of installed apps, with names, icons, install and last-update dates, and which store installed each one</td><td>To label activity with app names, list newly installed apps, keep a history of apps you uninstall, and flag apps that no longer get updates</td><td>Android's package manager</td></tr>
+    <tr><td>What each app asks for and what you allowed: its permissions and your choice for each (all the time, only while using, ask every time, not allowed; precise or approximate location; all photos or only ones you picked), special access it holds, roles it holds (your texting app, phone app, assistant, browser or keyboard), the background work it declares, its store category and where it was installed from</td><td>The "What you agreed to" card and the consent lines on each finding</td><td>Android's package manager and settings. With advanced access, also Android's exact permission modes (<code>cmd appops get</code>) and permission flags (<code>dumpsys package</code>)</td></tr>
+    <tr><td>Which apps hold powerful access: screen reading (Accessibility), notification access, device admin, keyboards, drawing over other apps, installing other apps, all-files access, full photo access, NFC and contactless-card ability; plus any security certificates you've added</td><td>The spyware check and settings audit, which flag the patterns spyware and banking malware use</td><td>Android's settings and package manager (with advanced access, <code>settings get secure</code>)</td></tr>
+    <tr><td>Phone settings: Private DNS mode, your default keyboard, assistant and tap-to-pay app, and whether Developer options and Wireless debugging are on</td><td>To explain findings, show what monitoring can see in the technical report, and run Banking mode</td><td>Android's settings</td></tr>
+    <tr><td>Permission-use history: when an app accessed the microphone, camera, precise or approximate location, clipboard, contacts, text messages, call log, calendar (reading or changing it), photos, videos and files (including the location saved in photos, and all-files access), and when it scanned for nearby Wi-Fi networks or Bluetooth devices; with how long it lasted and whether the app was on screen</td><td>To show what each app did and when</td><td>Android's permission records (<code>dumpsys appops</code>, <code>cmd appops get</code>), read only if you turn on optional <em>advanced access</em></td></tr>
+    <tr><td>How much each app sent and received in the last 30 seconds (byte counts only), checked every 30 seconds while monitoring is on</td><td>To show when an app sends data shortly after accessing your microphone, camera, location, contacts, texts, call log, calendar, photos, clipboard or nearby-device scans. Amounts of 20 KB or more are recorded with the time and whether the app was in use</td><td>With advanced access: Android is asked to refresh its per-app network counters (<code>dumpsys netstats --poll</code>), which are then read from Android's network usage statistics through Usage access</td></tr>
+    <tr><td>Camera service log: which app opened and closed the camera, and when</td><td>Some phones don't record camera use in the permission records</td><td>Android's camera service (<code>dumpsys media.camera</code>), with advanced access</td></tr>
+    <tr><td>Screen capture and casting history (last 7 days)</td><td>The settings audit flags apps that captured or cast your screen</td><td>Android's permission records, with advanced access</td></tr>
+    <tr><td>Whether fixes you applied are still in place (permissions, background-data restriction, per-app internet block, Accessibility and notification access)</td><td>To tell you if an app update or restart undid a fix</td><td>Android's package manager and settings; with advanced access, <code>cmd appops</code>, <code>cmd netpolicy</code> and <code>cmd connectivity</code></td></tr>
+    <tr><td>Privacy-policy grades of reviewed apps on your phone, compared with the last grade seen</td><td>To tell you when an update changes an app's grade (grade-change history)</td><td>The policy database inside the app; nothing is looked up online</td></tr>
+    <tr><td>Android system log lines filtered to Spotsy, crashes, app shutdowns and the VPN, and recent microphone access records</td><td>Troubleshooting. Read only when you view logs, save a troubleshooting log or send logs to support</td><td>Android's system log (<code>logcat</code>), with advanced access</td></tr>
+    <tr><td>The Wireless debugging pairing service on this phone</td><td>To connect advanced access to your own phone, only while you set it up</td><td>Android's local network service discovery; the connection never leaves the phone</td></tr>
+  </table>
+  <p>The app records <em>that</em> an app used a permission or contacted an address, and when. Spotsy records how much each app sends, not what it sends. It does not read the content of your messages, calls, calendar, contacts, photos, files, clipboard, notifications, recordings or web pages. It does not read motion sensors either; apps can read those without a permission, and Android doesn't record which app did, so Spotsy can't show it.</p>
+
+  <h2>The local VPN</h2>
+  <p>Android shows a key icon while Spotsy is monitoring because the app uses Android's VPN feature. This VPN:</p>
+  <ul>
+    <li>runs on your phone only, and does not route your traffic through any outside server;</li>
+    <li>handles only DNS lookups (the step where an app turns a name like <code>example.com</code> into an address). All your other traffic goes directly to the internet as usual;</li>
+    <li>passes each lookup on to your network's own DNS servers, the same servers your phone uses without Spotsy, and nowhere else. They see the name being looked up, just as they would without Spotsy;</li>
+    <li>cannot see the content of web pages or app traffic.</li>
+  </ul>
+
+  <h2>Optional advanced access</h2>
+  <p>Some features need a higher level of access that Android only grants through Wireless debugging (or the Shizuku app). If you set this up, Spotsy connects to your own phone over that local connection. It uses the connection to:</p>
+  <ul>
+    <li>read permission-use history;</li>
+    <li>refresh Android's per-app network counters every 30 seconds while monitoring, so it can record how much each app sent and when (amounts only);</li>
+    <li>make changes you ask for and agree to (see the next section), and switch Usage access on for Spotsy itself;</li>
+    <li>run <em>Banking mode</em> (see the next section).</li>
+  </ul>
+  <p>Nothing obtained this way leaves your phone.</p>
+
+  <h2>What the app can change on your phone (when you tap Fix it, Banking mode or similar and agree, or set it up in advance)</h2>
+  <p>Except for two things you set up in advance, each change below happens only after you tap a button, see what it will do and what it may affect, and confirm: (1) Automatic Banking mode, once you turn it on and pick apps, switches Wireless debugging (and Developer options, if you chose) off and on by itself as those apps open and close; (2) when advanced access is connected and Usage access is off, Spotsy switches Usage access on for itself when you open it. Most changes need advanced access.</p>
+  <table>
+    <tr><th>Change</th><th>What it does</th><th>How to undo it</th></tr>
+    <tr><td>Remove permissions</td><td>Turns off one app's access to the microphone, camera, location (or only background location), nearby devices, contacts, call log, text messages, calendar, or photos and videos</td><td>Undo gives back exactly the permissions it took away</td></tr>
+    <tr><td>Block a capability without a permission switch</td><td>Stops one app reading the clipboard, using all-files access, drawing over other apps, installing other apps, or capturing the screen</td><td>Undo restores the previous setting</td></tr>
+    <tr><td>Stop background activity and data</td><td>Restricts one app's battery use and background data, the same as Battery → Restricted and turning off background data</td><td>Undo lifts both</td></tr>
+    <tr><td>Block all internet for one app (Android 14 and later)</td><td>Turns off networking for that app only, even while it runs a foreground service. Android lifts this block when the phone restarts; Spotsy then offers to apply it again</td><td>Undo, or restart the phone</td></tr>
+    <tr><td>Disable an app</td><td>Turns an app off completely. Offered only for apps you installed, or for apps that came with the phone and are on a list of system apps known to be safe to turn off</td><td>Undo turns it back on</td></tr>
+    <tr><td>Spyware-check fixes</td><td>Turns off one app's Accessibility (screen reading) access or notification access, or switches off a keyboard (never your only keyboard)</td><td>Undo switches it back on</td></tr>
+    <tr><td><em>Banking mode</em></td><td>Turns Wireless debugging off, and Developer options too if you choose, so banking and work apps that check for them will run. The automatic version gives Spotsy Android's secure-settings permission once (through advanced access) and then switches these off while apps you choose are open and back on when you leave them, restoring only what it turned off</td><td>Tap Resume and switch them back on (the app opens the right screen), or remove apps from the automatic list</td></tr>
+    <tr><td>Usage access for Spotsy</td><td>When advanced access is connected and Usage access is off, Spotsy turns on its own Usage access when you open it, so it can tell which app is on screen. It shows a short message when it does</td><td>Android Settings → Usage access → Spotsy → off (there is no in-app undo)</td></tr>
+    <tr><td>Uninstall an app</td><td>Opens Android's own uninstaller for that app; you confirm there</td><td>Spotsy can't undo this; reinstall the app from its store</td></tr>
+  </table>
+  <p>Every change except an uninstall and the Usage access switch can be undone from the app, and you can also reverse any of them in Android's Settings. Spotsy keeps a record of each fix until you undo it, so Undo keeps working. Fixes stay in place if you uninstall Spotsy, so undo the ones you want reversed first.</p>
+
+  <h2>What is stored, and for how long</h2>
+  <p>Spotsy keeps its operational data for up to 30 days. Size limits can trim the logs sooner in extreme cases. The exceptions are listed below.</p>
+  <table>
+    <tr><th>Data</th><th>Where</th><th>Kept for</th></tr>
+    <tr><td>Recorded activity (apps, domains, permission use, how much each app sent)</td><td>App storage on your phone</td><td>Up to 30 days, then deleted automatically</td></tr>
+    <tr><td>Error log</td><td>App storage on your phone</td><td>Up to 30 days (capped at about 1 MB)</td></tr>
+    <tr><td>Crash log</td><td>App storage on your phone</td><td>Up to 30 days (capped at about 1 MB)</td></tr>
+    <tr><td>Update history (which versions were installed when)</td><td>App storage on your phone</td><td>Up to 30 days</td></tr>
+    <tr><td>Uninstalled apps (name and when you removed them)</td><td>App storage on your phone</td><td>Up to 30 days</td></tr>
+    <tr><td>Grade-change history (an app's privacy-policy grade changed, and when)</td><td>App storage on your phone</td><td>Up to 30 days. The last grade seen for each reviewed app is kept while the app is installed, and for up to 30 days after it's gone</td></tr>
+    <tr><td>Per-app reset times (when one app's history was cleared, in test builds)</td><td>App storage on your phone</td><td>Up to 30 days</td></tr>
+    <tr><td>App facts (permissions, roles, declared background work, install source)</td><td>Memory on your phone while Spotsy runs</td><td>Never written to storage; re-read when an app updates, and Android's exact permission modes at most every 10 minutes</td></tr>
+    <tr><td>Alert lists (what each app's alert notification lists, and when it last sounded)</td><td>Memory on your phone while Spotsy runs</td><td>Never written to storage; an item drops out after 24 hours, and the list starts again when you dismiss or open the alert</td></tr>
+    <tr><td>Applied fixes (what was changed and how to restore it)</td><td>App storage on your phone</td><td>Until you undo them, so Undo keeps working (or until that app is uninstalled)</td></tr>
+    <tr><td>Findings you marked as not a concern</td><td>App storage on your phone</td><td>Until you show them again (⚙ → Hidden findings) or uninstall</td></tr>
+    <tr><td>Generated reports</td><td>App's temporary storage</td><td>The most recent 12, for up to 30 days</td></tr>
+    <tr><td>Reports you download</td><td>Your Downloads folder (Downloads › Spotsy)</td><td>Until you delete them</td></tr>
+    <tr><td>Troubleshooting log, if you tap <em>Save troubleshooting log</em></td><td>Your Downloads folder (Downloads › Spotsy)</td><td>Until you delete it, including after you uninstall the app</td></tr>
+    <tr><td>Settings, such as theme, saved email address, Banking mode apps and which kinds of alerts are on</td><td>App storage on your phone</td><td>Until you change them or uninstall</td></tr>
+    <tr><td>Advanced-access key (a key pair Spotsy uses to connect to your phone's built-in debugging; it never leaves the phone)</td><td>App storage on your phone</td><td>Until you remove advanced access or uninstall</td></tr>
+    <tr><td>Free-trial start date and whether Pro is active</td><td>App storage on your phone</td><td>Until you uninstall</td></tr>
+    <tr><td>App display names (so history can show an app's name after it's gone)</td><td>App storage on your phone</td><td>While the app is installed, then removed once its history has expired (up to 30 days)</td></tr>
+    <tr><td>Test builds only: tester access code and a downloaded update</td><td>App storage on your phone</td><td>The code until you uninstall (or until it stops working); the update file is deleted after it installs</td></tr>
+    <tr><td>Support logs you send us</td><td>MCPOTA's private support storage</td><td>Up to 30 days</td></tr>
+  </table>
+  <p>App data is excluded from Android cloud backups and from phone-to-phone transfers when you set up a new phone, so your history stays on the phone where it was recorded. Uninstalling Spotsy deletes everything it stored, except reports and troubleshooting logs you saved to Downloads.</p>
+
+  <h2>When information leaves your phone</h2>
+  <p>Only when you take one of these actions:</p>
+  <ul>
+    <li><strong>Email report:</strong> the app opens your email app with the report attached. The report lists app names, domains and activity from the period you chose. You choose the recipients and press Send yourself. After that, the email is handled by your email provider and the people you send it to.</li>
+    <li><strong>Send logs to MCPOTA support:</strong> after telling you what's in it, the app opens your email app with a log attached, addressed to support@mcpota.com. It contains your phone model and Android version, the app's status, the list of apps on your phone (package names, whether each came with the phone, and which store installed it) and which of them accessed the microphone, camera, location, contacts, texts, call log, calendar or other data and when, background data use, how much each app sent and when (amounts only), fixes made, and the error and crash logs. If advanced access is on, it also includes Android's recent records of microphone use, the camera service's log of when the camera was opened and closed, and Android system log lines filtered to Spotsy, crashes and the VPN. It contains no messages, photos, passwords, call content or browsing history. You read the email and press Send yourself. MCPOTA stores the log privately, uses it only to diagnose and fix problems (including an automated diagnosis by Anthropic's Claude AI, under terms that don't allow it to be used for training), never copies your email address alongside it, and deletes it within 30 days.</li>
+    <li><strong>Report a false alarm:</strong> see "False-alarm reports" below.</li>
+    <li><strong>Upload logs (test builds only, not the Google Play version):</strong> opens a GitHub page in your browser where you choose whether to upload a troubleshooting log for review.</li>
+    <li><strong>Copy:</strong> copying logs puts them on your clipboard so you can paste them where you choose.</li>
+    <li><strong>Check for updates (test builds only, not the Google Play version):</strong> after you allow it and type a tester access code, the app asks MCPOTA's builds server (run on Cloudflare) whether a newer test build exists each time you open it, and downloads it only when you tap Update now. It sends the access code and the request, nothing the app recorded. Cloudflare sees your internet address, as any website does. Android's own installer asks you to confirm. The downloaded file is deleted the next time the app opens. Turn it off in ⚙ → Turn off the update check.</li>
+  </ul>
+
+  <h2>False-alarm reports</h2>
+  <p>If you think something was flagged by mistake, you can tap <em>Not a concern? Report a false alarm</em>. Spotsy then stops flagging it on your phone. If you also choose <em>Hide and share</em>, your email app opens with a short report addressed to support@mcpota.com. It contains what was flagged and facts about that app: its name, package, version, where it was installed from, the permissions it requested and was granted, and its services, plus your phone model and Android version. It also includes the lines Spotsy showed for that finding: which kinds of access happened, how often and when, how much the app sent, how many web addresses it looked up, and the names of any ad or analytics services it contacted. It contains no messages, photos, contacts or browsing, and you see it before pressing Send.</p>
+  <p>We use these reports only to improve how Spotsy detects problems. We may review them with the help of AI tools for that purpose. We don't use them for anything else, and we delete them once they've been reviewed.</p>
+
+  <h2>Subscriptions</h2>
+  <p>Purchases open when Spotsy launches on Google Play. If you subscribe to Spotsy Pro, the purchase is handled by Google Play. We never see your payment card or billing details. Google Play tells the app only whether your subscription is active. Google's handling of purchases is covered by <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
+
+  <h2>What we never do</h2>
+  <ul>
+    <li>We don't sell or rent data, and we have none to sell.</li>
+    <li>We don't show ads, and we include no advertising or analytics code.</li>
+    <li>We don't build profiles of you or the apps you use.</li>
+    <li>We don't upload your activity, contacts, location or any other personal information.</li>
+  </ul>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Stop monitoring at any time from the app, or by turning off the VPN in Android settings.</li>
+    <li>Delete recorded activity with ⚙ → <em>Clear recorded events</em>, and logs with ⚙ → <em>Logs</em> → <em>Clear</em>.</li>
+    <li>Undo any fix from the app (the app's timeline, or the Fixed list) whenever you like.</li>
+    <li>Turn off Usage access or advanced access in Android settings whenever you like.</li>
+    <li>Uninstall the app to remove all of its data.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>Spotsy is not directed at children under 13 and does not knowingly collect information from anyone, of any age.</p>
+
+  <h2>Security</h2>
+  <p>Except reports and troubleshooting logs you save to Downloads, your data stays in the app's private storage, which other apps can't read. Because nothing is sent to us, there is no server copy that could be breached.</p>
+
+  <h2 id="iphone">Spotsy for iPhone</h2>
+  <p>iPhones don't let one app see what other apps do, so the iPhone version has no monitoring, no VPN and no fixes it makes itself. It reads the <strong>App Privacy Report</strong> that iOS keeps (Settings → Privacy &amp; Security → App Privacy Report) when you save it and share it to Spotsy, or open a saved copy. That report lists, for the last 7 days, which apps accessed your camera, microphone, location, contacts, photos and similar, and which internet domains they contacted. It does not contain what apps sent.</p>
+  <ul>
+    <li><strong>Read on your phone, in memory.</strong> The report is read on your phone and shown while the app is open. Its contents are not stored: the copy iOS hands to the app is deleted as soon as it has been read.</li>
+    <li><strong>What is stored on your phone:</strong> whether you finished setup, the date you said you turned App Privacy Report on, the date of the last report you shared (its newest entry, so the app can tell you when it is 7 or more days old), whether the weekly reminder is on, and when you last tapped <em>Later</em> on the out-of-date message. These stay until you delete the app.</li>
+    <li><strong>Weekly reminder (optional):</strong> if you turn it on and allow notifications, a notification scheduled on your phone reminds you once a week to share a fresh report. Turn it off in the app or in iOS Settings → Notifications.</li>
+    <li><strong>Summary, Details, Dashboard and timelines</strong> are worked out on your phone from the report you shared, while the app is open. They are not stored; close the app or share another report and they are gone.</li>
+    <li><strong>Share report (optional):</strong> when you tap <em>Share report</em>, the app makes a PDF of the findings on your phone and opens the iOS share sheet. You choose where it goes (for example Mail, Messages or Files); nothing is sent unless you pick a destination. The app writes the PDF to its temporary folder only so the share sheet can hand it on, and deletes it when the share sheet closes (or the next time the app opens). It does not keep a copy.</li>
+    <li><strong>Nothing leaves your phone.</strong> The iPhone version has no account, ads, analytics or tracking, and sends nothing to MCPOTA or anyone else. Tapping <em>Read the full policy</em> on an app's page opens the company's website in your browser.</li>
+    <li><strong>Policy grades</strong> are MCPOTA's analysis of quoted privacy-policy text, as described above. The reviews ship inside the app, so looking an app up never leaves your phone. Reviews are made from the privacy policy linked on the company's Google Play listing and matched to the same company's iPhone app; a company's iPhone and Android apps usually share one policy. The made-up sample shows made-up grades.</li>
+  </ul>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, we will update the date at the top of this page. If a change affects what the app does with your information, we'll also explain it in the app before it takes effect.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:privacy@mcpota.com">privacy@mcpota.com</a></p>
+</main>
+</body>
+</html>
