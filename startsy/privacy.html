@@ -47,29 +47,29 @@
 <h2>Information the app reads</h2>
 <ul>
   <li><strong>What you type or dictate</strong>: each task's name, its "done when" line, its steps and which list it's in (Today, This week, Later, Done).</li>
-  <li><strong>Speech recognition</strong> (only when you tap a microphone button): Startsy asks Android for microphone permission and opens a listening box that uses your phone's speech service to turn your voice into text. The mic stays on through pauses and stops when you tap Done or Cancel. On many phones that service is Google's, which may process the audio on its servers under Google's privacy policy. Startsy never keeps, stores or sends the audio; it keeps only the text. The first time, Startsy explains this and lets you type instead.</li>
+  <li><strong>Speech recognition</strong> (only when you tap a microphone button): Startsy asks Android for microphone permission and opens a listening box that uses your phone's speech service to turn your voice into text. The mic stays on through pauses and stops when you tap Done or Cancel. On many phones that service is Google's, which may process the audio on its servers under Google's privacy policy. <strong>On iPhone</strong>, Startsy asks iOS for microphone and speech recognition permission and uses Apple's speech recognition, which runs on the phone when the iPhone supports it; otherwise Apple processes the audio under Apple's privacy policy. Startsy never keeps, stores or sends the audio; it keeps only the text. The first time, Startsy explains this and lets you type instead.</li>
 </ul>
-<p>Startsy does not read your contacts, location, files, calendar or other apps. It sees only the photos you choose to add to a task or to Talk.</p>
+<p>Startsy does not read your contacts, location, files, calendar or other apps. It sees only the photos you choose to add to a task or to Talk. On iPhone, photos come from Apple's photo picker, which gives Startsy only the photos you pick, not your photo library.</p>
 
 <h2>Snap a list</h2>
 <p>When you tap <strong>📷 Snap a list</strong> and take a photo or pick a picture (for example a screenshot of a task list, a whiteboard or a paper list):</p>
 <ul>
   <li><strong>Read on your phone.</strong> Startsy finds the words with on-device text recognition: on Android, Google ML Kit with its model built into Startsy; on iPhone, Apple's Vision framework. It works offline. The picture and its words are not sent to MCPOTA, to Startsy's AI server or to anyone else.</li>
-  <li><strong>The picture is not kept.</strong> It is held in memory only while it's read, then released. A photo taken with the camera is saved briefly in Startsy's private storage (never your gallery) and deleted right after it's read. Startsy sees only the one picture you choose.</li>
+  <li><strong>The picture is not kept.</strong> It is held in memory only while it's read, then released. On Android, a photo taken with the camera is saved briefly in Startsy's private storage (never your gallery) and deleted right after it's read; on iPhone it goes straight to Startsy and isn't saved to your photo library. Startsy sees only the one picture you choose.</li>
   <li><strong>You choose what's saved.</strong> Startsy shows every line it found before anything is added. Lines you uncheck or remove (a customer's name, anything private) are never saved. The lines you keep become ordinary tasks, stored only on your phone like any other task.</li>
   <li>On Android, Startsy turns off the usage statistics ML Kit would otherwise send Google (phone model, app version, timing), so nothing about Snap a list leaves the phone.</li>
 </ul>
 
 <h2>What the app can change on your phone</h2>
-<p>Startsy changes its own task list. When you give a task a start-by time, it also sets an alarm and shows a reminder notification on your phone at that time (with your permission to show notifications and, on Android 12 and later, to set alarms on time). It sets those alarms again after your phone restarts. You can turn all reminders off in Settings → Reminders, or remove a task's start time. Nothing else outside Startsy changes.</p>
+<p>Startsy changes its own task list. When you give a task a start-by time, it also sets an alarm and shows a reminder notification on your phone at that time (with your permission to show notifications and, on Android 12 and later, to set alarms on time). It sets those alarms again after your phone restarts. <strong>On iPhone</strong>, each task's reminder is your choice: a Nudge (a Time Sensitive notification, which can come through Focus) or an Alarm (an iOS alarm, iOS 26 and later, which rings even on silent until you answer it), each with your permission. iOS lets an app keep only a limited number of waiting notifications, so Startsy keeps the next 64 reminders set and adds more each time you open it. You can turn all reminders off in Settings → Reminders, or remove a task's start time. Nothing else outside Startsy changes.</p>
 
 <h2>What is stored, and for how long</h2>
 <ul>
   <li>Your tasks are kept in Startsy's private storage on your phone until you delete them (Edit → Delete) or uninstall the app. Finished tasks stay in Done so you can undo.</li>
-  <li>A few settings are stored with them: whether you agreed to the dictation note, whether "Break it down" is on, whether the update check is on (with your tester access code, if you entered one), your Appearance choice (Match phone, Light or Dark), whether reminders are on, the name you gave Startsy and its notes about how you like to work, which release notes you've already seen, whether Startsy cheers, whether you've seen the photo reminder, and which task is in Start here.</li>
+  <li>A few settings are stored with them: whether you agreed to the dictation note, whether "Break it down" is on, whether the update check is on (with your tester access code, if you entered one), your Appearance choice (Match phone, Light or Dark), whether reminders are on (and on iPhone, whether you last picked Nudge or Alarm, and the times the alarms are set for), the name you gave Startsy and its notes about how you like to work, which release notes you've already seen, whether Startsy cheers, whether you've seen the photo reminder, and which task is in Start here.</li>
   <li>A task's start-by time is stored with the task. Reminders are made on your phone; nothing about them is sent anywhere.</li>
   <li>Settings (⚙) → <strong>Delete all my tasks</strong> removes every task from your phone at once.</li>
-  <li>Startsy turns off Android's app backup, so your tasks are not copied to cloud backups.</li>
+  <li>Startsy turns off Android's app backup, and on iPhone keeps its task file out of iCloud backups, so your tasks are not copied to cloud backups.</li>
   <li>MCPOTA keeps nothing about you on its servers. The AI server does not store or log the words it passes on.</li>
 </ul>
 
@@ -89,7 +89,7 @@
   <tr><th>What is kept</th><td>MCPOTA does not store or log conversations or photos. Anthropic deletes them within 30 days and does not train on them. On your phone, Startsy keeps your name and up to 30 short notes it learned (for example "has a clothes hamper"); it never notes health details, other people's names, addresses or money. See or delete them in Settings → Talking with Startsy. Startsy's voice is your phone's own text-to-speech.</td></tr>
   <tr><th>Guardrails</th><td>Startsy sticks to starting and finishing tasks. It isn't a friend, therapist or medical service and doesn't treat anything. If someone mentions being in crisis, it points to the 988 Suicide &amp; Crisis Lifeline (call or text 988 in the US) or 911.</td></tr>
 </table>
-<p><strong>Update check (test builds only).</strong> If you tap Allow on the "Check for updates?" screen and enter a tester access code, each time you open Startsy it asks MCPOTA's builds server whether a newer test build is posted:</p>
+<p><strong>Update check (Android test builds only).</strong> iPhone test builds come from Apple's TestFlight app, which handles their updates; Startsy for iPhone has no update check of its own. On Android, if you tap Allow on the "Check for updates?" screen and enter a tester access code, each time you open Startsy it asks MCPOTA's builds server whether a newer test build is posted:</p>
 <table>
   <tr><th>What is sent</th><td>Your tester access code and a request for Startsy's latest test build, and, if you tap "Update now", a download of it. No tasks, no name, no account.</td></tr>
   <tr><th>Where it goes</th><td>MCPOTA's builds server, which runs on Cloudflare, checks the code and fetches the build from MCPOTA's private GitHub repository. Cloudflare sees your internet (IP) address, as any website does, and uses it briefly to limit how many requests one network can make. GitHub does not see your phone.</td></tr>
@@ -99,7 +99,7 @@
 <p><strong>Things you send yourself.</strong> Two Settings items hand information to another app on your phone, and only when you tap them:</p>
 <ul>
   <li><strong>Export my tasks</strong> gives a text copy of your tasks to the app you pick (email, notes, files). From there it follows that app's rules.</li>
-  <li><strong>Send feedback</strong> opens your email app addressed to support@mcpota.com, with the Startsy and Android version numbers filled in. You see the whole email and nothing is sent until you tap Send. MCPOTA uses it only to answer you and improve Startsy.</li>
+  <li><strong>Send feedback</strong> opens your email app addressed to support@mcpota.com, with the Startsy and Android or iOS version numbers filled in. You see the whole email and nothing is sent until you tap Send. MCPOTA uses it only to answer you and improve Startsy.</li>
 </ul>
 <p>Nothing else leaves your phone. Startsy has no ads, analytics, crash reporting or tracking.</p>
 
