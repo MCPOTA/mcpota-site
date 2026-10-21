@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#13202B">
+<title>Jobsite App Preview · MCPOTA</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{--ink:#13202B;--ground:#F3F4F1;--card:#FFFFFF;--line:#D5D9DC;--muted:#4A5560;--hi:#FFD23F;--tip:#FFE680;--pass:#1E7B3A;--warn:#B26A00;--warn-ink:#8A5300;--fail:#B42318;--na:#5B6770;
+--display:"Barlow Semi Condensed",Barlow,"Arial Narrow",sans-serif;--body:Barlow,"Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#E3E6E8;color:var(--ink);font-family:var(--body);-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid #2F6FEB;outline-offset:2px}
+.app{max-width:440px;margin:0 auto;min-height:100%;background:var(--ground);display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)}
+.screen{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
+.screen[hidden]{display:none}
+.bar{background:var(--ink);color:#F3F4F1;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;display:flex;flex-direction:column;gap:6px}
+.bar h1,.bar h2{margin:0;font-family:var(--display);font-weight:700;line-height:1.05}
+.bar h2{font-size:28px}.bar .sub{font-size:14px;color:#C9D1D8}
+.tip{position:sticky;top:0;z-index:5;background:var(--tip);border-bottom:2px solid #E8B800;padding:8px 12px;display:flex;align-items:center;gap:10px}
+.tip span{flex:1;font-size:16px;font-weight:700;line-height:1.25}
+.done{flex:none;min-height:44px;padding:0 18px;border-radius:10px;border:0;background:var(--ink);color:#F3F4F1;font-size:16px;font-weight:700}
+.body{flex:1;padding:14px 16px 20px;display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.label{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tabs{position:sticky;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px}
+.tabs button{min-height:48px;border:0;background:transparent;border-radius:8px;font-size:13px;font-weight:700;color:var(--muted)}
+.tabs button[aria-current="page"]{background:var(--ink);color:#F3F4F1}
+.big{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:12px;font-size:21px;font-weight:700;text-decoration:none;border:0;width:100%}
+.big.yellow{background:var(--hi);color:var(--ink)}.big.dark{background:var(--ink);color:#F3F4F1}
+.foot{position:sticky;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:10px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px;text-align:left;width:100%}
+.num{font-family:var(--display);font-size:38px;font-weight:700;line-height:1}
+.chipset{display:flex;gap:8px;flex-wrap:wrap}
+.chip{min-height:46px;padding:0 16px;border-radius:999px;border:2px solid var(--ink);background:var(--card);font-size:16px;font-weight:700}
+.chip[aria-pressed="true"]{background:var(--ink);color:#F3F4F1}
+.row{display:flex;align-items:center;gap:12px}
+.check{width:100%;min-height:52px;display:flex;align-items:center;gap:12px;border:0;border-bottom:1px solid #E6E9EB;background:transparent;text-align:left;font-size:17px;font-weight:500;padding:0}
+.box{flex:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.on .box{background:var(--pass);border-color:var(--pass)}
+.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.seg button{min-height:48px;border-radius:8px;background:var(--card);font-size:15px;font-weight:700}
+.p{border:2px solid var(--pass);color:var(--pass)}.f{border:2px solid var(--fail);color:var(--fail)}.n{border:2px solid var(--na);color:var(--na)}
+.p.sel{background:var(--pass);color:#fff}.f.sel{background:var(--fail);color:#fff}.n.sel{background:var(--na);color:#fff}
+.cam{border:1px solid #B8C0C6;color:var(--ink);display:flex;align-items:center;justify-content:center;gap:4px}
+.pin{position:absolute;width:30px;height:30px;border-radius:50%;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.btn2{min-height:48px;border-radius:8px;font-size:16px;font-weight:700}
+.btn2.out{border:1px solid #B8C0C6;background:#fff}.btn2.solid{border:0;background:var(--ink);color:#F3F4F1}
+.step{min-width:48px;height:48px;border-radius:8px;font-size:22px;font-weight:700}
+.note{font-size:14px;font-weight:700}
+.ended{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:32px;text-align:center}
+@media (prefers-reduced-motion:no-preference){.screen{animation:in .15s ease-out}@keyframes in{from{opacity:.6}to{opacity:1}}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="bot" viewBox="0 0 200 200"><g stroke="#18212E" stroke-linecap="round" stroke-linejoin="round"><line x1="70" y1="146" x2="46" y2="166" stroke-width="7"/><line x1="130" y1="146" x2="152" y2="154" stroke-width="7"/><circle cx="46" cy="166" r="9" fill="#7AA2FF" stroke-width="4"/><rect x="76" y="180" width="18" height="14" rx="4" fill="#18212E" stroke="none"/><rect x="106" y="180" width="18" height="14" rx="4" fill="#18212E" stroke="none"/><rect x="66" y="132" width="68" height="50" rx="10" fill="#F28C28" stroke-width="5"/><line x1="70" y1="152" x2="130" y2="152" stroke="#E7ECF4" stroke-width="6"/><line x1="70" y1="166" x2="130" y2="166" stroke="#E7ECF4" stroke-width="6"/><rect x="90" y="120" width="20" height="14" rx="3" fill="#8E9BA7" stroke-width="4"/><circle cx="56" cy="88" r="7" fill="#7AA2FF" stroke-width="4"/><circle cx="144" cy="88" r="7" fill="#7AA2FF" stroke-width="4"/><rect x="60" y="52" width="80" height="70" rx="12" fill="#C9D3DD" stroke-width="5"/><rect x="68" y="70" width="64" height="28" rx="10" fill="#18212E" stroke="none"/><circle cx="85" cy="84" r="10" fill="#3EB8F0" stroke="none"/><circle cx="115" cy="84" r="10" fill="#3EB8F0" stroke="none"/><circle cx="88" cy="81" r="3.5" fill="#FFFFFF" stroke="none"/><circle cx="118" cy="81" r="3.5" fill="#FFFFFF" stroke="none"/><rect x="82" y="104" width="36" height="10" rx="3" fill="#18212E" stroke="none"/><path d="M91 105 L91 113 M100 105 L100 113 M109 105 L109 113" fill="none" stroke="#C9D3DD" stroke-width="2.5"/><path d="M56 58 Q58 18 100 16 Q142 18 144 58 Z" fill="#FFD23F" stroke-width="5"/><path d="M100 17 L100 56 M82 22 L85 56 M118 22 L115 56" fill="none" stroke="#C9A000" stroke-width="3"/><path d="M46 58 Q100 70 154 58 Q100 50 46 58 Z" fill="#E8B800" stroke-width="4"/><rect x="148" y="116" width="38" height="48" rx="5" fill="#FFFFFF" stroke-width="4"/><rect x="158" y="110" width="18" height="10" rx="3" fill="#7AA2FF" stroke-width="3"/><path d="M156 140 L164 149 L178 130" fill="none" stroke="#1E7B3A" stroke-width="5"/><circle cx="152" cy="154" r="9" fill="#7AA2FF" stroke-width="4"/></g></symbol></defs></svg>
+
+<div class="app" id="app">
+
+<!-- WELCOME -->
+<section class="screen" id="s-start">
+<div class="bar" style="flex-direction:row;align-items:center;gap:12px">
+<div style="width:58px;height:58px;border-radius:14px;background:#1E2D3A;overflow:hidden;flex:none"><svg viewBox="0 0 200 200" width="58" height="58" role="img" aria-label="Hard-hat robot"><use href="#bot"/></svg></div>
+<div><h1 style="font-size:26px">New jobsite app</h1><div class="sub">Sneak peek · please don't share</div></div>
+</div>
+<div class="body" style="gap:16px;padding-top:20px">
+<h2 style="margin:0;font-family:var(--display);font-size:38px;line-height:1.02;font-weight:700">Catch print mistakes before you build them.</h2>
+<p style="margin:0;font-size:19px;line-height:1.4">Check prints, run your start card and checklists, and log hours, all on your phone.</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div class="row"><span style="width:42px;height:42px;border-radius:50%;background:var(--hi);font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none">1</span><span style="font-size:19px;font-weight:700">Tap around the app</span></div>
+<div class="row"><span style="width:42px;height:42px;border-radius:50%;background:var(--hi);font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none">2</span><span style="font-size:19px;font-weight:700">Tell us what you think</span></div>
+<div class="row"><span style="width:42px;height:42px;border-radius:50%;background:var(--hi);font-size:20px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none">3</span><span style="font-size:19px;font-weight:700">Help pick the name</span></div>
+</div>
+<p style="margin:0;font-size:15px;color:var(--muted);line-height:1.45">Takes about 5 minutes. Open until Fri, Nov 20, 2026. Sample screens only. Ideas you share may be used by MCPOTA.</p>
+</div>
+<div class="foot">
+<button class="big yellow" data-go="home">1. Try the app</button>
+<a class="big dark" href="https://docs.google.com/forms/d/e/1FAIpQLScdxNT5lDiVgj2AbgeJ_vO9CWeovG32S-89et5n97Q_VWbDgg/viewform" target="_blank" rel="noopener">2. Give feedback</a>
+</div>
+</section>
+
+<!-- HOME -->
+<section class="screen" id="s-home" hidden>
+<div class="bar">
+<div class="row" style="justify-content:space-between"><span class="sub" style="font-weight:700;letter-spacing:.06em;text-transform:uppercase">Today</span><span style="font-size:13px;font-weight:700;background:#2B3A47;padding:4px 10px;border-radius:999px">Offline · 3 to sync</span></div>
+<h2 style="font-size:30px">Riverside Medical Office</h2>
+<div class="row" style="gap:8px;flex-wrap:wrap"><span style="background:var(--hi);color:var(--ink);font-size:14px;font-weight:700;padding:4px 10px;border-radius:4px">Electrical rough-in</span><span class="sub">Level 2 · Job #2417 (sample)</span></div>
+</div>
+<div class="tip"><span>Try it: Tap any box to open that screen.</span><button class="done" data-go="start">Done</button></div>
+<div class="body">
+<button class="tile" data-go="startcard" style="border:2px solid var(--warn);flex-direction:row;align-items:center;justify-content:space-between">
+<span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:19px;font-weight:700">Start card</span><span style="font-size:15px;color:var(--warn-ink);font-weight:700">Not started · needed before work</span></span>
+<span style="font-size:16px;font-weight:700;background:var(--ink);color:#F3F4F1;padding:12px 16px;border-radius:8px">Start</span>
+</button>
+<div class="grid2">
+<button class="tile" data-go="print"><span class="num">2</span><span style="font-size:16px;font-weight:700">Prints to review</span><span style="font-size:14px;color:var(--muted)">Engineer</span></button>
+<button class="tile" data-go="issues"><span class="num" style="color:var(--fail)">4</span><span style="font-size:16px;font-weight:700">Open issues</span><span style="font-size:14px;color:var(--muted)">1 needs your sign-off</span></button>
+<button class="tile" data-go="checklist"><span class="num">12<span style="font-size:22px;color:var(--muted)">/30</span></span><span style="font-size:16px;font-weight:700">Checklist items</span><span style="font-size:14px;color:var(--muted)">Branch circuits</span></button>
+<button class="tile" data-go="hours"><span class="num" id="home-hrs">36.5</span><span style="font-size:16px;font-weight:700">Hours today</span><span style="font-size:14px;color:var(--muted)">of 48 budgeted</span></button>
+</div>
+</div>
+</section>
+
+<!-- PRINT REVIEW -->
+<section class="screen" id="s-print" hidden>
+<div class="bar"><h2>Print review</h2><div class="sub">E-201 Power Plan · Level 2 · Rev C</div></div>
+<div class="tip"><span>Try it: Tap Accept or Dismiss on each flag.</span><button class="done" data-go="start">Done</button></div>
+<div class="body">
+<div style="position:relative;height:200px;border-radius:10px;border:1px solid #B8C0C6;background-color:#fff;background-image:linear-gradient(#E3E7EA 1px,transparent 1px),linear-gradient(90deg,#E3E7EA 1px,transparent 1px);background-size:24px 24px;overflow:hidden">
+<div style="position:absolute;left:10%;top:16%;width:44%;height:52%;border:3px solid #5B6770"></div>
+<div style="position:absolute;left:54%;top:32%;width:32%;height:44%;border:3px solid #5B6770"></div>
+<div class="pin" style="left:18%;top:28%;background:var(--fail)">1</div>
+<div class="pin" style="left:64%;top:46%;background:var(--warn)">2</div>
+<div class="pin" style="left:78%;top:80%;background:var(--warn)">3</div>
+<span style="position:absolute;left:8px;bottom:6px;font-size:13px;color:var(--muted);background:#fff;padding:2px 6px;border-radius:4px">Sample print</span>
+</div>
+<div class="row" style="justify-content:space-between"><span class="label">AI flags · needs review</span><span style="font-size:14px;color:var(--muted)" id="pr-count">0 of 3 reviewed</span></div>
+<div id="flags" style="display:flex;flex-direction:column;gap:10px"></div>
+</div>
+<div class="foot"><button class="big" id="release" data-go="home" style="background:var(--line);color:var(--ink)">Review all flags to release</button></div>
+</section>
+
+<!-- START CARD -->
+<section class="screen" id="s-startcard" hidden>
+<div class="bar"><h2>Start card</h2><div class="sub">Riverside Medical Office · Level 2</div></div>
+<div class="tip"><span>Try it: Pick the work, tap the boxes, tap names to sign.</span><button class="done" data-go="start">Done</button></div>
+<div class="body">
+<span class="label">Today's work</span>
+<div class="chipset" id="types"></div>
+<div class="card row" id="risk" style="justify-content:space-between;border-width:2px"></div>
+<div class="card" style="padding:4px 14px" id="hazards"></div>
+<span class="label" id="crew-label">Crew sign-on</span>
+<div class="grid2" id="crew" style="gap:8px"></div>
+</div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="screen" id="s-checklist" hidden>
+<div class="bar"><h2>Branch circuits</h2><div class="sub">Your company's spec &amp; DBI list · <span style="font-family:var(--mono)">DBI-04</span></div>
+<div style="height:10px;border-radius:5px;background:#2B3A47;overflow:hidden"><div id="cl-bar" style="height:10px;width:43%;background:var(--hi)"></div></div></div>
+<div class="tip"><span>Try it: Tap Pass, Fail or N/A. Try Fail.</span><button class="done" data-go="start">Done</button></div>
+<div class="body" id="cl-items"></div>
+</section>
+
+<!-- ISSUES -->
+<section class="screen" id="s-issues" hidden>
+<div class="bar"><h2>Issues</h2><div class="chipset" id="is-tabs"></div></div>
+<div class="tip"><span>Try it: Tap Sign off. Try the tabs up top.</span><button class="done" data-go="start">Done</button></div>
+<div class="body" id="is-list"></div>
+</section>
+
+<!-- HOURS -->
+<section class="screen" id="s-hours" hidden>
+<div class="bar"><h2>Hours · Today</h2>
+<div class="row" style="justify-content:space-between;font-size:15px"><span id="hr-total">36.5 hrs logged</span><span class="sub">48 budgeted</span></div>
+<div style="height:10px;border-radius:5px;background:#2B3A47;overflow:hidden"><div id="hr-bar" style="height:10px;width:76%;background:var(--hi)"></div></div></div>
+<div class="tip"><span>Try it: Tap + and − to change hours.</span><button class="done" data-go="start">Done</button></div>
+<div class="body">
+<span class="label">By cost code</span>
+<div id="codes" style="display:flex;flex-direction:column;gap:10px"></div>
+<span class="label" style="padding-top:4px">Lost time today</span>
+<div class="chipset" id="waste"></div>
+</div>
+<div class="foot"><button class="big yellow" data-go="home">Submit today's hours</button></div>
+</section>
+
+<nav class="tabs" id="tabs" aria-label="App sections" hidden>
+<button data-go="home">Jobs</button><button data-go="startcard">Start card</button><button data-go="checklist">Checklist</button><button data-go="issues">Issues</button><button data-go="hours">Hours</button>
+</nav>
+</div>
+
+<script>
+(function(){
+var END=new Date('2026-11-21T05:00:00Z'); // end of Fri Nov 20, Eastern
+if(new Date()>=END){document.getElementById('app').innerHTML='<div class="ended"><svg viewBox="0 0 200 200" width="120" height="120" role="img" aria-label="Hard-hat robot"><use href="#bot"/></svg><h1 style="margin:0;font-family:var(--display);font-size:34px">This preview has ended.</h1><p style="margin:0;font-size:18px;color:var(--muted)">Thanks for your interest. Stay tuned at mcpota.com.</p></div>';return;}
+var $=function(id){return document.getElementById(id)};
+var TAB={home:1,startcard:1,checklist:1,issues:1,hours:1};
+function go(s){document.querySelectorAll('.screen').forEach(function(x){x.hidden=x.id!=='s-'+s});$('tabs').hidden=!TAB[s];
+ document.querySelectorAll('#tabs button').forEach(function(b){b.setAttribute('aria-current',b.dataset.go===s?'page':'false')});window.scrollTo(0,0);}
+document.addEventListener('click',function(e){var t=e.target.closest('[data-go]');if(t){e.preventDefault();go(t.dataset.go);}});
+function h(tag,attrs,html){var e=document.createElement(tag);for(var k in attrs||{})e.setAttribute(k,attrs[k]);if(html!=null)e.innerHTML=html;return e}
+
+// Print review
+var flags=[{n:1,c:'var(--fail)',t:'Conflicting circuit callouts',d:'Panel LP-2A circuit 14 is labeled for two rooms. Confidence: high'},{n:2,c:'var(--warn)',t:'Missing dimension',d:'Receptacle spacing on the corridor wall has no dimension. Confidence: medium'},{n:3,c:'var(--warn)',t:'Revision mismatch',d:'Title block shows Rev C; a keynote references Rev B. Confidence: medium'}],dec={};
+function rPrint(){var w=$('flags');w.innerHTML='';flags.forEach(function(f){var c=h('div',{class:'card',style:'display:flex;flex-direction:column;gap:10px'});
+ c.appendChild(h('div',{class:'row',style:'align-items:flex-start'},'<span class="pin" style="position:static;flex:none;background:'+f.c+'">'+f.n+'</span><span style="display:flex;flex-direction:column;gap:2px"><b style="font-size:17px">'+f.t+'</b><span style="font-size:15px;color:var(--muted)">'+f.d+'</span></span>'));
+ if(!dec[f.n]){var r=h('div',{class:'grid2',style:'gap:8px'});var a=h('button',{class:'btn2 out'},'Dismiss');a.onclick=function(){dec[f.n]='d';rPrint()};var b=h('button',{class:'btn2 solid'},'Accept flag');b.onclick=function(){dec[f.n]='a';rPrint()};r.append(a,b);c.appendChild(r);}
+ else c.appendChild(h('span',{class:'note',style:'color:'+(dec[f.n]==='a'?'var(--pass)':'var(--muted)')},dec[f.n]==='a'?'Accepted · sent to foreman':'Dismissed · logged'));w.appendChild(c);});
+ var n=Object.keys(dec).length;$('pr-count').textContent=n+' of 3 reviewed';var rel=$('release');rel.textContent=n===3?'Release to foreman':'Review all flags to release';rel.style.background=n===3?'var(--hi)':'var(--line)';}
+rPrint();
+
+// Start card
+var types=[{id:'rough',l:'Rough-in',r:'Moderate',c:'var(--warn)',n:'Ladders and live panels nearby'},{id:'over',l:'Overhead work',r:'High',c:'var(--fail)',n:'Lift use and falling objects'},{id:'trim',l:'Trim-out',r:'Low',c:'var(--pass)',n:'Finished areas, low exposure'}],ty='rough';
+var hz=[['lock','Lockout/tagout verified on LP-2A'],['lad','Ladders inspected and set at 4:1'],['ppe','PPE: hard hat, glasses, gloves'],['clr','Work area clear of other trades']],hzOn={lock:1};
+var crew=['R. Diaz','J. Okafor','M. Chen','T. Brooks'],signed={'R. Diaz':1};
+function rStart(){var t=$('types');t.innerHTML='';types.forEach(function(x){var b=h('button',{class:'chip','aria-pressed':String(x.id===ty)},x.l);b.onclick=function(){ty=x.id;rStart()};t.appendChild(b)});
+ var cur=types.filter(function(x){return x.id===ty})[0];var r=$('risk');r.style.borderColor=cur.c;r.innerHTML='<span style="display:flex;flex-direction:column;gap:2px"><span class="label">Risk level</span><b style="font-family:var(--display);font-size:28px;color:'+cur.c+'">'+cur.r+'</b></span><span style="font-size:15px;color:var(--muted);text-align:right;max-width:55%">'+cur.n+'</span>';
+ var hw=$('hazards');hw.innerHTML='';hz.forEach(function(x){var on=!!hzOn[x[0]];var b=h('button',{class:'check'+(on?' on':''),'aria-pressed':String(on)},'<span class="box">'+(on?'✓':'')+'</span><span>'+x[1]+'</span>');b.onclick=function(){hzOn[x[0]]=!on;rStart()};hw.appendChild(b)});
+ var cw=$('crew');cw.innerHTML='';var n=0;crew.forEach(function(p){var on=!!signed[p];if(on)n++;var b=h('button',{class:'btn2',style:'border:2px solid '+(on?'var(--pass)':'#B8C0C6')+';background:'+(on?'#E7F3EA':'#fff')+';font-size:15px'},on?p+' · signed':p+' · tap to sign');b.onclick=function(){signed[p]=!on;rStart()};cw.appendChild(b)});
+ $('crew-label').textContent='Crew sign-on · '+n+' of 4';}
+rStart();
+
+// Checklist
+var items=[['a','Conduit supported within 3 ft of each box','E-201'],['b','Circuit labels match panel schedule','E-601'],['c','Box fill within allowed count','Spec 26 05 33'],['d','Receptacle heights match elevations','E-401']],res={a:'p'};
+function rCheck(){var w=$('cl-items');w.innerHTML='';var done=0;items.forEach(function(it){var v=res[it[0]];if(v)done++;var c=h('div',{class:'card',style:'display:flex;flex-direction:column;gap:10px'});
+ c.appendChild(h('div',{class:'row',style:'justify-content:space-between;align-items:flex-start'},'<b style="font-size:17px">'+it[1]+'</b><span style="flex:none;font-size:13px;color:var(--muted)">'+it[2]+'</span>'));
+ var s=h('div',{class:'seg'});[['p','Pass'],['f','Fail'],['n','N/A']].forEach(function(o){var b=h('button',{class:o[0]+(v===o[0]?' sel':''),'aria-pressed':String(v===o[0])},o[1]);b.onclick=function(){res[it[0]]=v===o[0]?null:o[0];rCheck()};s.appendChild(b)});
+ s.appendChild(h('button',{class:'cam','aria-label':'Take photo'},'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>'+(v?'1':'Add')));c.appendChild(s);
+ if(v==='f')c.appendChild(h('span',{class:'note',style:'color:var(--fail)'},'Issue created · photo and note needed · foreman signs off'));w.appendChild(c)});
+ $('cl-bar').style.width=Math.round((12+done)/30*100)+'%';}
+rCheck();
+
+// Issues
+var iss=[[1,'Box fill over limit at corridor J-box','Field issue · Checklist DBI-04','f'],[2,'Circuit 14 labeled for two rooms','Print issue · E-201 flag 1','e'],[3,'Missing strut support near AHU-2','Field issue · Photo from J. Okafor','f'],[4,'Receptacle height off elevation','Field issue · E-401','e']],closed={},tab='mine';
+function rIss(){var t=$('is-tabs');t.innerHTML='';[['mine','Mine to sign'],['all','All open'],['closed','Closed']].forEach(function(x){var b=h('button',{class:'chip','aria-pressed':String(x[0]===tab),style:'border-color:#5B6770;'+(x[0]===tab?'background:var(--hi);color:var(--ink)':'background:transparent;color:#F3F4F1')},x[1]);b.onclick=function(){tab=x[0];rIss()};t.appendChild(b)});
+ var w=$('is-list');w.innerHTML='';var shown=iss.filter(function(i){var c=!!closed[i[0]];return tab==='closed'?c:(tab==='mine'?(!c&&i[3]==='f'):!c)});
+ if(!shown.length)w.appendChild(h('div',{style:'border:1px dashed #B8C0C6;border-radius:12px;padding:24px;text-align:center;color:var(--muted);font-size:17px'},'Nothing here.'));
+ shown.forEach(function(i){var c=!!closed[i[0]];var card=h('div',{class:'card row',style:'align-items:flex-start'});card.appendChild(h('div',{style:'flex:none;width:64px;height:64px;border-radius:8px;background:#DDE2E5;color:var(--muted);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center'},i[3]==='f'?'Photo':'Print'));
+ var col=h('div',{style:'flex:1;min-width:0;display:flex;flex-direction:column;gap:4px'},'<b style="font-size:17px">'+i[1]+'</b><span style="font-size:14px;color:var(--muted)">'+i[2]+'</span>');
+ if(c)col.appendChild(h('span',{class:'note',style:'color:var(--pass)'},'Closed by R. Diaz · just now'));
+ else if(i[3]==='f'){var b=h('button',{class:'btn2 solid',style:'align-self:flex-start;padding:0 18px;margin-top:4px'},'Sign off');b.onclick=function(){closed[i[0]]=1;rIss()};col.appendChild(b)}
+ else col.appendChild(h('span',{class:'note',style:'color:var(--warn-ink)'},'Waiting on engineer sign-off'));card.appendChild(col);w.appendChild(card)});}
+rIss();
+
+// Hours
+var codes=[['a','26-0533-200','Conduit & boxes'],['b','26-0519-100','Wire pull'],['c','01-7419-000','Cleanup & material handling']],hrs={a:22,b:10.5,c:4},wst={mat:1};
+function rHrs(){var w=$('codes');w.innerHTML='';var tot=0;codes.forEach(function(c){tot+=hrs[c[0]];var card=h('div',{class:'card row',style:'padding:10px 12px'});card.appendChild(h('div',{style:'flex:1;min-width:0;display:flex;flex-direction:column;gap:2px'},'<span style="font-family:var(--mono);font-size:13px;color:var(--muted)">'+c[1]+'</span><b style="font-size:16px">'+c[2]+'</b>'));
+ var m=h('button',{class:'step',style:'border:1px solid #B8C0C6;background:#fff','aria-label':'Remove half hour'},'−');m.onclick=function(){hrs[c[0]]=Math.max(0,hrs[c[0]]-.5);rHrs()};
+ var p=h('button',{class:'step',style:'border:0;background:var(--ink);color:#F3F4F1','aria-label':'Add half hour'},'+');p.onclick=function(){hrs[c[0]]+=.5;rHrs()};
+ card.append(m,h('span',{style:'width:52px;text-align:center;font-family:var(--display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums'},String(hrs[c[0]])),p);w.appendChild(card)});
+ $('hr-total').textContent=tot+' hrs logged';$('home-hrs').textContent=tot;var b=$('hr-bar');b.style.width=Math.min(100,Math.round(tot/48*100))+'%';b.style.background=tot>48?'#E5484D':'var(--hi)';
+ var ws=$('waste');ws.innerHTML='';[['mat','Waiting on material'],['rw','Rework'],['rfi','Missing info / RFI'],['acc','No access']].forEach(function(x){var on=!!wst[x[0]];var b2=h('button',{class:'chip','aria-pressed':String(on),style:'border-color:var(--warn);'+(on?'background:var(--warn);color:#fff':'color:var(--warn-ink)')},x[1]);b2.onclick=function(){wst[x[0]]=!on;rHrs()};ws.appendChild(b2)});}
+rHrs();
+})();
+</script>
+</body>
+</html>
