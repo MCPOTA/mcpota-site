@@ -17,7 +17,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:3px solid #2F6FEB;outline-offset:2px}
 .app{max-width:440px;margin:0 auto;min-height:100%;background:var(--ground);display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)}
 .screen{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh}
-.screen[hidden]{display:none}
+.screen[hidden],.tabs[hidden]{display:none}
 .bar{background:var(--ink);color:#F3F4F1;padding:calc(14px + env(safe-area-inset-top,0px)) 18px 14px;display:flex;flex-direction:column;gap:6px}
 .bar h1,.bar h2{margin:0;font-family:var(--display);font-weight:700;line-height:1.05}
 .bar h2{font-size:28px}.bar .sub{font-size:14px;color:#C9D1D8}
