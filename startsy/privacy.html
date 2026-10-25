@@ -30,7 +30,7 @@
 <body>
 <main>
 <h1>Startsy Privacy Policy</h1>
-<p class="muted">Startsy by MCPOTA · Android and iPhone · Effective October 19, 2026</p>
+<p class="muted">Startsy by MCPOTA · Android and iPhone · Effective October 24, 2026</p>
 
 <div class="summary">
 <strong>In short</strong>
@@ -39,6 +39,7 @@
   <li>Your tasks are stored only on your phone. There is no account, no ads, no analytics and no tracking.</li>
   <li>Dictation uses your phone's own speech service. Startsy receives only the text.</li>
   <li>"Snap a list" reads a photo or screenshot of a to-do list on your phone. The picture and its words are not sent anywhere, and the picture is not kept.</li>
+  <li>Startsy keeps a small app log on your phone (what it did and any errors, never your words). It leaves only if you send it yourself with "Send a report", from your own email app, after seeing it.</li>
   <li>Test builds can check for a newer version when you open the app, only if you allow it. No task data is sent.</li>
   <li>"Break it down" is optional. It asks you first, then sends <em>that one task's words and any photos you added to it</em> to Startsy's AI server to get a finish line and steps back. MCPOTA doesn't store them; Anthropic, which runs the AI, deletes them within 30 days.</li>
 </ul>
@@ -69,7 +70,8 @@
   <li>A few settings are stored with them: whether you agreed to the dictation note, whether "Break it down" is on, whether the update check is on (with your tester access code, if you entered one), your Appearance choice (Match phone, Light or Dark), whether reminders are on (and on iPhone, whether you last picked Nudge or Alarm, and the times the alarms are set for), the name you gave Startsy and its notes about how you like to work, which release notes you've already seen, whether Startsy cheers, whether you've seen the photo reminder, and which task is in Start here.</li>
   <li>A task's start-by time is stored with the task. Reminders are made on your phone; nothing about them is sent anywhere.</li>
   <li>Settings (⚙) → <strong>Delete all my tasks</strong> removes every task from your phone at once.</li>
-  <li>Startsy turns off Android's app backup, and on iPhone keeps its task file out of iCloud backups, so your tasks are not copied to cloud backups.</li>
+  <li><strong>A small app log</strong> for "Send a report": up to the last 300 things Startsy did and any errors, each with a time (for example "the mic started", "the camera opened", "the AI server didn't answer, status 503"). It holds only those fixed event names and numbers: <strong>never your tasks, steps, names, what you said or typed, or photos</strong>. It stays on your phone unless you send it yourself, and Settings → Send a report → Clear the log empties it. Uninstalling Startsy deletes it.</li>
+  <li>Startsy turns off Android's app backup, and on iPhone keeps its task file and app log out of iCloud backups, so they are not copied to cloud backups.</li>
   <li>MCPOTA keeps nothing about you on its servers. The AI server does not store or log the words it passes on.</li>
 </ul>
 
@@ -96,10 +98,11 @@
   <tr><th>What is kept</th><td>MCPOTA's builds server stores and logs nothing. The access code is saved only in Startsy on your phone. The downloaded file is checked, handed to Android's installer (which asks you to confirm) and then deleted. No old builds are kept on your phone.</td></tr>
   <tr><th>How to stop</th><td>Settings (⚙) → "Update check is on" → tap to turn it off. The store versions of Startsy will not have this check; the store handles updates.</td></tr>
 </table>
-<p><strong>Things you send yourself.</strong> Two Settings items hand information to another app on your phone, and only when you tap them:</p>
+<p><strong>Things you send yourself.</strong> Three Settings items hand information to another app on your phone, and only when you tap them:</p>
 <ul>
   <li><strong>Export my tasks</strong> gives a text copy of your tasks to the app you pick (email, notes, files). From there it follows that app's rules.</li>
   <li><strong>Send feedback</strong> opens your email app addressed to support@mcpota.com, with the Startsy and Android or iOS version numbers filled in. You see the whole email and nothing is sent until you tap Send. MCPOTA uses it only to answer you and improve Startsy.</li>
+  <li><strong>Send a report</strong> first shows you the whole report file, exactly as it will be attached: the Startsy and Android or iOS version numbers, your phone's model name (for example "Pixel 9" or "iPhone"), and the app log described above (event names, numbers and times only; no tasks, steps, names, speech or photos). If you tap Send a report, your own email app opens addressed to support@mcpota.com with the file attached. You can add a note, remove the file, or not send it; nothing is sent until you tap Send in your email app. Startsy doesn't upload it anywhere itself; it goes by email through your email provider. MCPOTA uses it only to find and fix problems, keeps it with your email, and deletes it on request (privacy@mcpota.com).</li>
 </ul>
 <p>Nothing else leaves your phone. Startsy has no ads, analytics, crash reporting or tracking.</p>
 
