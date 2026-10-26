@@ -39,6 +39,7 @@
   @media (max-width: 640px) { nav .links { display:flex; } }
   .hero { display:grid; grid-template-columns: 1.15fr .85fr; gap:40px; align-items:center; padding:30px 0 50px; }
   .hero h1 { font-size: clamp(2rem, 5vw, 3rem); line-height:1.1; margin:0 0 14px; letter-spacing:-.02em; }
+  .tagline { font-style:italic; font-size:1.25rem; color:var(--accent); margin:-4px 0 16px; }
   .lead { font-size:1.2rem; color:var(--muted); margin:0 0 22px; }
   .cta { display:inline-block; background:var(--grad); color:var(--onaccent); padding:12px 22px; border-radius:999px; font-weight:600; text-decoration:none; margin:0 10px 10px 0; }
     .cta.ghost { background:transparent; color:var(--accent); border:1.5px solid var(--accent); }
@@ -105,18 +106,20 @@
   .splash .ring img { width:164px; height:164px; }
   .splash .motto-big { font-size:26px; font-weight:700; line-height:1.25; margin:0; animation:sp-fade .5s ease-out .15s both; }
   .splash .name { font-size:16px; font-weight:700; letter-spacing:1.6px; color:#F2B33D; animation:sp-fade .5s ease-out .3s both; }
+  .splash .tag { font-size:16px; font-style:italic; color:#B8C9DE; margin-top:-6px; animation:sp-fade .5s ease-out .45s both; }
   .splash .skip { position:absolute; bottom:24px; font-size:13px; color:#93A4B8; }
   @keyframes sp-in { from { transform:scale(.86); opacity:0; } to { transform:scale(1); opacity:1; } }
   @keyframes sp-float { from { transform:translateY(0); } to { transform:translateY(-5px); } }
   @keyframes sp-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-  @media (prefers-reduced-motion: reduce) { .splash .ring, .splash .motto-big, .splash .name { animation:none; } }
+  @media (prefers-reduced-motion: reduce) { .splash .ring, .splash .motto-big, .splash .name, .splash .tag { animation:none; } }
 </style>
 </head>
 <body>
-<div class="splash" id="splash" role="button" tabindex="0" aria-label="Your phone. Your data. Your rules. Spygone. Tap to skip." hidden>
+<div class="splash" id="splash" role="button" tabindex="0" aria-label="Your phone. Your data. Your rules. Spygone. Let spied on be Spygone. Tap to skip." hidden>
   <div class="ring"><img src="/img/spygone/mark.png" alt=""></div>
   <p class="motto-big">Your phone.<br>Your data.<br>Your rules.</p>
   <div class="name">SPYGONE</div>
+  <div class="tag">Let spied on be Spygone.</div>
   <div class="skip">Tap to skip</div>
 </div>
 <script>
@@ -158,6 +161,7 @@
     <div>
       <p class="motto" style="font-size:1rem;margin:0 0 10px">MCPOTA · Arx Dominii Privati</p>
       <h1>Know what's leaving your phone.</h1>
+      <p class="tagline">Let spied on be Spygone.</p>
       <p class="lead">MCPOTA Spygone looks for the signs of spyware, stalkerware and remote-access scams, shows which apps collect your location, contacts, texts and photos while you aren't using them and who they talk to, and grades each app's privacy policy. On Android it fixes what it finds in a tap; on iPhone it walks you through it.</p>
       <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">Formerly Spotsy (and before that MCPOTA Privacy Watch): same app, new name.</p>
       <a class="cta" href="#pricing">Start the 7-day trial</a>
