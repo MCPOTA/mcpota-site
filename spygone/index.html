@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MCPOTA Spygone</title>
-<meta name="description" content="MCPOTA Spygone for Android shows what is leaving your phone: which apps use your location, mic, contacts and clipboard in the background, which trackers they talk to, and how much data they send. Everything stays on your phone.">
+<meta name="description" content="MCPOTA Spygone looks for spyware, stalkerware and remote-access scams on your phone, shows which apps use your location, mic, contacts and texts in the background and who they talk to, and grades their privacy policies. Android and iPhone. Everything stays on your phone.">
 <meta property="og:title" content="MCPOTA Spygone — know what's leaving your phone">
-<meta property="og:description" content="See which Android apps collect and send your data in the background, with a history of what they did. Fix it in a tap. No ads, no analytics, nothing uploaded.">
+<meta property="og:description" content="Spyware and stalkerware checks, a history of what each app did in the background, and privacy-policy grades. Fix it in a tap on Android; a guided check on iPhone. No ads, no analytics, nothing uploaded.">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/spygone/favicon-32.png">
 <link rel="apple-touch-icon" href="/img/spygone/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -103,6 +103,8 @@
     <a class="brand" href="/spygone/"><img src="/img/spygone/icon-128.png" alt="" width="34" height="34" style="border-radius:8px"> <span><span class="mk">MCPOTA</span> Spygone</span></a>
     <span class="links">
       <a href="#features">Features</a>
+      <a href="#spyware">Spyware check</a>
+      <a href="#iphone">iPhone</a>
       <a href="#reports">Reports</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -115,12 +117,12 @@
     <div>
       <p class="motto" style="font-size:1rem;margin:0 0 10px">MCPOTA · Arx Dominii Privati</p>
       <h1>Know what's leaving your phone.</h1>
-      <p class="lead">MCPOTA Spygone shows which Android apps collect your location, contacts, clipboard and photos while you aren't using them, which trackers they talk to, and how much data they send — with a full history of what each one did. Then it fixes it in a tap.</p>
+      <p class="lead">MCPOTA Spygone looks for the signs of spyware, stalkerware and remote-access scams, shows which apps collect your location, contacts, texts and photos while you aren't using them and who they talk to, and grades each app's privacy policy. On Android it fixes what it finds in a tap; on iPhone it walks you through it.</p>
       <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">Formerly Spotsy (and before that MCPOTA Privacy Watch): same app, new name.</p>
       <a class="cta" href="#pricing">Start the 7-day trial</a>
       <a class="cta ghost" href="/samples/executive-report.html">See a sample report</a>
       <div class="badges">
-        <span class="badge">🤖 Android: in testing</span><span class="badge">🍎 iPhone: in testing</span><span class="badge">🚫 No ads</span><span class="badge">🚫 No analytics</span><span class="badge">📱 Everything stays on your phone</span><span class="badge">↩ Undo for every fix</span>
+        <span class="badge">🕵 Spyware &amp; stalkerware check</span><span class="badge">🤖 Android: in testing</span><span class="badge">🍎 iPhone: in testing</span><span class="badge">🚫 No ads</span><span class="badge">🚫 No analytics</span><span class="badge">📱 Everything stays on your phone</span><span class="badge">↩ Undo for every fix</span>
       </div>
     </div>
     <img class="phone" src="/img/simple.png?v=7" alt="Spygone's Summary screen listing three apps that need attention, with Fix it buttons">
@@ -199,20 +201,67 @@
 
   <div class="feature flip">
     <div class="txt">
-      <h3>🛡 Settings audit</h3>
-      <p>Separate from behaviour: a check of risky access that could lead to a breach — the kind stalkerware and banking malware rely on. Apps installed from a file are rated one step higher.</p>
+      <h3>📜 Privacy-policy grades</h3>
+      <p>Each app's privacy policy is graded A to F under MCPOTA's published rules, with the policy's own words quoted for every point. Selling your data or sharing it for ads without an opt-out counts most.</p>
       <ul class="ticks">
-        <li>Screen readers (accessibility), notification readers, device admins</li>
-        <li>Third-party keyboards, overlays, contactless-card apps</li>
-        <li>User-installed certificates, hidden apps, screen recording</li>
+        <li>Grades are MCPOTA's analysis of quoted policy text, not findings about a company</li>
+        <li>⚖ Possible policy breach: when an app does something its policy says it never does</li>
+        <li>Built into the app, so looking an app up never leaves your phone</li>
+      </ul>
+    </div>
+    <img class="phone" src="/img/dashboard.png?v=7" alt="Dashboard with privacy-policy grades by app">
+  </div>
+  <div class="feature">
+    <div class="txt">
+      <h3>🕵 Spyware check</h3>
+      <p>Separate from behaviour: a check of the access spyware, stalkerware, banking malware and scam apps rely on, plus a match against a public list of known stalkerware. Apps installed from a file are rated one step higher. <a href="#spyware">See everything it checks →</a></p>
+      <ul class="ticks">
+        <li>Known stalkerware and monitoring apps, by signing certificate or package name</li>
+        <li>Screen readers, notification and text-message readers, phone managers</li>
+        <li>Remote-access apps used in fake bank and tech-support calls</li>
       </ul>
     </div>
     <img class="phone" src="/img/audit.png?v=7" alt="Settings audit showing a sideloaded QR scanner with accessibility access flagged for review">
   </div>
 </div></section>
 
+<section id="spyware"><div class="wrap">
+  <h2>What the spyware check looks for</h2>
+  <p class="sub">Red means a known malware pattern or a match on the known-stalkerware list; amber means worth a check; green means checked and normal. Each finding says what was found, how it could be misused, and what you can do.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">🚨</div><strong>Known stalkerware</strong><span>Apps matching a public list of 132 stalkerware and 27 monitoring apps (Echap stalkerware-indicators, CC BY 4.0), checked on the phone.</span></div>
+    <div class="card"><div class="ic">👁</div><strong>Screen reading</strong><span>Accessibility access that sees everything on screen and can tap for you.</span></div>
+    <div class="card"><div class="ic">🔔</div><strong>Notification reading</strong><span>Apps that see every notification, one-time login codes included.</span></div>
+    <div class="card"><div class="ic">✉</div><strong>Text-message readers</strong><span>Apps other than your messaging app that can read your texts, where login codes arrive.</span></div>
+    <div class="card"><div class="ic">🏢</div><strong>Phone managers</strong><span>Device admins, device owners and work profiles that can control the phone.</span></div>
+    <div class="card"><div class="ic">🖥</div><strong>Remote access</strong><span>AnyDesk, TeamViewer QuickSupport and similar apps used in fake bank and tech-support calls.</span></div>
+    <div class="card"><div class="ic">🫥</div><strong>Hidden apps</strong><span>Installed apps with no icon, the way stalkerware hides.</span></div>
+    <div class="card"><div class="ic">⌨</div><strong>Keyboards</strong><span>Third-party keyboards that see every password you type.</span></div>
+    <div class="card"><div class="ic">📜</div><strong>Certificates you added</strong><span>Certificates that let someone read your encrypted traffic.</span></div>
+    <div class="card"><div class="ic">🪟</div><strong>Fake login screens</strong><span>Apps that draw over other apps, especially alongside screen reading.</span></div>
+    <div class="card"><div class="ic">📦</div><strong>App installers</strong><span>Apps allowed to install other apps from outside the Play Store.</span></div>
+    <div class="card"><div class="ic">🎥</div><strong>Screen capture</strong><span>Apps that recorded or cast your screen in the last 7 days.</span></div>
+    <div class="card"><div class="ic">🔋</div><strong>Always running</strong><span>Powerful apps exempt from battery saving, so Android never pauses them.</span></div>
+    <div class="card"><div class="ic">📳</div><strong>Card relay</strong><span>Apps that can act as a contactless card, used to steal bank cards over NFC.</span></div>
+    <div class="card"><div class="ic">⬆</div><strong>Large uploads</strong><span>100 MB or more sent in the background in a day.</span></div>
+  </div>
+  <p style="color:var(--muted);margin-top:18px;max-width:760px"><strong>Your safety first.</strong> Removing stalkerware can alert whoever installed it, so Spygone shows a safety note and links to <a href="https://stopstalkerware.org/">stopstalkerware.org</a> before you change anything, and never removes it in one tap. <strong>Honest limits:</strong> a phone app can't see everything. Advanced spyware that hides below the app layer (like Pegasus) needs a forensic check of a backup on a computer; that's planned for Spygone Pro. Finding nothing doesn't prove a phone is clean.</p>
+</div></section>
+
+<section id="iphone"><div class="wrap">
+  <h2>🍎 Spygone for iPhone</h2>
+  <p class="sub">iPhones don't let any app watch other apps, so the iPhone version works differently: it reads the App Privacy Report that iOS keeps, and walks you through the settings it can't see for itself. In testing on TestFlight.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">📄</div><strong>App Privacy Report analysis</strong><span>Share the report to Spygone: which apps used your camera, mic, location, contacts and photos, and which domains and trackers they contacted. Read on the phone, never stored.</span></div>
+    <div class="card"><div class="ic">🛡</div><strong>Phone check</strong><span>A guided look at device management profiles, certificates, VPNs, keyboards, signed-in devices, location sharing and trusted numbers, plus Lockdown Mode and Apple's Safety Check.</span></div>
+    <div class="card"><div class="ic">📜</div><strong>Policy grades</strong><span>The same A–F privacy-policy grades and ⚖ possible-breach flags as Android.</span></div>
+    <div class="card"><div class="ic">✉️</div><strong>Ask MCPOTA to review</strong><span>Send picked apps' findings to MCPOTA from your own Mail app. You see exactly what's included first.</span></div>
+  </div>
+  <p style="color:var(--muted);margin-top:18px">No background monitoring and no one-tap fixes on iPhone: iOS doesn't allow them. "Fix it" gives directions to the right Settings screen.</p>
+</div></section>
+
 <section><div class="wrap">
-  <h2>What it watches</h2>
+  <h2>What it watches (Android)</h2>
   <p class="sub">Uses Android's own records — the same ones the system keeps — plus an on-device DNS monitor. Encrypted traffic contents are never inspected.</p>
   <div class="grid">
     <div class="card"><div class="ic">📍</div><strong>Location</strong><span>GPS and network location used while the app is closed.</span></div>
@@ -314,6 +363,9 @@
 
 <section id="faq"><div class="wrap">
   <h2>Questions</h2>
+  <details><summary>Can it find Pegasus or other government-grade spyware?</summary><p>Not from the phone app. That kind of spyware hides below the level any app can see. Spygone checks for the access ordinary spyware, stalkerware and scam apps need, and matches apps against a public list of known stalkerware. A forensic check of a phone backup on a computer, the method researchers use for Pegasus, is planned for Spygone Pro.</p></details>
+  <details><summary>What should I do if it finds stalkerware?</summary><p>Think about your safety before removing it: removing it can alert whoever installed it, and it may be evidence. Spygone shows a safety note and links to <a href="https://stopstalkerware.org/">stopstalkerware.org</a>, which has guidance and support contacts. It never removes stalkerware in one tap.</p></details>
+  <details><summary>Does it work on iPhone?</summary><p>Yes, differently. iOS doesn't let apps see other apps, so Spygone for iPhone reads the App Privacy Report you share to it and gives you a guided Phone check of the settings stalkerware and scams use. It's in testing on TestFlight. <a href="#iphone">More about the iPhone version →</a></p></details>
   <details><summary>Does it need root?</summary><p>No. Basic monitoring works out of the box. The detailed background records and one-tap fixes use Android's Wireless debugging, set up once from the phone itself.</p></details>
   <details><summary>Will it slow my phone or drain the battery?</summary><p>The VPN only looks at DNS lookups — tiny messages — and passes everything else straight through. Everything else runs on Android records the phone already keeps.</p></details>
   <details><summary>Does it work with another VPN?</summary><p>Android allows one VPN at a time. If you use another VPN, the DNS part pauses; the access records still work with advanced access.</p></details>
