@@ -11,7 +11,7 @@ Static site for MCPOTA, served by GitHub Pages at mcpota.com.
 - `samples/`: sample executive and technical reports (made-up apps and data)
 - `img/`: phone screenshots used on the home page
 - `img/team/`: founder photo
-- `img/spygone/`: Spygone icons, the mark (phone under a magnifier) and the social image
+- `img/spygone/`: Spygone icons, the mark (winged shield, sword and eye, same as the MCPOTA emblem) and the social image
 - `img/startsy/`: Startsy the robot (SVG, drawn from the app's RobotView)
 - `img/brand/`: MCPOTA logo (Seneca Rocks, WV, above the wordmark: `logo-navy.png` on light backgrounds, `logo-light.png` on dark; `mark-*.png` mountains only), favicons and app icons (light mountains on the logo navy, #022A5E), and the social image (`og.jpg`)
 - `favicon.ico`, `apple-touch-icon.png`, `site.webmanifest`: browser icons
