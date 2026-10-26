@@ -15,11 +15,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/img/brand/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#0A1628">
+<meta name="theme-color" content="#022A5E">
 <style>
-  :root { --bg:#ffffff; --text:#0A1628; --muted:#52617A; --line:#E1E7EF; --accent:#0277BD; --soft:#F2F6FB; --amber:#F2B33D; --onamber:#2A1D00; --navy:#0A1628; --cyan:#00D4FF; --grad:linear-gradient(90deg,#0277BD,#0288D1); --onaccent:#fff; }
+  :root { --bg:#ffffff; --text:#0B1F3A; --muted:#4E6280; --line:#DFE6EF; --accent:#1F5FA8; --soft:#F3F6FA; --amber:#F2B33D; --onamber:#2A1D00; --navy:#022A5E; --cyan:#8EC3F2; --grad:linear-gradient(90deg,#022A5E,#1F5FA8); --onaccent:#fff; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg:#0A1628; --text:#E6EEF7; --muted:#93A4B8; --line:#1C2E48; --accent:#4FC3F7; --soft:#0F2038; --grad:linear-gradient(90deg,#00D4FF,#4FC3F7); --onaccent:#0A1628; }
+    :root:not([data-theme="light"]) { --bg:#081A36; --text:#E8F0FA; --muted:#9BB0C9; --line:#1A3359; --accent:#8EC3F2; --soft:#0D2447; --grad:linear-gradient(90deg,#8EC3F2,#D6E8FA); --onaccent:#081A36; }
   }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--text); font:17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
@@ -27,23 +27,24 @@
   .wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
 
   /* Hero: always navy, the brand's home colour */
-  .hero { background:radial-gradient(1200px 500px at 85% 10%, rgba(0,212,255,.18), transparent 60%), radial-gradient(800px 400px at 0% 100%, rgba(242,179,61,.12), transparent 60%), #0A1628; color:#E6EEF7; }
+  .hero { background:radial-gradient(1100px 520px at 80% 0%, rgba(142,195,242,.20), transparent 60%), radial-gradient(800px 400px at 0% 100%, rgba(242,179,61,.10), transparent 60%), linear-gradient(170deg,#022A5E 0%,#0B1F45 100%); color:#E8F0FA; }
   nav { display:flex; align-items:center; gap:20px; padding:18px 0; font-size:.95rem; flex-wrap:wrap; }
   nav .brand { display:flex; align-items:center; gap:10px; margin-right:auto; color:#fff; text-decoration:none; font-weight:700; letter-spacing:.14em; }
-  nav a { color:#B9C7D8; text-decoration:none; }
-  nav a:hover { color:#4FC3F7; }
+  nav .brand img { height:30px; width:auto; }
+  nav a { color:#B8C9DE; text-decoration:none; }
+  nav a:hover { color:#8EC3F2; }
   @media (max-width:640px) { nav .brand { flex-basis:100%; } nav { gap:6px 16px; } }
   .herogrid { display:grid; grid-template-columns:1.2fr .8fr; gap:40px; align-items:center; padding:36px 0 72px; }
-  .motto { font-style:italic; letter-spacing:.06em; color:#4FC3F7; margin:0 0 12px; }
+  .motto { font-style:italic; letter-spacing:.06em; color:#8EC3F2; margin:0 0 12px; }
   .hero h1 { font-size:clamp(2.3rem, 6.4vw, 4rem); line-height:1.04; letter-spacing:-.03em; margin:0 0 18px; }
-  .hero h1 em { font-style:normal; background:linear-gradient(90deg,#00D4FF,#7AA2FF 55%,#F2B33D); -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .hero .lead { font-size:1.22rem; color:#B9C7D8; max-width:600px; margin:0 0 26px; }
+  .hero h1 em { font-style:normal; background:linear-gradient(90deg,#9FD0FF,#E8F0FA 55%,#F2B33D); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero .lead { font-size:1.22rem; color:#B8C9DE; max-width:600px; margin:0 0 26px; }
   .cta { display:inline-block; padding:12px 22px; border-radius:999px; font-weight:600; text-decoration:none; margin:0 10px 10px 0; }
-  .cta.primary { background:linear-gradient(90deg,#00D4FF,#4FC3F7); color:#0A1628; }
-  .cta.ghost { border:1.5px solid #4FC3F7; color:#4FC3F7; }
+  .cta.primary { background:#E8F0FA; color:#022A5E; }
+  .cta.ghost { border:1.5px solid #8EC3F2; color:#8EC3F2; }
   .cta.amber { background:var(--amber); color:var(--onamber); }
-  .emblem { width:100%; max-width:340px; border-radius:28px; display:block; margin:0 auto; background:#00081E; box-shadow:0 30px 80px rgba(0,212,255,.18); }
-  @media (max-width:760px) { .herogrid { grid-template-columns:1fr; padding-bottom:48px; } .emblem { max-width:240px; } }
+  .logo { width:100%; max-width:400px; height:auto; display:block; margin:0 auto; filter:drop-shadow(0 18px 40px rgba(0,0,0,.25)); }
+  @media (max-width:760px) { .herogrid { grid-template-columns:1fr; padding-bottom:48px; } .logo { max-width:260px; } }
 
   section { padding:64px 0; border-top:1px solid var(--line); }
   .hero + section { border-top:0; }
@@ -61,7 +62,7 @@
   /* Apps */
   .apps { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
   .app { position:relative; border-radius:24px; padding:26px 26px 22px; text-decoration:none; color:var(--text); border:1px solid var(--line); background:var(--soft); display:flex; flex-direction:column; overflow:hidden; transition:transform .15s, box-shadow .15s; }
-  .app:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(2,119,189,.15); }
+  .app:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(2,42,94,.15); }
   .app .top { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
   .app .top img { width:64px; height:64px; border-radius:16px; }
   .app h3 { font-size:1.5rem; margin:0; }
@@ -89,7 +90,7 @@
 
   /* Founder */
   .founder { display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:start; }
-  .founder img { width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:22px; display:block; box-shadow:0 18px 40px rgba(10,22,40,.18); }
+  .founder img { width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:22px; display:block; box-shadow:0 18px 40px rgba(2,42,94,.18); }
   .founder h3 { margin:0; font-size:1.5rem; }
   .founder .role { color:var(--accent); font-weight:600; margin:0 0 14px; }
   .founder p { margin:0 0 14px; }
@@ -101,9 +102,9 @@
   @media (max-width:760px) { .founder { grid-template-columns:1fr; } .founder img { max-width:260px; } }
 
   /* Founding members band */
-  .band { background:linear-gradient(120deg,#0A1628,#0F2A4A); color:#E6EEF7; border-radius:26px; padding:36px; display:grid; grid-template-columns:1.3fr .7fr; gap:24px; align-items:center; }
+  .band { background:linear-gradient(120deg,#022A5E,#0B1F45); color:#E8F0FA; border-radius:26px; padding:36px; display:grid; grid-template-columns:1.3fr .7fr; gap:24px; align-items:center; }
   .band h2 { color:#fff; }
-  .band p { color:#B9C7D8; margin:0 0 10px; }
+  .band p { color:#B8C9DE; margin:0 0 10px; }
   .band .big { font-size:2.6rem; font-weight:800; color:var(--amber); line-height:1; }
   @media (max-width:760px) { .band { grid-template-columns:1fr; padding:26px 20px; } }
 
@@ -116,7 +117,7 @@
 <header class="hero">
   <div class="wrap">
     <nav>
-      <a class="brand" href="/"><img src="/img/brand/emblem-128.png" alt="" width="34" height="34">MCPOTA</a>
+      <a class="brand" href="/"><img src="/img/brand/mark-light.png" alt="" height="30">MCPOTA</a>
       <a href="#apps">Apps</a>
       <a href="#about">About</a>
       <a href="/founding-members/">Founding members</a>
@@ -130,7 +131,7 @@
         <a class="cta primary" href="#apps">Meet the apps</a>
         <a class="cta amber" href="/founding-members/">Become a founding member</a>
       </div>
-      <video class="emblem" src="/img/brand/emblem.mp4" poster="/img/brand/emblem-poster.jpg" autoplay muted loop playsinline aria-label="The MCPOTA emblem"></video>
+      <figure style="margin:0"><img class="logo" src="/img/brand/logo-light.png" alt="MCPOTA logo: the twin peaks of Seneca Rocks, West Virginia, above the MCPOTA name"><figcaption style="text-align:center;color:#B8C9DE;font-size:.9rem;margin-top:10px">Inspired by Seneca Rocks, West Virginia</figcaption></figure>
     </div>
   </div>
 </header>
