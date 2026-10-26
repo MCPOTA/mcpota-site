@@ -101,6 +101,7 @@
   .splash { position:fixed; inset:0; z-index:1000; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
     background:#00112F; color:#E8EDF4; text-align:center; padding:0 32px; cursor:pointer; transition:opacity .35s ease-out; }
   .splash.out { opacity:0; pointer-events:none; }
+  .splash[hidden] { display:none; } /* the hidden attribute alone loses to display:flex above */
   .splash .ring { width:190px; height:190px; border-radius:50%; background:rgba(230,241,251,.15); display:grid; place-items:center;
     animation:sp-in .6s cubic-bezier(.3,1.5,.5,1) both, sp-float 1.8s ease-in-out .6s infinite alternate; }
   .splash .ring img { width:164px; height:164px; }
@@ -139,6 +140,7 @@
   el.addEventListener('click', close);
   document.addEventListener('keydown', close, { once: true });
   setTimeout(close, 3500);
+  setTimeout(function () { el.hidden = true; }, 6000); // safety net
 })();
 </script>
 <div class="wrap">
