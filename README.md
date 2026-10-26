@@ -11,7 +11,7 @@ Static site for MCPOTA, served by GitHub Pages at mcpota.com.
 - `samples/`: sample executive and technical reports (made-up apps and data)
 - `img/`: phone screenshots used on the home page
 - `img/team/`: founder photo
-- `img/spygone/`: Spygone icons, the mark (phone under a magnifier) and the social image
+- `img/spygone/`: Spygone icons, the mark (winged shield, sword and eye, same as the MCPOTA emblem) and the social image
 - `img/startsy/`: Startsy the robot (SVG, drawn from the app's RobotView)
 - `img/brand/`: MCPOTA emblem, favicons, social image, and the emblem video
 - `favicon.ico`, `apple-touch-icon.png`, `site.webmanifest`: browser icons
