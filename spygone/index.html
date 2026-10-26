@@ -95,9 +95,49 @@
     .phone { max-width:280px; }
     .report img { height:260px; }
   }
+
+  /* Opening screen, as in the app: the mark on navy above the motto. Once per visit; tap or any key skips it. */
+  .splash { position:fixed; inset:0; z-index:1000; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
+    background:#00112F; color:#E8EDF4; text-align:center; padding:0 32px; cursor:pointer; transition:opacity .35s ease-out; }
+  .splash.out { opacity:0; pointer-events:none; }
+  .splash .ring { width:190px; height:190px; border-radius:50%; background:rgba(230,241,251,.15); display:grid; place-items:center;
+    animation:sp-in .6s cubic-bezier(.3,1.5,.5,1) both, sp-float 1.8s ease-in-out .6s infinite alternate; }
+  .splash .ring img { width:164px; height:164px; }
+  .splash .motto-big { font-size:26px; font-weight:700; line-height:1.25; margin:0; animation:sp-fade .5s ease-out .15s both; }
+  .splash .name { font-size:16px; font-weight:700; letter-spacing:1.6px; color:#F2B33D; animation:sp-fade .5s ease-out .3s both; }
+  .splash .skip { position:absolute; bottom:24px; font-size:13px; color:#93A4B8; }
+  @keyframes sp-in { from { transform:scale(.86); opacity:0; } to { transform:scale(1); opacity:1; } }
+  @keyframes sp-float { from { transform:translateY(0); } to { transform:translateY(-5px); } }
+  @keyframes sp-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce) { .splash .ring, .splash .motto-big, .splash .name { animation:none; } }
 </style>
 </head>
 <body>
+<div class="splash" id="splash" role="button" tabindex="0" aria-label="Your phone. Your data. Your rules. Spygone. Tap to skip." hidden>
+  <div class="ring"><img src="/img/spygone/mark.png" alt=""></div>
+  <p class="motto-big">Your phone.<br>Your data.<br>Your rules.</p>
+  <div class="name">SPYGONE</div>
+  <div class="skip">Tap to skip</div>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('splash');
+  var seen = false;
+  try { seen = sessionStorage.getItem('spygoneSplash') === '1'; } catch (e) {}
+  if (seen || location.hash) return; // once per visit, and never when jumping to a section
+  el.hidden = false;
+  try { sessionStorage.setItem('spygoneSplash', '1'); } catch (e) {}
+  var done = false;
+  function close() {
+    if (done) return; done = true;
+    el.classList.add('out');
+    setTimeout(function () { el.hidden = true; }, 400);
+  }
+  el.addEventListener('click', close);
+  document.addEventListener('keydown', close, { once: true });
+  setTimeout(close, 3500);
+})();
+</script>
 <div class="wrap">
   <nav>
     <a class="brand" href="/spygone/"><img src="/img/spygone/icon-128.png" alt="" width="34" height="34" style="border-radius:8px"> <span><span class="mk">MCPOTA</span> Spygone</span></a>
