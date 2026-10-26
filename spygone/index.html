@@ -106,12 +106,12 @@
   .splash .ring img { width:164px; height:164px; }
   .splash .motto-big { font-size:26px; font-weight:700; line-height:1.25; margin:0; animation:sp-fade .5s ease-out .15s both; }
   .splash .name { font-size:16px; font-weight:700; letter-spacing:1.6px; color:#F2B33D; animation:sp-fade .5s ease-out .3s both; }
-  .splash .tag { font-size:16px; font-style:italic; color:#B8C9DE; margin-top:-6px; animation:sp-fade .5s ease-out .45s both; }
+  .splash .sptag { font-size:16px; font-style:italic; color:#B8C9DE; margin-top:-6px; animation:sp-fade .5s ease-out .45s both; }
   .splash .skip { position:absolute; bottom:24px; font-size:13px; color:#93A4B8; }
   @keyframes sp-in { from { transform:scale(.86); opacity:0; } to { transform:scale(1); opacity:1; } }
   @keyframes sp-float { from { transform:translateY(0); } to { transform:translateY(-5px); } }
   @keyframes sp-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-  @media (prefers-reduced-motion: reduce) { .splash .ring, .splash .motto-big, .splash .name, .splash .tag { animation:none; } }
+  @media (prefers-reduced-motion: reduce) { .splash .ring, .splash .motto-big, .splash .name, .splash .sptag { animation:none; } }
 </style>
 </head>
 <body>
@@ -119,7 +119,7 @@
   <div class="ring"><img src="/img/spygone/mark.png" alt=""></div>
   <p class="motto-big">Your phone.<br>Your data.<br>Your rules.</p>
   <div class="name">SPYGONE</div>
-  <div class="tag">Let spied on be Spygone.</div>
+  <div class="sptag">Let spied on be Spygone.</div>
   <div class="skip">Tap to skip</div>
 </div>
 <script>
