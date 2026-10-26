@@ -47,7 +47,7 @@
   <h2>What the app does</h2>
   <p>Spygone shows you which apps on your phone access your location, microphone, camera, contacts, text messages, call log, calendar, clipboard and photos, which internet addresses they look up, and how much data they send and receive in the background. It reports what was observed, not what an app did with what it accessed: it never sees the content of app traffic. It then helps you change permissions or remove apps you don't want.</p>
   <p>For apps MCPOTA has reviewed, the app also shows what the app's privacy policy allows the company to do with your data, with the policy's own words. Grades are MCPOTA's analysis of the policy's quoted text under published rules, not a finding about the company's conduct. The whole policy database ships inside the app, so looking an app up never contacts anyone. Where a reviewed policy makes a specific promise, such as that the app doesn't access your microphone, Spygone compares that promise with what it observed on your phone and shows a possible policy breach if they don't match. That comparison also happens only on your phone; nothing about it is sent anywhere.</p>
-  <p>While monitoring, Spygone can show alerts as notifications on your phone when an app you installed accesses something sensitive while you're not using it, sends data shortly after, or does something its reviewed privacy policy says it doesn't. Alerts are made on your phone from the same information described below; nothing about them is sent anywhere. You choose which kinds alert in Settings → Notifications → Alerts, and Android's notification settings can turn them off.</p>
+  <p>While monitoring, Spygone can show alerts as notifications on your phone when an app you installed accesses something sensitive while you're not using it, sends data shortly after, or does something its reviewed privacy policy says it doesn't. Alerts are made on your phone from the same information described below; nothing about them is sent anywhere. On a locked phone an alert shows only that there is new app activity; which app and what it did appear after you unlock. You choose which kinds alert in Settings → Notifications → Alerts, and Android's notification settings can turn them off.</p>
 
   <h2>Information the app reads on your phone</h2>
   <p>To do that, the app reads the following information from Android. It is processed and stored only on your device.</p>
@@ -162,7 +162,7 @@
   <h2>Your choices</h2>
   <ul>
     <li>Stop monitoring at any time from the app, or by turning off the VPN in Android settings.</li>
-    <li>Delete recorded activity with ⚙ → <em>Clear recorded events</em>, and logs with ⚙ → <em>Logs</em> → <em>Clear</em>.</li>
+    <li>Delete everything Spygone has recorded with ⚙ → <em>Clear recorded events</em>: app activity and history, saved reports, the uninstalled-apps list, saved app names, policy-grade changes, and the error and crash logs. It keeps your fixes (so Undo still works), your settings and plan, findings you chose to hide, and the app's update history. Logs alone can be cleared with ⚙ → <em>Logs</em> → <em>Clear</em>.</li>
     <li>Undo any fix from the app (the app's timeline, or the Fixed list) whenever you like.</li>
     <li>Turn off Usage access or advanced access in Android settings whenever you like.</li>
     <li>Uninstall the app to remove all of its data.</li>
@@ -172,7 +172,7 @@
   <p>Spygone is not directed at children under 13 and does not knowingly collect information from anyone, of any age.</p>
 
   <h2>Security</h2>
-  <p>Except reports and troubleshooting logs you save to Downloads, your data stays in the app's private storage, which other apps can't read. The app sends nothing to us on its own, so there is no server copy of what it records. Emails you choose to send us are kept privately and deleted as described above.</p>
+  <p>Except reports and troubleshooting logs you save to Downloads, your data stays in the app's private storage, which other apps can't read. When you choose to email a report, support log or false-alarm report, email apps on your phone (and only email apps) can read that one file so it can be attached; Spygone takes that access back after 6 hours. The app sends nothing to us on its own, so there is no server copy of what it records. Emails you choose to send us are kept privately and deleted as described above.</p>
 
   <h2 id="iphone">Spygone for iPhone</h2>
   <p>iPhones don't let one app see what other apps do, so the iPhone version has no monitoring, no VPN and no fixes it makes itself. It reads the <strong>App Privacy Report</strong> that iOS keeps (Settings → Privacy &amp; Security → App Privacy Report) when you save it and share it to Spygone, or open a saved copy. That report lists, for the last 7 days, which apps accessed your camera, microphone, location, contacts, photos and similar, and which internet domains they contacted. It does not contain what apps sent.</p>
