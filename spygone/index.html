@@ -97,26 +97,28 @@
     .report img { height:260px; }
   }
 
-  /* Opening screen, as in the app: the mark on navy above the motto. Once per visit; tap or any key skips it. */
+  /* Opening screen: the lighting-up emblem clip above the motto and tagline. Once per visit; tap or any key skips it. */
   .splash { position:fixed; inset:0; z-index:1000; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;
-    background:#00112F; color:#E8EDF4; text-align:center; padding:0 32px; cursor:pointer; transition:opacity .35s ease-out; }
+    background:#00061B; color:#E8EDF4; text-align:center; padding:0 32px; cursor:pointer; transition:opacity .35s ease-out; }
   .splash.out { opacity:0; pointer-events:none; }
-  .splash .ring { width:190px; height:190px; border-radius:50%; background:rgba(230,241,251,.15); display:grid; place-items:center;
-    animation:sp-in .6s cubic-bezier(.3,1.5,.5,1) both, sp-float 1.8s ease-in-out .6s infinite alternate; }
-  .splash .ring img { width:164px; height:164px; }
+  .splash[hidden] { display:none; } /* the hidden attribute alone loses to display:flex above */
+  .splash .emb { width:min(260px,62vw); aspect-ratio:2/3; height:auto; object-fit:cover; margin-bottom:-24px;
+    -webkit-mask-image:radial-gradient(ellipse 50% 46% at 50% 48%, #000 62%, transparent 100%);
+            mask-image:radial-gradient(ellipse 50% 46% at 50% 48%, #000 62%, transparent 100%);
+    animation:sp-in .6s ease-out both; }
   .splash .motto-big { font-size:26px; font-weight:700; line-height:1.25; margin:0; animation:sp-fade .5s ease-out .15s both; }
   .splash .name { font-size:16px; font-weight:700; letter-spacing:1.6px; color:#F2B33D; animation:sp-fade .5s ease-out .3s both; }
   .splash .sptag { font-size:16px; font-style:italic; color:#B8C9DE; margin-top:-6px; animation:sp-fade .5s ease-out .45s both; }
   .splash .skip { position:absolute; bottom:24px; font-size:13px; color:#93A4B8; }
-  @keyframes sp-in { from { transform:scale(.86); opacity:0; } to { transform:scale(1); opacity:1; } }
+  @keyframes sp-in { from { transform:scale(.94); opacity:0; } to { transform:scale(1); opacity:1; } }
   @keyframes sp-float { from { transform:translateY(0); } to { transform:translateY(-5px); } }
   @keyframes sp-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
-  @media (prefers-reduced-motion: reduce) { .splash .ring, .splash .motto-big, .splash .name, .splash .sptag { animation:none; } }
+  @media (prefers-reduced-motion: reduce) { .splash .emb, .splash .motto-big, .splash .name, .splash .sptag { animation:none; } }
 </style>
 </head>
 <body>
 <div class="splash" id="splash" role="button" tabindex="0" aria-label="Your phone. Your data. Your rules. Spygone. Let spied on be Spygone. Tap to skip." hidden>
-  <div class="ring"><img src="/img/spygone/mark.png" alt=""></div>
+  <video class="emb" src="/img/spygone/emblem.mp4" poster="/img/spygone/emblem-poster.jpg" muted playsinline preload="auto" aria-hidden="true"></video>
   <p class="motto-big">Your phone.<br>Your data.<br>Your rules.</p>
   <div class="name">SPYGONE</div>
   <div class="sptag">Let spied on be Spygone.</div>
@@ -136,9 +138,13 @@
     el.classList.add('out');
     setTimeout(function () { el.hidden = true; }, 400);
   }
+  var vid = el.querySelector('video');
+  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (vid && !still) { var p = vid.play(); if (p && p.catch) p.catch(function () {}); } // shows the poster if autoplay is blocked
   el.addEventListener('click', close);
   document.addEventListener('keydown', close, { once: true });
-  setTimeout(close, 3500);
+  setTimeout(close, 6200); // the clip is about 6 seconds
+  setTimeout(function () { el.hidden = true; }, 9000); // safety net
 })();
 </script>
 <div class="wrap">
