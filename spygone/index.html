@@ -74,7 +74,7 @@
   .report div { padding:14px 18px; }
   .report span { color:var(--muted); font-size:.95rem; display:block; }
   .report b { color:var(--accent); }
-  .price { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:16px; max-width:820px; }
+  .price { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; max-width:1040px; }
   .plan { border:1px solid var(--line); border-radius:18px; padding:22px; background:var(--soft); }
   .plan.best { border:2px solid var(--accent); }
   .plan .amt { font-size:2rem; font-weight:700; }
@@ -89,6 +89,10 @@
   .gallery { display:flex; gap:20px; overflow-x:auto; padding:6px 0 16px; scroll-snap-type:x mandatory; }
   .gallery figure { margin:0; flex:0 0 240px; scroll-snap-align:start; text-align:center; }
   .gallery img { width:100%; height:auto; }
+  .dshots { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin:18px 0 6px; }
+  .dshots figure { margin:0; }
+  .dshots img { width:100%; height:auto; border-radius:12px; border:1px solid var(--line, #d7dbe3); box-shadow:0 4px 16px rgba(0,0,0,.12); }
+  .dshots figcaption { color:var(--muted); font-size:.9rem; margin-top:6px; }
   .gallery figcaption { color:var(--muted); font-size:.9rem; margin-top:6px; }
   @media (max-width: 760px) {
     .hero, .feature, .reports { grid-template-columns: 1fr; gap:28px; }
@@ -154,7 +158,7 @@
       <a href="#features">Features</a>
       <a href="#spyware">Spyware check</a>
       <a href="#iphone">iPhone</a>
-      <a href="#pro">Pro</a>
+      <a href="#desktop">Desktop</a>
       <a href="#reports">Reports</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -170,13 +174,13 @@
       <p class="tagline">Let spied on be Spygone.</p>
       <p class="lead">MCPOTA Spygone looks for the signs of spyware, stalkerware and remote-access scams, shows which apps collect your location, contacts, texts and photos while you aren't using them and who they talk to, and grades each app's privacy policy. On Android it fixes what it finds in a tap; on iPhone it walks you through it.</p>
       <p style="color:var(--muted);margin:8px 0 0;font-size:.95rem">Formerly Spotsy (and before that MCPOTA Privacy Watch): same app, new name.</p>
-      <a class="cta" href="#pricing">Start the 7-day trial</a>
+      <a class="cta" href="#pricing">See the plans</a>
       <a class="cta ghost" href="/samples/executive-report.html">See a sample report</a>
       <div class="badges">
-        <span class="badge">🕵 Spyware &amp; stalkerware check</span><span class="badge">🤖 Android: in testing</span><span class="badge">🍎 iPhone: in testing</span><span class="badge">💻 Pro for Windows &amp; Mac: in development</span><span class="badge">🚫 No ads</span><span class="badge">🚫 No analytics</span><span class="badge">📱 Everything stays on your phone</span><span class="badge">↩ Undo for every fix</span>
+        <span class="badge">🕵 Spyware &amp; stalkerware check</span><span class="badge">🤖 Android: in testing</span><span class="badge">🍎 iPhone: in testing</span><span class="badge">💻 Desktop for Windows &amp; Mac: early testing</span><span class="badge">🚫 No ads</span><span class="badge">🚫 No analytics</span><span class="badge">📱 Everything stays on your phone</span><span class="badge">↩ Undo for every fix</span>
       </div>
     </div>
-    <img class="phone" src="/img/simple.png?v=7" alt="Spygone's Summary screen listing three apps that need attention, with Fix it buttons">
+    <img class="phone" src="/img/simple.png?v=8" alt="Spygone's Summary screen listing three apps that need attention, with Fix it buttons">
   </div>
 </div>
 
@@ -195,7 +199,7 @@
         <li>Plain-English "How it could be misused" — by a company and by an attacker</li>
       </ul>
     </div>
-    <img class="phone" src="/img/simple.png?v=7" alt="Findings list with red privacy risks and an amber worth-a-look item">
+    <img class="phone" src="/img/simple.png?v=8" alt="Findings list with red privacy risks and an amber worth-a-look item">
   </div>
 
   <div class="feature flip">
@@ -208,7 +212,7 @@
         <li>Access → network links within two minutes</li>
       </ul>
     </div>
-    <img class="phone" src="/img/timeline.png?v=7" alt="Timeline for a weather app showing location accesses followed by tracker lookups">
+    <img class="phone" src="/img/timeline.png?v=8" alt="Timeline for a weather app showing location accesses followed by tracker lookups">
   </div>
 
   <div class="feature">
@@ -221,7 +225,7 @@
         <li>Before / after counts in your reports, so you can see it worked</li>
       </ul>
     </div>
-    <img class="phone" src="/img/fix.png?v=7" alt="Fix it confirmation listing battery restriction, background data block and contacts block">
+    <img class="phone" src="/img/fix.png?v=8" alt="Fix it confirmation listing battery restriction, background data block and contacts block">
   </div>
 
   <div class="feature flip">
@@ -234,7 +238,7 @@
         <li>Re-applying is part of the original fix</li>
       </ul>
     </div>
-    <img class="phone" src="/img/undone.png?v=7" alt="A card saying a fix was undone for a music app, with Re-apply and Leave it buttons">
+    <img class="phone" src="/img/undone.png?v=8" alt="A card saying a fix was undone for a music app, with Re-apply and Leave it buttons">
   </div>
 
   <div class="feature">
@@ -247,7 +251,7 @@
         <li>Tracker domains and who contacted them</li>
       </ul>
     </div>
-    <img class="phone" src="/img/dashboard.png?v=7" alt="Dashboard with tiles for privacy risks, background accesses and trackers, and a most-active list">
+    <img class="phone" src="/img/dashboard.png?v=8" alt="Dashboard with tiles for privacy risks, background accesses and trackers, and a most-active list">
   </div>
 
   <div class="feature flip">
@@ -260,7 +264,7 @@
         <li>Built into the app, so looking an app up never leaves your phone</li>
       </ul>
     </div>
-    <img class="phone" src="/img/dashboard.png?v=7" alt="Dashboard with privacy-policy grades by app">
+    <img class="phone" src="/img/dashboard.png?v=8" alt="Dashboard with privacy-policy grades by app">
   </div>
   <div class="feature">
     <div class="txt">
@@ -272,7 +276,7 @@
         <li>Remote-access apps used in fake bank and tech-support calls</li>
       </ul>
     </div>
-    <img class="phone" src="/img/audit.png?v=7" alt="Settings audit showing a sideloaded QR scanner with accessibility access flagged for review">
+    <img class="phone" src="/img/audit.png?v=8" alt="Settings audit showing a sideloaded QR scanner with accessibility access flagged for review">
   </div>
 </div></section>
 
@@ -296,7 +300,7 @@
     <div class="card"><div class="ic">📳</div><strong>Card relay</strong><span>Apps that can act as a contactless card, used to steal bank cards over NFC.</span></div>
     <div class="card"><div class="ic">⬆</div><strong>Large uploads</strong><span>100 MB or more sent in the background in a day.</span></div>
   </div>
-  <p style="color:var(--muted);margin-top:18px;max-width:760px"><strong>Your safety first.</strong> Removing stalkerware can alert whoever installed it, so Spygone shows a safety note and links to <a href="https://stopstalkerware.org/">stopstalkerware.org</a> before you change anything, and never removes it in one tap. <strong>Honest limits:</strong> a phone app can't see everything. Advanced spyware that hides below the app layer (like Pegasus) needs a forensic check of a backup on a computer; that's what <a href="#pro">Spygone Pro</a>, in development, will do. Finding nothing doesn't prove a phone is clean.</p>
+  <p style="color:var(--muted);margin-top:18px;max-width:760px"><strong>Your safety first.</strong> Removing stalkerware can alert whoever installed it, so Spygone shows a safety note and links to <a href="https://stopstalkerware.org/">stopstalkerware.org</a> before you change anything, and never removes it in one tap. <strong>Honest limits:</strong> a phone app can't see everything. Advanced spyware that hides below the app layer (like Pegasus) needs a forensic check of a backup on a computer; that's what <a href="#desktop">Spygone Desktop</a>, now in early testing, does. Finding nothing doesn't prove a phone is clean.</p>
 </div></section>
 
 <section id="iphone"><div class="wrap">
@@ -311,24 +315,35 @@
   <p style="color:var(--muted);margin-top:18px">No background monitoring and no one-tap fixes on iPhone: iOS doesn't allow them. "Fix it" gives directions to the right Settings screen.</p>
 </div></section>
 
-<section id="pro"><div class="wrap">
-  <h2>💻 Spygone Pro for Windows and Mac <span class="tag" style="vertical-align:middle;margin-left:6px">In development</span></h2>
-  <p class="sub">A phone app can only see so much: Android and iOS keep apps in a sandbox. Spygone Pro is a desktop companion that connects to your phone by USB and looks deeper, the way security researchers check a phone, without sending your data anywhere.</p>
-  <div class="grid">
-    <div class="card"><div class="ic">🍎</div><strong>iPhone deep check</strong><span>Reads an encrypted backup of your iPhone on your computer and checks system records, browser history and message records against known spyware indicators, the method researchers use to find spyware like Pegasus.</span></div>
-    <div class="card"><div class="ic">🤖</div><strong>Android deep check</strong><span>Reads Android's full system reports and logs over USB: system and pre-installed apps the phone app can't fully see, and how apps behaved over time.</span></div>
-    <div class="card"><div class="ic">🏭</div><strong>Pre-installed malware</strong><span>Looks for malware that ships on some budget phones and TV boxes, hidden among the factory apps.</span></div>
-    <div class="card"><div class="ic">📡</div><strong>What apps actually send</strong><span>Routes the phone's traffic through your computer to show which companies each app sends data to.</span></div>
-    <div class="card"><div class="ic">📋</div><strong>Clear results</strong><span>Each finding is "matches a known indicator", "worth a look" or "no known indicators found", with the record it came from and when.</span></div>
-    <div class="card"><div class="ic">🔄</div><strong>Updated indicators</strong><span>The list of known spyware signs updates without a new app version, so checks improve over time.</span></div>
+<section id="desktop"><div class="wrap">
+  <h2>💻 Spygone Desktop for Windows and Mac <span class="tag" style="vertical-align:middle;margin-left:6px">Early testing</span></h2>
+  <p class="sub">A phone app can only see so much: Android and iOS keep apps in a sandbox. Spygone Desktop runs on your computer and looks deeper, the way security researchers check a phone, without sending your data anywhere. Included with Premium for your own and your family's phones; a Professional license adds what security examiners need.</p>
+  <div class="dshots">
+    <figure><img src="/img/spygone/desktop-home.jpg?v=1" alt="Spygone Desktop's start screen: choose iPhone or Android" loading="lazy"><figcaption>Start: iPhone or Android</figcaption></figure>
+    <figure><img src="/img/spygone/desktop-consent.jpg?v=1" alt="Consent screen explaining what the check reads, what is kept and what leaves the computer" loading="lazy"><figcaption>Consent before every check</figcaption></figure>
+    <figure><img src="/img/spygone/desktop-iphone.jpg?v=1" alt="Choosing an encrypted iPhone backup to check" loading="lazy"><figcaption>Pick an iPhone backup</figcaption></figure>
+    <figure><img src="/img/spygone/desktop-report.jpg?v=1" alt="Sample Spygone Desktop report: a summary saying known stalkerware was found, then threats and risks with what to do" loading="lazy"><figcaption>Report (sample data)</figcaption></figure>
   </div>
+  <h3 style="margin:18px 0 6px">In the first test build</h3>
+  <div class="grid">
+    <div class="card"><div class="ic">🍎</div><strong>iPhone deep check</strong><span>Reads an encrypted backup you make with Apple's own tools (Finder on Mac, Apple Devices on Windows) and checks it against published spyware indicators using Amnesty International's Mobile Verification Toolkit, the method researchers use to find spyware like Pegasus. Lists configuration profiles and installed apps.</span></div>
+    <div class="card"><div class="ic">🤖</div><strong>Android deep check</strong><span>Over a USB cable: every app, where it was installed from, and which ones hold screen-reading, notification, device-admin or phone-management access. Each app is matched against a public list of known stalkerware by name and by signing certificate.</span></div>
+    <div class="card"><div class="ic">📋</div><strong>Clear reports</strong><span>A summary that says plainly whether known spyware or stalkerware was found, then what was observed (threats) and what could be misused (risks), with what you can do about each.</span></div>
+  </div>
+  <h3 style="margin:22px 0 6px">Planned</h3>
+  <ul class="ticks" style="max-width:760px">
+    <li>Pre-installed malware checks for budget phones and TV boxes.</li>
+    <li>Android system reports and iPhone diagnostics, for traces a backup doesn't hold.</li>
+    <li>What apps actually send: the phone's traffic routed through your computer, showing which companies each app contacts.</li>
+  </ul>
+  <h3 style="margin:22px 0 6px">For security professionals</h3>
+  <p style="max-width:760px">The Professional license is for examiners hired to check a client's phone, such as executives, public figures and others likely to be targeted. It covers unlimited client phones and adds case folders, a chain-of-custody record with every file fingerprinted, a client consent form, deeper checks with the raw output kept for review, and reports under the examiner's own name and logo.</p>
   <ul class="ticks" style="margin-top:18px;max-width:760px">
-    <li>Runs on your computer. Backups and logs are checked there and deleted after the scan; nothing is uploaded.</li>
-    <li>Windows and Mac, for both Android phones and iPhones.</li>
-    <li>Pairs with the phone app: the phone app watches day to day, Pro does the deep check when you need it.</li>
+    <li>Runs on your computer. Backups are unlocked and checked there, then deleted; your backup password is never saved. Nothing is uploaded.</li>
+    <li>Asks for the phone owner's informed consent before every check.</li>
     <li>Same rules as the phone app: no ads, no analytics, and it never says a phone is "clean", only what it found.</li>
   </ul>
-  <p style="color:var(--muted);margin-top:14px">Spygone Pro is in development; features and pricing may change before release. <a href="/founding-members/">Join the waitlist</a> to hear when it's ready.</p>
+  <p style="color:var(--muted);margin-top:14px">Spygone Desktop is in early testing; features and pricing may change before release. <a href="/founding-members/">Join the waitlist</a> to hear when it's ready.</p>
 </div></section>
 
 <section><div class="wrap">
@@ -356,11 +371,11 @@
   <p class="sub">One tap at the top of Summary emails the executive summary; one tap at the top of Details sends the technical report. Each is made on the phone as a PDF. Built on the phone — nothing is uploaded to make it. These samples use made-up apps and data.</p>
   <div class="reports">
     <a class="report" href="/samples/executive-report.html">
-      <img src="/img/report-executive.png?v=7" alt="Sample executive summary report with status tiles and donut charts" loading="lazy">
+      <img src="/img/report-executive.png?v=8" alt="Sample executive summary report with status tiles and donut charts" loading="lazy">
       <div><strong>Executive summary</strong><span>A one-page answer to "is my phone OK?": what needs attention, what was fixed, and how each finding could be misused.</span><b>Open sample →</b></div>
     </a>
     <a class="report" href="/samples/technical-report.html">
-      <img src="/img/report-technical.png?v=7" alt="Sample technical report with collection status, domain charts and activity over time" loading="lazy">
+      <img src="/img/report-technical.png?v=8" alt="Sample technical report with collection status, domain charts and activity over time" loading="lazy">
       <div><strong>Technical report</strong><span>Every chart and table: domains, hour-by-hour activity, a heatmap per app, data sent, access → network links and the settings audit.</span><b>Open sample →</b></div>
     </a>
   </div>
@@ -379,36 +394,41 @@
 <section><div class="wrap">
   <h2>Gallery</h2>
   <div class="gallery">
-    <figure><img src="/img/simple.png?v=7" alt="" loading="lazy"><figcaption>Findings</figcaption></figure>
-    <figure><img src="/img/timeline.png?v=7" alt="" loading="lazy"><figcaption>Timeline</figcaption></figure>
-    <figure><img src="/img/dashboard.png?v=7" alt="" loading="lazy"><figcaption>Dashboard</figcaption></figure>
-    <figure><img src="/img/fix.png?v=7" alt="" loading="lazy"><figcaption>Fix it</figcaption></figure>
-    <figure><img src="/img/undone.png?v=7" alt="" loading="lazy"><figcaption>Fix check</figcaption></figure>
-    <figure><img src="/img/audit.png?v=7" alt="" loading="lazy"><figcaption>Settings audit</figcaption></figure>
+    <figure><img src="/img/simple.png?v=8" alt="" loading="lazy"><figcaption>Findings</figcaption></figure>
+    <figure><img src="/img/timeline.png?v=8" alt="" loading="lazy"><figcaption>Timeline</figcaption></figure>
+    <figure><img src="/img/dashboard.png?v=8" alt="" loading="lazy"><figcaption>Dashboard</figcaption></figure>
+    <figure><img src="/img/fix.png?v=8" alt="" loading="lazy"><figcaption>Fix it</figcaption></figure>
+    <figure><img src="/img/undone.png?v=8" alt="" loading="lazy"><figcaption>Fix check</figcaption></figure>
+    <figure><img src="/img/audit.png?v=8" alt="" loading="lazy"><figcaption>Settings audit</figcaption></figure>
   </div>
 </div></section>
 
 <section id="pricing"><div class="wrap">
-  <h2>Simple pricing <span class="tag" style="vertical-align:middle;margin-left:6px">Estimated</span></h2>
-  <p class="sub">No ads and no analytics — ever. The subscription is the whole business, so your data never has to be.</p>
+  <h2>Plans <span class="tag" style="vertical-align:middle;margin-left:6px">Estimated</span></h2>
+  <p class="sub">No ads and no analytics — ever. The subscription is the whole business, so your data never has to be. Spyware and stalkerware detection is free, always.</p>
   <div class="price">
     <div class="plan">
-      <span class="tag">7-day free trial</span>
-      <div class="amt">Free</div>
-      <ul><li>Full monitoring for 7 days</li><li>All findings, timelines and misuse explanations</li><li>One free one-tap fix</li></ul>
-    </div>
-    <div class="plan">
-      <span class="tag">Monthly</span>
-      <div class="amt">$3.99<small>/month</small></div>
-      <ul><li>Unlimited monitoring</li><li>One-tap fixes and fix check</li><li>Reports and 7-day dashboard</li></ul>
+      <span class="tag">Free</span>
+      <div class="amt">$0</div>
+      <ul><li>Spyware and stalkerware check, never paywalled</li><li>Safety guidance before you remove anything</li><li>Which websites your apps contact (summary)</li></ul>
     </div>
     <div class="plan best">
-      <span class="tag">Yearly · save 48%</span>
-      <div class="amt">$24.99<small>/year</small></div>
-      <ul><li>Everything in monthly</li><li>About $2.08 a month</li></ul>
+      <span class="tag">Standard · 7-day free trial</span>
+      <div class="amt">$2.99<small>/month</small></div>
+      <ul><li>Or $24.99 a year (about $2.08 a month)</li><li>Ongoing monitoring and alerts</li><li>Privacy grade for every app, checked against its own policy</li><li>Reports, one-tap fixes with undo, and Report this app</li></ul>
+    </div>
+    <div class="plan">
+      <span class="tag">Premium</span>
+      <div class="amt">$7.99<small>/month</small></div>
+      <ul><li>Or $59.99 a year</li><li>Everything in Standard</li><li>24-hour Deep Inspection of every connection</li><li>Alerts when an app reads your data and then sends</li><li>Evidence package and 12-month history</li><li>Spygone Desktop for your own and your family's phones (up to 5)</li></ul>
+    </div>
+    <div class="plan">
+      <span class="tag">Professional</span>
+      <div class="amt">$149<small>/month</small></div>
+      <ul><li>Or $1,499 a year, per examiner</li><li>Spygone Desktop with a Professional license</li><li>Unlimited client phones</li><li>Case folders, chain of custody, consent forms</li><li>Reports under your own name and logo</li></ul>
     </div>
   </div>
-  <p style="color:var(--muted);margin-top:18px">Prices are estimates and may change before launch. Founding members get the first year for $24.99 — <a href="/founding-members/">join the waitlist</a>. Coming soon to Google Play. Subscriptions are handled by Google Play and can be cancelled any time.</p>
+  <p style="color:var(--muted);margin-top:18px">Prices are estimates and may change before launch, and some Premium and Professional features are still being built. Founding members get the first year of Standard for $24.99 — <a href="/founding-members/">join the waitlist</a>. Phone subscriptions are handled by Google Play or the App Store and can be cancelled any time; Professional is sold on mcpota.com.</p>
 </div></section>
 
 <section id="mcpota"><div class="wrap brandsec">
@@ -434,7 +454,7 @@
 
 <section id="faq"><div class="wrap">
   <h2>Questions</h2>
-  <details><summary>Can it find Pegasus or other government-grade spyware?</summary><p>Not from the phone app. That kind of spyware hides below the level any app can see. Spygone checks for the access ordinary spyware, stalkerware and scam apps need, and matches apps against a public list of known stalkerware. A forensic check of a phone backup on a computer, the method researchers use for Pegasus, is what <a href="#pro">Spygone Pro</a> (in development) is for.</p></details>
+  <details><summary>Can it find Pegasus or other government-grade spyware?</summary><p>Not from the phone app. That kind of spyware hides below the level any app can see. Spygone checks for the access ordinary spyware, stalkerware and scam apps need, and matches apps against a public list of known stalkerware. A forensic check of a phone backup on a computer, the method researchers use for Pegasus, is what <a href="#desktop">Spygone Desktop</a> (in early testing) is for.</p></details>
   <details><summary>What should I do if it finds stalkerware?</summary><p>Think about your safety before removing it: removing it can alert whoever installed it, and it may be evidence. Spygone shows a safety note and links to <a href="https://stopstalkerware.org/">stopstalkerware.org</a>, which has guidance and support contacts. It never removes stalkerware in one tap.</p></details>
   <details><summary>Does it work on iPhone?</summary><p>Yes, differently. iOS doesn't let apps see other apps, so Spygone for iPhone reads the App Privacy Report you share to it and gives you a guided Phone check of the settings stalkerware and scams use. It's in testing on TestFlight. <a href="#iphone">More about the iPhone version →</a></p></details>
   <details><summary>Does it need root?</summary><p>No. Basic monitoring works out of the box. The detailed background records and one-tap fixes use Android's Wireless debugging, set up once from the phone itself.</p></details>
