@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Privacy: What mcpota.com Counts | MCPOTA</title>
+<meta name="description" content="mcpota.com counts page views, clicks and scroll depth as daily totals. No cookies, no IP addresses, nothing that identifies you.">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/img/brand/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name="theme-color" content="#022A5E">
+<link rel="canonical" href="https://mcpota.com/website-privacy/">
+<style>
+:root{--bg:#fff;--text:#0B1F3A;--muted:#4E6280;--line:#DFE6EF;--accent:#1F5FA8;--soft:#F3F6FA;--amber:#F2B33D;--onamber:#2A1D00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#081A36;--text:#E8F0FA;--muted:#9BB0C9;--line:#1A3359;--accent:#8EC3F2;--soft:#0D2447}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+.hero{background:radial-gradient(900px 400px at 90% 0%,rgba(242,179,61,.16),transparent 60%),linear-gradient(170deg,#022A5E 0%,#0B1F45 100%);color:#E8F0FA}
+nav{display:flex;align-items:center;gap:18px;padding:18px 0;font-size:.95rem;flex-wrap:wrap}
+nav .brand{display:flex;align-items:center;gap:10px;margin-right:auto;color:#fff;text-decoration:none;font-weight:700;letter-spacing:.14em}
+nav a{color:#B9C7D8;text-decoration:none} nav a:hover{color:#4FC3F7}
+@media (max-width:640px){nav .brand{flex-basis:100%} nav{gap:6px 16px}}
+.hero .in{padding:30px 0 64px;max-width:720px}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.hero .eyebrow{color:var(--amber)}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);line-height:1.06;letter-spacing:-.03em;margin:0 0 16px}
+.hero p{color:#B9C7D8;font-size:1.18rem;margin:0 0 24px}
+.cta{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;margin:0 10px 10px 0}
+.cta.amber{background:var(--amber);color:var(--onamber)}
+.cta.ghost{border:1.5px solid #4FC3F7;color:#4FC3F7}
+section{border-top:1px solid var(--line);padding:56px 0}
+.hero + section{border-top:0}
+h2{font-size:clamp(1.6rem,3.6vw,2.2rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}
+.sub{color:var(--muted);max-width:680px;margin:0 0 26px;font-size:1.06rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:20px}
+.card .ic{font-size:1.7rem} .card strong{display:block;margin:6px 0 4px;font-size:1.05rem} .card span{color:var(--muted);font-size:.96rem}
+.tier{border:2px solid var(--amber);background:var(--soft);border-radius:22px;padding:26px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+.tier .amt{font-size:3rem;font-weight:800;line-height:1;color:var(--amber)}
+.tier ul{margin:0;padding-left:20px}
+@media (max-width:640px){.tier{grid-template-columns:1fr}}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.step{counter-increment:s;background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:18px}
+.step::before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--bg);font-weight:700;margin-bottom:8px}
+.step span{color:var(--muted);font-size:.95rem}
+.why{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.why div{border-radius:16px;padding:18px;border:1px solid var(--line)}
+.why .no{background:var(--soft)} .why .yes{border:2px solid var(--accent)}
+@media (max-width:640px){.why{grid-template-columns:1fr}}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin:8px 0 0}
+.note{color:var(--muted);font-size:.95rem}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.95rem}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <nav>
+    <a class="brand" href="/"><img src="/img/brand/mark-light.png" alt="" height="28" style="width:auto">MCPOTA</a>
+    <a href="/spygone/">Spygone</a>
+    <a href="/startsy/">Startsy</a>
+  </nav>
+  <div class="in">
+    <p class="eyebrow">Website privacy</p>
+    <h1>We count clicks, not people.</h1>
+    <p>This page covers the mcpota.com website only. Our apps have their own privacy policies: <a href="/spygone/privacy" style="color:inherit">Spygone</a> and <a href="/startsy/privacy" style="color:inherit">Startsy</a>. The apps themselves have no analytics.</p>
+  </div>
+</div></header>
+<main class="wrap" style="padding-top:32px;padding-bottom:48px;max-width:760px">
+  <h2>What we count</h2>
+  <p>To see which pages help and which don't, this site adds up, per page and per day:</p>
+  <ul>
+    <li>how many times the page was opened;</li>
+    <li>which links and buttons were clicked (the words on the button and where the link goes);</li>
+    <li>how far down the page people scrolled (25%, 50%, 75% or all the way);</li>
+    <li>the name of the site that sent people here, such as "google" or "substack" (never the full web address);</li>
+    <li>whether the screen was phone-sized or computer-sized.</li>
+  </ul>
+  <h2>What we don't collect</h2>
+  <p>No cookies and nothing stored on your device. No IP addresses, no browser or device details, no visitor or session IDs, nothing you type. Each visit only adds 1 to a daily total, so two visits can't be connected to each other or to you. We don't use Google Analytics, ad pixels or session recording, and nothing is shared with or sold to anyone.</p>
+  <h2>How it works</h2>
+  <p>A small script on our pages sends those counts to our own counter, a program we run on Cloudflare (a web hosting company). To slow down abuse, the counter looks at the sending IP address for a moment and then forgets it; it is never saved. Daily totals are kept for up to 13 months.</p>
+  <h2>Saying no</h2>
+  <p>If your browser has "Do Not Track" or Global Privacy Control turned on, or blocks scripts, nothing is counted at all.</p>
+  <p>Questions: <a href="mailto:support@mcpota.com">support@mcpota.com</a>. Updated November 1, 2026.</p>
+</main>
+<footer style="padding:20px 24px;text-align:center"><a href="/">MCPOTA home</a> · <a href="/spygone/">Spygone</a> · <a href="/startsy/">Startsy</a> · <a href="mailto:support@mcpota.com">support@mcpota.com</a> · © 2026 MCPOTA, the software side of <a href="https://cain.associates">Cain &amp; Associates</a></footer>
+<script src="/count.js" defer></script>
+</body></html>
